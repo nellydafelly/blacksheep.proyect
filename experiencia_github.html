@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experiencia con GitHub y enlaces útiles para desarrolladores.">
     <title>Mi Experiencia con GitHub</title>
     <style>
         /* Reset */
@@ -21,8 +22,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            overflow-x: hidden;
-            transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+            transition: background 0.5s, color 0.5s;
         }
 
         /* Header */
@@ -30,7 +30,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 1rem;
             background: linear-gradient(90deg, #000, #333);
             position: fixed;
             width: 100%;
@@ -39,19 +39,20 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
             color: white;
+            font-size: 1rem;
             transition: color 0.3s;
         }
 
@@ -59,51 +60,42 @@
             color: #ff6f00;
         }
 
-        .toggle-btn {
+        /* Botón hamburguesa */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
             background: none;
             border: none;
-            font-size: 24px;
-            cursor: pointer;
             color: white;
+            cursor: pointer;
         }
 
-        /* Main Content */
+        /* Contenido principal */
         main {
             flex: 1;
-            padding: 100px 20px 20px;
+            padding: 7rem 2rem 2rem;
             max-width: 800px;
-            margin: 0 auto;
+            margin: auto;
             background: #222;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: center;
             animation: fadeIn 1s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .contenido {
-            margin-bottom: 40px;
-            width: 100%;
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         h2 {
-            margin-bottom: 20px;
-            font-size: 1.8em;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
             color: #ff6f00;
         }
 
         p {
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
+            text-align: justify;
         }
 
         .enlaces {
@@ -112,39 +104,30 @@
         }
 
         .enlaces li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
+            margin-bottom: 0.8rem;
         }
 
-        .enlaces li a {
+        .enlaces a {
             color: #3B82F6;
             text-decoration: none;
             font-weight: bold;
-            display: flex;
-            align-items: center;
         }
 
-        .enlaces li a:hover {
+        .enlaces a:hover {
             text-decoration: underline;
         }
 
-        .enlaces li img {
-            margin-right: 8px;
-        }
-
-        /* Social Media Links */
+        /* Redes Sociales */
         .social-media {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .social-media a {
-            margin: 0 10px;
             color: #3B82F6;
-            font-size: 2em;
-            text-decoration: none;
+            font-size: 1.8rem;
             transition: transform 0.3s;
         }
 
@@ -158,37 +141,46 @@
             background: #1E3A8A;
             color: white;
             text-align: center;
-            padding: 10px 0;
-            font-size: 0.9em;
+            padding: 0.8rem;
+            font-size: 0.9rem;
             border-radius: 0 0 8px 8px;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
+            .menu-toggle {
+                display: block;
             }
 
-            .nav-links li {
-                display: block;
-                margin: 10px 0;
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .nav-links a {
-                font-size: 1.2em;
-            }
-
-            main {
-                margin: 10px;
-                padding: 10px;
+                font-size: 1.2rem;
+                padding: 0.5rem;
+                display: block;
             }
 
             .social-media a {
-                font-size: 1.5em;
+                font-size: 1.5rem;
             }
         }
 
-        /* Dark Mode */
+        /* Modo Oscuro */
         .dark-mode {
             background-color: #fff;
             color: #000;
@@ -207,8 +199,9 @@
 <body>
     <header class="header">
         <h1 class="logo">🐑 Black Sheep</h1>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
         <nav>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Black Sheep</a></li>
                 <li><a href="README.html">Portafolio</a></li>
                 <li><a href="si_somos.html">Sí Somos!</a></li>
@@ -217,52 +210,44 @@
                 <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
             </ul>
         </nav>
-        <button id="darkModeToggle" class="toggle-btn">🌙</button>
+        <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
     </header>
 
     <main>
-        <section id="testimonio" class="contenido">
+        <section id="testimonio">
             <h2>Testimonio</h2>
             <p>
-                Estoy muy satisfecho con mi experiencia usando GitHub para mis proyectos de desarrollo. La plataforma es increíble y facilita el trabajo colaborativo. GitHub ha transformado la forma en que gestionamos y colaboramos en nuestros proyectos de desarrollo. La plataforma es intuitiva y llena de características útiles que mejoran nuestra productividad. ¡Totalmente recomendado!
+                GitHub ha revolucionado la forma en que gestionamos y colaboramos en proyectos. Con su interfaz intuitiva y potentes herramientas, ha mejorado mi productividad enormemente. ¡Altamente recomendado!
             </p>
             <p>
-                Desde la gestión de repositorios hasta la colaboración en proyectos open source, GitHub ha facilitado cada aspecto de mi desarrollo. Las integraciones con otras herramientas y servicios hacen que mi flujo de trabajo sea más eficiente. ¡Gracias, GitHub, por ser una herramienta tan poderosa y accesible para los desarrolladores de todo el mundo!
+                Desde la gestión de versiones hasta la colaboración en proyectos de código abierto, GitHub es una herramienta esencial. Su integración con múltiples servicios hace que el flujo de trabajo sea más eficiente. ¡Gracias, GitHub!
             </p>
         </section>
 
-        <section id="enlaces" class="contenido">
+        <section id="enlaces">
             <h2>Enlaces Útiles</h2>
             <ul class="enlaces">
                 <li><a href="https://github.com/" target="_blank">GitHub</a></li>
                 <li><a href="https://docs.github.com/" target="_blank">Documentación de GitHub</a></li>
                 <li><a href="https://guides.github.com/" target="_blank">Guías de GitHub</a></li>
-                <li><a href="https://github.community/" target="_blank">Comunidad de GitHub</a></li>
-                <li><a href="https://github.blog/" target="_blank">Blog de GitHub</a></li>
-            </ul>
-        </section>
-
-        <section id="redes-sociales" class="contenido">
-            <h2>Redes Sociales</h2>
-            <ul class="enlaces">
-                <li>
-                    <a href="https://www.facebook.com/nellydafelly" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="24" height="24"> Da Felly
-                    </a>
-                </li>
             </ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Nelly Da' Felly. Todos los derechos reservados.</p>
+        <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        // Dark Mode
+        // Alternar modo oscuro
         document.getElementById("darkModeToggle").addEventListener("click", function() {
             document.body.classList.toggle("dark-mode");
             this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        });
+
+        // Menú responsive
+        document.getElementById("menuToggle").addEventListener("click", function() {
+            document.getElementById("navLinks").classList.toggle("active");
         });
     </script>
 </body>
