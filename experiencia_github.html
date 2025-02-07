@@ -15,55 +15,65 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #1a1a1a;
+            color: white;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
+            transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
         }
 
         /* Header */
-        header {
-            background: linear-gradient(90deg, #1E3A8A, #3B82F6);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #000, #333);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 5px;
-            font-family: 'Georgia', serif;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        nav ul {
+        .nav-links {
+            display: flex;
+            gap: 15px;
             list-style: none;
-            padding: 10px 0;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
+        .nav-links a {
             text-decoration: none;
-            font-size: 1.1em;
+            color: white;
+            transition: color 0.3s;
         }
 
-        nav ul li a:hover {
-            text-decoration: underline;
+        .nav-links a:hover {
+            color: #ff6f00;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
         }
 
         /* Main Content */
         main {
             flex: 1;
-            padding: 20px;
+            padding: 100px 20px 20px;
             max-width: 800px;
-            margin: 20px auto;
-            background: white;
+            margin: 0 auto;
+            background: #222;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             display: flex;
@@ -89,7 +99,7 @@
         h2 {
             margin-bottom: 20px;
             font-size: 1.8em;
-            color: #1E3A8A;
+            color: #ff6f00;
         }
 
         p {
@@ -159,12 +169,12 @@
                 font-size: 2em;
             }
 
-            nav ul li {
+            .nav-links li {
                 display: block;
                 margin: 10px 0;
             }
 
-            nav ul li a {
+            .nav-links a {
                 font-size: 1.2em;
             }
 
@@ -177,19 +187,37 @@
                 font-size: 1.5em;
             }
         }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .dark-mode .header {
+            background: linear-gradient(90deg, #555, #999);
+        }
+
+        .dark-mode footer {
+            background: #333;
+        }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Mi Experiencia con GitHub</h1>
+    <header class="header">
+        <h1 class="logo">🐑 Black Sheep</h1>
         <nav>
-            <ul>
-                <li><a href="#testimonio">Testimonio</a></li>
-                <li><a href="#enlaces">Enlaces Útiles</a></li>
-                <li><a href="#redes-sociales">Redes Sociales</a></li>
+            <ul class="nav-links">
+                <li><a href="index.html">Black Sheep</a></li>
+                <li><a href="README.html">Portafolio</a></li>
+                <li><a href="si_somos.html">Sí Somos!</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
             </ul>
         </nav>
+        <button id="darkModeToggle" class="toggle-btn">🌙</button>
     </header>
 
     <main>
@@ -230,8 +258,13 @@
         <p>&copy; 2025 Nelly Da' Felly. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Font Awesome for social media icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Dark Mode
+        document.getElementById("darkModeToggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        });
+    </script>
 </body>
 
 </html>
