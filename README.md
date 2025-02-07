@@ -11,7 +11,7 @@ Black Sheep es un proyecto innovador centrado en la tecnología y la creatividad
 - Elementos gráficos futuristas
 
 ## Enlaces
-- [Página del proyecto](hhttps://nellydafelly.github.io/blacksheep.proyect/)
+- [Página del proyecto](https://nellydafelly.github.io/blacksheep.proyect/)
 ---
 
 # ORIGEN Huella Consciente
