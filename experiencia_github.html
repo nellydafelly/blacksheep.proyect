@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Experiencia con GitHub</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #1E3A8A, #3B82F6);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            font-family: 'Georgia', serif;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .contenido {
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: #1E3A8A;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .enlaces {
+            list-style: none;
+            padding: 0;
+        }
+
+        .enlaces li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .enlaces li a {
+            color: #3B82F6;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .enlaces li a:hover {
+            text-decoration: underline;
+        }
+
+        .enlaces li img {
+            margin-right: 8px;
+        }
+
+        /* Social Media Links */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            color: #3B82F6;
+            font-size: 2em;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #1E3A8A;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #1E3A8A;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9em;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            nav ul li a {
+                font-size: 1.2em;
+            }
+
+            main {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            .social-media a {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mi Experiencia con GitHub</h1>
+        <nav>
+            <ul>
+                <li><a href="#testimonio">Testimonio</a></li>
+                <li><a href="#enlaces">Enlaces Útiles</a></li>
+                <li><a href="#redes-sociales">Redes Sociales</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="testimonio" class="contenido">
+            <h2>Testimonio</h2>
+            <p>
+                Estoy muy satisfecho con mi experiencia usando GitHub para mis proyectos de desarrollo. La plataforma es increíble y facilita el trabajo colaborativo. GitHub ha transformado la forma en que gestionamos y colaboramos en nuestros proyectos de desarrollo. La plataforma es intuitiva y llena de características útiles que mejoran nuestra productividad. ¡Totalmente recomendado!
+            </p>
+            <p>
+                Desde la gestión de repositorios hasta la colaboración en proyectos open source, GitHub ha facilitado cada aspecto de mi desarrollo. Las integraciones con otras herramientas y servicios hacen que mi flujo de trabajo sea más eficiente. ¡Gracias, GitHub, por ser una herramienta tan poderosa y accesible para los desarrolladores de todo el mundo!
+            </p>
+        </section>
+
+        <section id="enlaces" class="contenido">
+            <h2>Enlaces Útiles</h2>
+            <ul class="enlaces">
+                <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+                <li><a href="https://docs.github.com/" target="_blank">Documentación de GitHub</a></li>
+                <li><a href="https://guides.github.com/" target="_blank">Guías de GitHub</a></li>
+                <li><a href="https://github.community/" target="_blank">Comunidad de GitHub</a></li>
+                <li><a href="https://github.blog/" target="_blank">Blog de GitHub</a></li>
+            </ul>
+        </section>
+
+        <section id="redes-sociales" class="contenido">
+            <h2>Redes Sociales</h2>
+            <ul class="enlaces">
+                <li>
+                    <a href="https://www.facebook.com/nellydafelly" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="24" height="24"> Da Felly
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nelly Da' Felly. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Font Awesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
