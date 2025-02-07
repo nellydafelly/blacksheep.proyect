@@ -16,7 +16,7 @@ Black Sheep es un proyecto innovador centrado en la tecnología y la creatividad
 
 # ORIGEN Huella Consciente
 
-![ORIGEN Huella Consciente](https://github.com/nellydafelly/blacksheep.proyect/blob/main/o_social_preview.png)
+![ORIGEN Huella Consciente](https://github.com/nellydafelly/blacksheep.proyect/blob/main/ori_social_preview.png)
 
 ## Descripción
 ORIGEN Huella Consciente es un proyecto dedicado a la sostenibilidad y la conciencia ambiental. Promovemos prácticas ecológicas y sostenibles para un futuro mejor y más verde.
