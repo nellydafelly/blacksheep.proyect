@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Sheep</title>
+    <style>
+        /* ================================
+           Global Styles
+        ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            overflow-x: hidden;
+            transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ================================
+           Header
+        ================================ */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #000, #333);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ff6f00;
+        }
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* ================================
+           Main Content
+        ================================ */
+        main {
+            flex: 1;
+            padding: 100px 20px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #222;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #ff6f00;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .project {
+            margin-bottom: 40px;
+        }
+        .project img {
+            margin-bottom: 20px;
+        }
+
+        /* ================================
+           Footer
+        ================================ */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+        }
+
+        /* ================================
+           Botón para abrir el juego (Modal)
+        ================================ */
+        .game-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            background: #ffcc00;
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            z-index: 1100;
+        }
+        .game-button:hover {
+            background: #ffdb4d;
+        }
+
+        /* ================================
+           Modal y Juego
+        ================================ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            position: relative;
+            width: 90vw;
+            max-width: 800px;
+            height: 50vh;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #fff;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 25px;
+            cursor: pointer;
+            color: white;
+        }
+        /* ------------------------------
+           Juego: Container y Elementos
+        ------------------------------ */
+        .game-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/background.jpg') no-repeat center/cover;
+        }
+        .sheep {
+            width: 84px;
+            height: 84px;
+            position: absolute;
+            bottom: 22px;
+            left: 42px;
+            z-index: 2;
+            background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/bsheep.png') repeat-x 0px 0px;
+            background-size: 336px 84px;
+            background-position-x: 0px;
+        }
+        .dino-corriendo {
+            animation: animarDino 0.25s steps(2) infinite;
+        }
+        .dino-estrellado {
+            background-position-x: -252px;
+        }
+        .suelo {
+            width: 200%;
+            height: 42px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/suelo.png') repeat-x 0px 0px;
+            background-size: 50% 42px;
+        }
+        .cactus {
+            width: 119px;
+            height: 129px;
+            position: absolute;
+            bottom: 16px;
+            left: 600px;
+            z-index: 1;
+            background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/cactus1.png') no-repeat;
+        }
+        .cactus2 {
+            width: 92px;
+            height: 121px;
+            background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/cactus2.png') no-repeat;
+        }
+        .nube {
+            width: 93px;
+            height: 37px;
+            position: absolute;
+            z-index: 0;
+            background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/nube.png') no-repeat;
+            background-size: 92px 26x;
+        }
+        .score {
+            width: 100px;
+            height: 30px;
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            z-index: 10;
+            color: #d48871;
+            font-family: 'Press Start 2P', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+        }
+        .game-over {
+            display: none;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: #7e928b;
+            font-size: 30px;
+            font-family: 'VT323', monospace;
+            font-weight: 700;
+        }
+        @keyframes animarDino {
+            from {
+                background-position-x: -84px;
+            }
+            to {
+                background-position-x: -252px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="logo">🐑 Black Sheep</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Black Sheep</a></li>
+                <li><a href="README.html">Portafolio</a></li>
+                <li><a href="si_somos.html">Sí Somos!</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle" class="toggle-btn">🌙</button>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <section class="project">
+            <h2>Black Sheep</h2>
+            <img src="https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/main/social_preview.png" alt="Black Sheep">
+            <p>Black Sheep es un proyecto innovador centrado en la tecnología y la creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas a problemas complejos.</p>
+            <h3>Características</h3>
+            <ul>
+                <li>Diseño moderno y minimalista</li>
+                <li>Enfoque en la innovación tecnológica</li>
+                <li>Elementos gráficos futuristas</li>
+            </ul>
+            <h3>Enlaces</h3>
+            <ul>
+                <li><a href="https://nellydafelly.github.io/blacksheep.proyect/" target="_blank">Página del proyecto</a></li>
+            </ul>
+        </section>
+        <section class="project">
+            <h2>ORIGEN Huella Consciente</h2>
+            <img src="https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/main/ori_social_preview.png" alt="ORIGEN Huella Consciente">
+            <p>ORIGEN Huella Consciente es un proyecto dedicado a la sostenibilidad y la conciencia ambiental. Promovemos prácticas ecológicas y sostenibles para un futuro mejor y más verde.</p>
+            <h3>Características</h3>
+            <ul>
+                <li>Enfoque en la sostenibilidad y el medio ambiente</li>
+                <li>Diseño vibrante y natural</li>
+                <li>Elementos gráficos que evocan la naturaleza</li>
+            </ul>
+            <h3>Enlaces</h3>
+            <ul>
+                <li><a href="https://abrilsu.github.io/saberes-vivos/" target="_blank">Página del proyecto</a></li>
+            </ul>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
+    </footer>
+    
+    <!-- Botón para abrir el juego (Modal) -->
+    <button class="game-button" onclick="openGame()">Jugar Oveja Runner 🕹️</button>
+    
+    <!-- Modal Pop-Up con el juego -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeGame()">✖</span>
+            <div class="game-container" id="gameContainer">
+                <div class="sheep dino-corriendo" id="sheep"></div>
+                <div class="score" id="scoreDisplay">0</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        /* -------------------------------
+           Dark Mode Toggle
+        ------------------------------- */
+        document.getElementById("darkModeToggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        });
+        
+        /* -------------------------------
+           Juego: Modal y Lógica
+        ------------------------------- */
+        var time = new Date();
+        var deltaTime = 0;
+        var sueloY = 22;
+        var velY = 0;
+        var impulso = 900;
+        var gravedad = 2500;
+        var dinoPosX = 42;
+        var dinoPosY = sueloY; 
+        var sueloX = 0;
+        var velEscenario = 1280 / 3;
+        var gameVel = 1;
+        var score = 0;
+        var parado = false;
+        var saltando = false;
+        var tiempoHastaObstaculo = 2;
+        var tiempoObstaculoMin = 0.7;
+        var tiempoObstaculoMax = 1.8;
+        var obstaculoPosY = 16;
+        var obstaculos = [];
+        var tiempoHastaNube = 0.5;
+        var tiempoNubeMin = 0.7;
+        var tiempoNubeMax = 2.7;
+        var maxNubeY = 270;
+        var minNubeY = 100;
+        var nubes = [];
+        var velNube = 0.5;
+        var contenedor;
+        var dino;
+        var textoScore;
+        var suelo;
+        var gameOver;
+
+        if(document.readyState === "complete" || document.readyState === "interactive"){
+            setTimeout(Init, 1);
+        } else {
+            document.addEventListener("DOMContentLoaded", Init); 
+        }
+
+        function Init() {
+            gameOver = document.querySelector(".game-over");
+            suelo = document.querySelector(".suelo");
+            contenedor = document.querySelector(".game-container");
+            textoScore = document.querySelector(".score");
+            dino = document.querySelector(".sheep");
+            document.addEventListener("keydown", HandleKeyDown);
+        }
+
+        function openGame() {
+            document.getElementById("gameModal").style.display = "flex";
+            Start();
+            Loop();
+        }
+        
+        function closeGame() {
+            document.getElementById("gameModal").style.display = "none";
+            parado = true;
+            resetGame();
+        }
+
+        function Start() {
+            gameVel = 1;
+            score = 0;
+            parado = false;
+            saltando = false;
+            dinoPosY = sueloY;
+            velY = 0;
+            obstaculos = [];
+            nubes = [];
+            textoScore.innerText = score;
+            dino.classList.remove("dino-estrellado");
+            dino.classList.add("dino-corriendo");
+        }
+
+        function Loop() {
+            deltaTime = (new Date() - time) / 1000;
+            time = new Date();
+            Update();
+            if (!parado) requestAnimationFrame(Loop);
+        }
+
+        function Update() {
+            if(parado) return;
+            MoverDinosaurio();
+            MoverSuelo();
+            DecidirCrearObstaculos();
+            DecidirCrearNubes();
+            MoverObstaculos();
+            MoverNubes();
+            DetectarColision();
+            velY -= gravedad * deltaTime;
+        }
+
+        function HandleKeyDown(ev) {
+            if(ev.keyCode == 32 || ev.keyCode == 38){
+                Saltar();
+            }
+        }
+
+        function Saltar() {
+            if(dinoPosY === sueloY){
+                saltando = true;
+                velY = impulso;
+                dino.classList.remove("dino-corriendo");
+            }
+        }
+
+        function MoverDinosaurio() {
+            dinoPosY += velY * deltaTime;
+            if(dinoPosY < sueloY){
+                TocarSuelo();
+            }
+            dino.style.bottom = dinoPosY + "px";
+        }
+
+        function TocarSuelo() {
+            dinoPosY = sueloY;
+            velY = 0;
+            if(saltando){
+                dino.classList.add("dino-corriendo");
+            }
+            saltando = false;
+        }
+
+        function MoverSuelo() {
+            sueloX += CalcularDesplazamiento();
+            suelo.style.left = -(sueloX % contenedor.clientWidth) + "px";
+        }
+
+        function CalcularDesplazamiento() {
+            return velEscenario * deltaTime * gameVel;
+        }
+
+        function Estrellarse() {
+            dino.classList.remove("dino-corriendo");
+            dino.classList.add("dino-estrellado");
+            parado = true;
+        }
+
+        function DecidirCrearObstaculos() {
+            tiempoHastaObstaculo -= deltaTime;
+            if(tiempoHastaObstaculo <= 0) {
+                CrearObstaculo();
+            }
+        }
+
+        function DecidirCrearNubes() {
+            tiempoHastaNube -= deltaTime;
+            if(tiempoHastaNube <= 0) {
+                CrearNube();
+            }
+        }
+
+        function CrearObstaculo() {
+            var obstaculo = document.createElement("div");
+            contenedor.appendChild(obstaculo);
+            obstaculo.classList.add("cactus");
+            if(Math.random() > 0.5) obstaculo.classList.add("cactus2");
+            obstaculo.posX = contenedor.clientWidth;
+            obstaculo.style.left = contenedor.clientWidth + "px";
+            obstaculos.push(obstaculo);
+            tiempoHastaObstaculo = tiempoObstaculoMin + Math.random() * (tiempoObstaculoMax - tiempoObstaculoMin) / gameVel;
+        }
+
+        function CrearNube() {
+            var nube = document.createElement("div");
+            contenedor.appendChild(nube);
+            nube.classList.add("nube");
+            nube.posX = contenedor.clientWidth;
+            nube.style.left = contenedor.clientWidth + "px";
+            nube.style.bottom = minNubeY + Math.random() * (maxNubeY - minNubeY) + "px";
+            nubes.push(nube);
+            tiempoHastaNube = tiempoNubeMin + Math.random() * (tiempoNubeMax - tiempoNubeMin) / gameVel;
+        }
+
+        function MoverObstaculos() {
+            for (var i = obstaculos.length - 1; i >= 0; i--) {
+                if(obstaculos[i].posX < -obstaculos[i].clientWidth) {
+                    obstaculos[i].parentNode.removeChild(obstaculos[i]);
+                    obstaculos.splice(i, 
