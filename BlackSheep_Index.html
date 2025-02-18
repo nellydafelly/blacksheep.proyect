@@ -5,31 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BlackSheep Proyecto</title>
   <style>
-    /* Estilos generales */
+    /* Diseño global de la página */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #584040;
+      color: #fff;
       text-align: center;
     }
-    h1 {
-      color: #584040;
+    header {
+      padding: 20px;
     }
-    button {
-      padding: 12px 24px;
-      font-size: 18px;
-      cursor: pointer;
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    /* Botón para abrir el modal */
+    .btn-jugar {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ffadad;
       border: none;
       border-radius: 5px;
-      background-color: #584040;
-      color: #fff;
+      cursor: pointer;
       transition: background-color 0.3s ease;
+      color: #fff;
     }
-    button:hover {
-      background-color: #7a5a5a;
+    .btn-jugar:hover {
+      background-color: #ffdcf3;
     }
-    /* Estilos del modal */
+    /* Estilos para el modal popup */
     .modal {
       display: none; /* Oculto por defecto */
       position: fixed;
@@ -38,79 +48,77 @@
       top: 0;
       width: 100%;
       height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0,0,0,0.8);
     }
     .modal-content {
       position: relative;
       margin: 5% auto;
-      width: 90%;
+      width: 95%;
       max-width: 960px;
       background: #fff;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     .modal-content iframe {
       width: 100%;
       height: 600px;
       border: none;
     }
-    .close {
-      color: #aaa;
+    .close-modal {
       position: absolute;
       top: 10px;
       right: 20px;
       font-size: 28px;
-      font-weight: bold;
+      color: #000;
       cursor: pointer;
       z-index: 10;
-    }
-    .close:hover {
-      color: #000;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Bienvenido a BlackSheep Proyecto</h1>
+    <p>Explora nuestro universo interactivo y descubre nuevas dimensiones.</p>
+    <!-- Botón que activa el modal con el juego -->
+    <button class="btn-jugar" id="openModal">Jugar BlackSheep Runner</button>
+  </header>
 
-  <h1>Bienvenido a BlackSheep Proyecto</h1>
-  <p>Explora nuestro contenido interactivo y disfruta de una experiencia única.</p>
-  
-  <!-- Botón para abrir el popup del juego -->
-  <button id="openGame">Jugar BlackSheep Runner</button>
-  
+  <!-- Aquí puedes agregar más contenido de tu index -->
+  <main>
+    <!-- Contenido adicional -->
+  </main>
+
   <!-- Modal Popup -->
-  <div id="gameModal" class="modal">
+  <div class="modal" id="gameModal">
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <!-- Integración del juego mediante iframe -->
+      <span class="close-modal" id="closeModal">&times;</span>
+      <!-- Iframe que carga el juego -->
       <iframe src="BlackSheepR.html" title="BlackSheep Runner"></iframe>
     </div>
   </div>
-  
+
   <script>
     // Seleccionar elementos
-    const modal = document.getElementById("gameModal");
-    const btn = document.getElementById("openGame");
-    const closeBtn = document.querySelector(".close");
-    
-    // Abrir el modal al pulsar el botón
-    btn.addEventListener("click", () => {
-      modal.style.display = "block";
+    const openModalBtn = document.getElementById('openModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const gameModal = document.getElementById('gameModal');
+
+    // Abrir el modal al hacer clic en el botón
+    openModalBtn.addEventListener('click', () => {
+      gameModal.style.display = 'block';
     });
-    
-    // Cerrar el modal al pulsar en la 'X'
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
+
+    // Cerrar el modal al hacer clic en la "X"
+    closeModalBtn.addEventListener('click', () => {
+      gameModal.style.display = 'none';
     });
-    
-    // Cerrar el modal si se hace clic fuera del contenido
-    window.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        modal.style.display = "none";
+
+    // Cerrar el modal al hacer clic fuera del contenido del modal
+    window.addEventListener('click', (e) => {
+      if (e.target === gameModal) {
+        gameModal.style.display = 'none';
       }
     });
   </script>
-  
 </body>
 </html>
