@@ -15,60 +15,33 @@
       scroll-behavior: smooth;
     }
     body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1a1a1a;
-            color: white;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            transition: background 0.5s, color 0.5s;
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background: linear-gradient(90deg, #000, #333);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ff6f00;
-        }
-
-        /* Botón de menú */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      overflow-x: hidden;
+      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    }
+    /* 🚀 Header Mejorado */
+    .header {
+      background: linear-gradient(90deg, #000, #333);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
     /* Menú Desktop */
     .desktop-nav {
       display: block;
@@ -324,21 +297,33 @@
 </head>
 <body>
   <header class="header">
-        <h1 class="logo">🐑 BlackSheep</h1>
-
-        <div class="header-buttons">
-            <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
-            <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
-        </div>
-
-        <nav>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Black Sheep</a></li>
-                <li><a href="README.html">Portafolio</a></li>
-                <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="header-container">
+      <h1 class="logo">🐑 Black Sheep</h1>
+      <!-- Menú para escritorio -->
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Black Sheep</a></li>
+          <li><a href="README.html">Portafolio</a></li>
+          <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+        </ul>
+      </nav>
+      <!-- Botones para menú móvil y dark mode -->
+      <div class="header-buttons">
+        <button id="menuToggle" class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
+        <button id="darkModeToggle" class="toggle-btn">🌙</button>
+      </div>
+    </div>
+    <!-- Menú móvil (se desliza desde la derecha) -->
+    <nav class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">Black Sheep</a></li>
+        <li><a href="README.html">Portafolio</a></li>
+        <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="main-content">
     <section class="hero fade-in">
