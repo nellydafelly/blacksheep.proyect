@@ -7,7 +7,165 @@
   <!-- Fuentes Pixel Art -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <style>
-    /* 🎨 Estilos Globales */
+    /* 🎨 Estilos Globales */<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐑 Black Sheep</title>
+  <!-- Fuentes Pixel Art -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos Globales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      overflow-x: hidden;
+      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    }
+    /* Header */
+    .header {
+      background: linear-gradient(90deg, #000, #333);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+    /* Menú de Navegación */
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ff6f00;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background-color: #ff6f00;
+      transition: width 0.3s;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    /* Botones del Header */
+    .header-buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .toggle-btn,
+    .menu-toggle {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+    /* Menú Móvil */
+    .menu-toggle {
+      display: none;
+    }
+    .mobile-nav {
+      display: none;
+      background: #1a1a1a;
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100vh;
+      padding-top: 80px;
+      transition: right 0.3s ease-in-out;
+      z-index: 1100;
+    }
+    .mobile-nav.open {
+      right: 0;
+    }
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    .mobile-nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    .mobile-nav-links a:hover {
+      color: #ff6f00;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .mobile-nav {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">🐑 BlackSheep</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Black Sheep</a></li>
+        <li><a href="README.html">Portafolio</a></li>
+        <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Menú" onclick="toggleMenu()">☰</button>
+      <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-links">
+          <li><a href="index.html">Black Sheep</a></li>
+          <li><a href="README.html">Portafolio</a></li>
+          <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="header-buttons">
+      <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
+    </div>
+  </header>
+
+  <!-- Resto del contenido permanece sin cambios -->
+</body>
+</html>
+
     * {
       margin: 0;
       padding: 0;
