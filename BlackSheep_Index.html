@@ -185,6 +185,7 @@
       padding: 20px;
       background: #111;
     }
+    
   <!-- Header -->
   <header class="header">
     <h1 class="logo">🐑 Black Sheep</h1>
@@ -197,6 +198,8 @@
         <li><a href="about.html">Acerca de</a></li>
         <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
       </ul>
+    </nav>
+    <button id="darkModeToggle" class="toggle-btn">🌙</button>
   </header>
   
   <!-- Main Content -->
@@ -237,5 +240,19 @@
   <footer class="footer">
     <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
   </footer>
+  
+  <!-- Botón para abrir el juego (Modal) -->
+  <button class="game-button" onclick="openGame()">Jugar Oveja Runner 🕹️</button>
+  
+  <!-- Modal Pop-Up con el juego -->
+  <div id="gameModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeGame()">✖</span>
+      <div class="game-container" id="gameContainer">
+        <div class="sheep" id="sheep"></div>
+        <div class="score" id="scoreDisplay">0</div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
