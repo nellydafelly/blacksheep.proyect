@@ -38,7 +38,7 @@
       bottom: 22px;
       left: 42px;
       z-index: 2;
-      background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/bsheep.png') repeat-x 0 0;
+      background: url(img/bsheep.png) repeat-x 0 0;
       background-size: 336px 84px;
       background-position-x: 0;
     }
@@ -54,7 +54,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/suelo.png') repeat-x 0 0;
+      background: url(img/suelo.png) repeat-x 0 0;
       background-size: 50% 42px;
     }
     .cactus {
@@ -64,19 +64,19 @@
       bottom: 16px;
       left: 600px;
       z-index: 1;
-      background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/cactus1.png') no-repeat;
+      background: url(img/cactus1.png) no-repeat;
     }
     .cactus2 {
       width: 92px;
       height: 121px;
-      background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/cactus2.png') no-repeat;
+      background: url(img/cactus2.png) no-repeat;
     }
     .nube {
       width: 93px;
       height: 37px;
       position: absolute;
       z-index: 0;
-      background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/nube.png') no-repeat;
+      background: url(img/nube.png) no-repeat;
       background-size: 92px 26px;
     }
     .score {
@@ -123,22 +123,10 @@
       z-index: 20;
       display: none;
     }
-    /* Loader */
-    .loader {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'Press Start 2P', cursive;
-      font-size: 20px;
-      color: #fff;
-      z-index: 30;
-    }
   </style>
 </head>
 <body>
-  <div class="loader">Cargando...</div>
-  <div class="contenedor" style="display:none;">
+  <div class="contenedor">
     <div class="suelo"></div>
     <div class="dino dino-corriendo"></div>
     <div class="score">0</div>
@@ -204,9 +192,6 @@
       // Comprobar orientación y mostrar overlay si es vertical
       checkOrientation();
       window.addEventListener("resize", checkOrientation);
-      // Ocultar loader y mostrar contenedor del juego
-      document.querySelector('.loader').style.display = 'none';
-      document.querySelector('.contenedor').style.display = 'block';
     }
     
     function Loop() {
@@ -239,7 +224,7 @@
     }
     
     function HandleKeyDown(ev){
-      if(ev.keyCode == 32 || ev.keyCode == 38){
+      if(ev.keyCode == 32){
         Saltar();
       }
     }
