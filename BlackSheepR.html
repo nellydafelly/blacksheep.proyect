@@ -123,10 +123,22 @@
       z-index: 20;
       display: none;
     }
+    /* Loader */
+    .loader {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 20px;
+      color: #fff;
+      z-index: 30;
+    }
   </style>
 </head>
 <body>
-  <div class="contenedor">
+  <div class="loader">Cargando...</div>
+  <div class="contenedor" style="display:none;">
     <div class="suelo"></div>
     <div class="dino dino-corriendo"></div>
     <div class="score">0</div>
@@ -192,6 +204,9 @@
       // Comprobar orientación y mostrar overlay si es vertical
       checkOrientation();
       window.addEventListener("resize", checkOrientation);
+      // Ocultar loader y mostrar contenedor del juego
+      document.querySelector('.loader').style.display = 'none';
+      document.querySelector('.contenedor').style.display = 'block';
     }
     
     function Loop() {
