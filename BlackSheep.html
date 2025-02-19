@@ -220,8 +220,10 @@
 </head>
 <body>
   <header class="header">
+  <div class="header-container">
     <h1 class="logo">🐑 Black Sheep</h1>
-    <nav>
+    <!-- Menú para escritorio -->
+    <nav class="desktop-nav">
       <ul class="nav-links">
         <li><a href="index.html">Black Sheep</a></li>
         <li><a href="README.html">Portafolio</a></li>
@@ -230,8 +232,114 @@
         <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
       </ul>
     </nav>
-    <button id="darkModeToggle" class="toggle-btn">🌙</button>
-  </header>
+    <!-- Botones para activar menú móvil y dark mode -->  
+    <div class="header-buttons">
+      <button id="menuToggle" class="menu-toggle">
+        <span class="hamburger"></span>
+      </button>
+      <button id="darkModeToggle" class="toggle-btn">🌙</button>
+    </div>
+  </div>
+  <!-- Menú móvil (se desliza desde la derecha) -->
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Black Sheep</a></li>
+      <li><a href="README.html">Portafolio</a></li>
+      <li><a href="si_somos.html">Sí Somos!</a></li>
+      <li><a href="contact.html">Contacto!</a></li>
+      <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  /* Header general */
+  .header {
+    background: linear-gradient(90deg, #000, #333);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  /* Menú escritorio */
+  .desktop-nav {
+    display: block;
+  }
+  .nav-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover {
+    color: #ff6f00;
+  }
+  /* Efecto subrayado en hover */
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #ff6f00;
+    transition: width 0.3s;
+  }
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  /* Botones en header */
+  .header-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .toggle-btn,
+  .menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+  }
+  /* Hamburger icon (menú móvil) */
+  .menu-toggle .hamburger {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: white;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .menu-toggle .hamburger::before,
+  .menu-toggle .hamburger::after {
+    content: '';\n    position: absolute;\n    width: 24px;\n    height: 3px;\n    background: white;\n    transition: transform 0.3s;\n  }\n  .menu-toggle .hamburger::before {\n    top: -8px;\n  }\n  .menu-toggle .hamburger::after {\n    top: 8px;\n  }\n  /* Menú móvil */\n  .mobile-nav {\n    display: none;\n    background: #1a1a1a;\n    position: fixed;\n    top: 0;\n    right: -250px;\n    width: 250px;\n    height: 100vh;\n    padding-top: 80px;\n    transition: right 0.3s ease-in-out;\n    z-index: 1100;\n  }\n  .mobile-nav.open {\n    right: 0;\n  }\n  .mobile-nav-links {\n    list-style: none;\n    display: flex;\n    flex-direction: column;\n    gap: 20px;\n    align-items: center;\n  }\n  .mobile-nav-links a {\n    text-decoration: none;\n    color: white;\n    font-size: 18px;\n    transition: color 0.3s;\n  }\n  .mobile-nav-links a:hover {\n    color: #ff6f00;\n  }\n  /* Responsive */\n  @media (max-width: 768px) {\n    .desktop-nav { display: none; }\n    .menu-toggle { display: block; }\n    .mobile-nav { display: block; }\n  }\n</style>
+
+<script>
+  // Toggle del menú móvil
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  menuToggle.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+</script>
 
   <main class="main-content">
     <section class="hero fade-in">
