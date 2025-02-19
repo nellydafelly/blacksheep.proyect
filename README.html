@@ -7,132 +7,187 @@
 
     <!-- Estilo CSS Interno -->
     <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 15px 20px;
-            position: relative;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            line-height: 1.6;
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background 0.5s, color 0.5s;
         }
 
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-        }
-
-        /* Menú hamburguesa */
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-            font-size: 30px;
-            color: #fff;
-        }
-
-        .menu-icon.open {
-            color: #ff6347; /* color de activación */
-        }
-
-        nav ul {
-            flex-direction: row;
-        }
-
-        @media (max-width: 768px) {
-            .menu-icon {
-                display: block;
-            }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background-color: #333;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 200px;
-                border-radius: 10px;
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav ul li {
-                width: 100%;
-                text-align: center;
-            }
-        }
-
-        main {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2, h3 {
-            color: #333;
-        }
-
-        .preview {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .banner {
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: linear-gradient(90deg, #000, #333);
+            position: fixed;
             width: 100%;
-            max-width: 800px;
-            display: block;
-            margin: 20px auto;
-            border-radius: 10px;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
-            width: 150px;
-            display: block;
-            margin: 20px auto;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
-        footer {
-            background-color: #333;
-            color: #fff;
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6f00;
+        }
+
+        /* Botón de menú */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Contenido principal */
+        main {
+            flex: 1;
+            padding: 7rem 2rem 2rem;
+            max-width: 800px;
+            margin: auto;
+            background: #222;
+            border-radius: 8px;
             text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            animation: fadeIn 1s ease-in-out;
         }
 
-        footer p {
-            margin: 0;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
+        h2 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            color: #ff6f00;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .project {
+            margin-bottom: 40px;
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Enlaces */
+        .enlaces {
+            list-style: none;
+            padding: 0;
+        }
+
+        .enlaces li {
+            margin-bottom: 0.8rem;
+        }
+
+        .enlaces a {
+            color: #3B82F6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .enlaces a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #1E3A8A;
+            color: white;
+            text-align: center;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 0.5rem;
+                display: block;
+            }
+        }
+
+        /* Modo Oscuro */
+        .dark-mode {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .dark-mode .header {
+            background: linear-gradient(90deg, #555, #999);
+        }
+
+        .dark-mode footer {
+            background: #333;
+        }
     </style>
 </head>
+
 <body>
     <header class="header">
-        <h1 class="logo">🐑 Acerca de BlackSheep</h1>
+        <h1 class="logo">🐑 BlackSheep</h1>
         <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
         <nav>
             <ul class="nav-links" id="navLinks">
@@ -144,8 +199,6 @@
             </ul>
         </nav>
         <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
-    </header>
-        </nav>
     </header>
     
     <main>
