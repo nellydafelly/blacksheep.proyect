@@ -156,17 +156,50 @@
   <audio id="restartSound" src="https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/restart.wav"></audio>
   
   <script>
-    //****** GAME LOOP ********//
+    // Preloader de assets
+    function preloadAssets() {
+      return new Promise((resolve) => {
+        const assets = [
+          { type: "image", url: "https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/bsheep.png" },
+          { type: "image", url: "https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/suelo.png" },
+          { type: "image", url: "https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/cactus1.png" },
+          { type: "image", url: "https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/cactus2.png" },
+          { type: "image", url: "https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/nube.png" },
+          { type: "audio", url: "https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/jump.wav" },
+          { type: "audio", url: "https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/collision.wav" },
+          { type: "audio", url: "https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/point.wav" },
+          { type: "audio", url: "https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/highscore.wav" },
+          { type: "audio", url: "https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/restart.wav" },
+        ];
+        let loadedCount = 0;
+        const totalAssets = assets.length;
+
+        function checkLoaded() {
+          loadedCount++;
+          if (loadedCount >= totalAssets) resolve();
+        }
+
+        assets.forEach(asset => {
+          if(asset.type === "image") {
+            const img = new Image();
+            img.onload = checkLoaded;
+            img.onerror = checkLoaded;
+            img.src = asset.url;
+          } else if(asset.type === "audio") {
+            const aud = new Audio();
+            aud.oncanplaythrough = checkLoaded;
+            aud.onerror = checkLoaded;
+            aud.src = asset.url;
+            aud.load();
+          }
+        });
+      });
+    }
+
+    //****** VARIABLES DEL JUEGO ********//
     var time = new Date();
     var deltaTime = 0;
     
-    if(document.readyState === "complete" || document.readyState === "interactive"){
-      setTimeout(Init, 1);
-    } else {
-      document.addEventListener("DOMContentLoaded", Init); 
-    }
-    
-    //****** VARIABLES DEL JUEGO ********//
     var sueloY = 22;
     var velY = 0;
     var impulso = 900;
@@ -466,6 +499,13 @@
         }
       }
     }
+    
+    // Iniciar el preloader y, al terminar, iniciar el juego
+    document.addEventListener("DOMContentLoaded", function() {
+      preloadAssets().then(function(){
+        Init();
+      });
+    });
   </script>
 </body>
 </html>
