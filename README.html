@@ -3,111 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sí Somos - Proyectos de innovación, tecnología y sostenibilidad.">
-    <title>Sí Somos!</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1a1a1a;
-            color: white;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background: linear-gradient(90deg, #000, #333);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .menu-toggle {
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            z-index: 1100;
-        }
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            background: rgba(0, 0, 0, 0.9);
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 250px;
-            height: 100%;
-            padding-top: 3rem;
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .nav-links.active {
-            transform: translateX(0);
-            display: flex;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            padding: 1rem;
-            display: block;
-        }
-        .nav-links a:hover {
-            background: #ff6f00;
-        }
-        #darkModeToggle {
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                width: 60%;
-            }
-        }
-    </style>
+    <title>Acerca de - BlackSheep</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
-        <div class="logo">🐑 BlackSheep <button id="darkModeToggle">🌙</button></div>
-        <button class="menu-toggle" id="menuToggle">☰</button>
+        <h1 class="logo">🐑 BlackSheep</h1>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
         <nav>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Black Sheep</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="README.html">Portafolio</a></li>
                 <li><a href="si_somos.html">Sí Somos!</a></li>
                 <li><a href="contact.html">Contacto</a></li>
-                <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+                <li><a href="experiencia_github.html">Gratitud GitHub</a></li>
             </ul>
         </nav>
+        <button id="darkModeToggle" class="toggle-btn" aria-label="Modo oscuro">🌙</button>
     </header>
-    <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('navLinks').classList.toggle('active');
-        });
-    </script>
+    
+    <main>
+        <h2>Sobre BlackSheep</h2>
+        <p>Black Sheep es un proyecto innovador centrado en la tecnología y la creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas a problemas complejos.</p>
+        
+        <section class="preview">
+            <h3>Nuestra Identidad</h3>
+            <img src="https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/main/social_preview.png" alt="Black Sheep Banner">
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
