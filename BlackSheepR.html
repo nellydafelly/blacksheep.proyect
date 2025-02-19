@@ -14,14 +14,13 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Press Start 2P', cursive;
     }
     .contenedor {
       width: 920px;
       height: 280px;
       position: relative;
       background: linear-gradient(#b7d6c7, transparent) #ffe2d1;
-      transition: background-color 1s linear;
       overflow: hidden;
     }
     .dino {
@@ -30,33 +29,40 @@
       position: absolute;
       bottom: 22px;
       left: 42px;
-      z-index: 2;
       background: url(img/bsheep.png) repeat-x 0 0;
       background-size: 336px 84px;
-      animation: animarDino 0.25s steps(2) infinite;
+      animation: correr 0.25s steps(2) infinite;
     }
-    .dino-estrellado { background-position-x: -252px; }
+    @keyframes correr {
+      from { background-position-x: -84px; }
+      to { background-position-x: -252px; }
+    }
     .suelo {
       width: 200%;
       height: 42px;
       position: absolute;
       bottom: 0;
       left: 0;
-      background: url(img/suelo.png) repeat-x;
+      background: url(img/suelo.png) repeat-x 0 0;
       background-size: 50% 42px;
+      animation: moverSuelo 1s linear infinite;
     }
-    .obstaculo {
-      width: 92px;
-      height: 121px;
+    @keyframes moverSuelo {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .cactus {
+      width: 119px;
+      height: 129px;
       position: absolute;
       bottom: 16px;
-      background: url(img/cactus2.png) no-repeat;
+      left: 600px;
+      background: url(img/cactus1.png) no-repeat;
     }
     .score {
       position: absolute;
       top: 10px;
       right: 15px;
-      font-family: 'Press Start 2P', cursive;
       font-size: 20px;
       color: #d48871;
     }
@@ -68,11 +74,6 @@
       top: 40%;
       color: #7e928b;
       font-size: 30px;
-      font-family: 'VT323', monospace;
-    }
-    @keyframes animarDino {
-      from { background-position-x: -84px; }
-      to { background-position-x: -252px; }
     }
   </style>
 </head>
@@ -88,61 +89,38 @@
     let suelo = document.querySelector('.suelo');
     let scoreText = document.querySelector('.score');
     let gameOverText = document.querySelector('.game-over');
-    let isJumping = false;
+    let jumping = false;
+    let gravity = 2500;
+    let velocity = 0;
     let score = 0;
-
-    document.addEventListener('keydown', (e) => {
-      if (e.code === 'Space' && !isJumping) {
-        isJumping = true;
-        dino.style.animation = 'none';
-        let jumpHeight = 150;
-        let upInterval = setInterval(() => {
-          if (jumpHeight <= 0) {
-            clearInterval(upInterval);
-            let downInterval = setInterval(() => {
-              if (jumpHeight >= 150) {
-                clearInterval(downInterval);
-                isJumping = false;
-              }
-              jumpHeight += 5;
-              dino.style.bottom = jumpHeight + 'px';
-            }, 20);
-          }
-          jumpHeight -= 5;
-          dino.style.bottom = jumpHeight + 'px';
-        }, 20);
+    
+    function jump() {
+      if (!jumping) {
+        jumping = true;
+        velocity = -900;
       }
-    });
-
-    function generarObstaculo() {
-      let obstaculo = document.createElement('div');
-      obstaculo.classList.add('obstaculo');
-      document.querySelector('.contenedor').appendChild(obstaculo);
-      let posicion = 920;
-      obstaculo.style.left = posicion + 'px';
-      let intervalo = setInterval(() => {
-        if (posicion < -50) {
-          clearInterval(intervalo);
-          document.querySelector('.contenedor').removeChild(obstaculo);
-          score++;
-          scoreText.textContent = score;
-        }
-        posicion -= 10;
-        obstaculo.style.left = posicion + 'px';
-        if (posicion > 50 && posicion < 120 && parseInt(dino.style.bottom) < 60) {
-          clearInterval(intervalo);
-          gameOver();
-        }
-      }, 30);
-      setTimeout(generarObstaculo, Math.random() * 3000 + 1000);
     }
-
-    function gameOver() {
-      gameOverText.style.display = 'block';
-      document.removeEventListener('keydown', jump);
+    
+    function update(deltaTime) {
+      velocity += gravity * deltaTime;
+      dino.style.bottom = `${Math.max(22, parseFloat(dino.style.bottom || 22) + velocity * deltaTime)}px`;
+      if (parseFloat(dino.style.bottom) <= 22) jumping = false;
+      score++;
+      scoreText.innerText = score;
     }
-
-    setTimeout(generarObstaculo, 1000);
+    
+    function loop() {
+      let now = performance.now();
+      let deltaTime = (now - lastTime) / 1000;
+      update(deltaTime);
+      lastTime = now;
+      requestAnimationFrame(loop);
+    }
+    
+    let lastTime = performance.now();
+    document.addEventListener('keydown', jump);
+    document.addEventListener('touchstart', jump);
+    loop();
   </script>
 </body>
 </html>
