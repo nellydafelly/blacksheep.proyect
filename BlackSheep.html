@@ -81,41 +81,6 @@
       gap: 10px;
       align-items: center;
     }
-    .toggle-btn,
-    .menu-toggle {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: white;
-    }
-    /* Icono Hamburger */
-    .menu-toggle {
-      display: none;
-    }
-    .menu-toggle .hamburger {
-      display: block;
-      width: 24px;
-      height: 3px;
-      background: white;
-      position: relative;
-      transition: all 0.3s;
-    }
-    .menu-toggle .hamburger::before,
-    .menu-toggle .hamburger::after {
-      content: '';
-      position: absolute;
-      width: 24px;
-      height: 3px;
-      background: white;
-      transition: all 0.3s;
-    }
-    .menu-toggle .hamburger::before {
-      top: -8px;
-    }
-    .menu-toggle .hamburger::after {
-      top: 8px;
-    }
     /* Menú móvil */
     .mobile-nav {
       display: none;
@@ -319,8 +284,6 @@
       </nav>
       <!-- Botones para menú móvil y dark mode -->
       <div class="header-buttons">
-        <button id="menuToggle" class="menu-toggle">
-          <span class="hamburger"></span>
         </button>
         <button id="darkModeToggle" class="toggle-btn">🌙</button>
       </div>
@@ -341,7 +304,7 @@
       <p>🖤 Rompe las reglas, crea tu propio camino. 🔥</p>
       <p>
         <button class="btn" onclick="showMessage()">Descubre más</button>
-        <button class="btn" id="openGameModal">Jugar Runner</button>
+        <button class="btn" id="openGameModal">Jugar BlackSheepRunner</button>
       </p>
     </section>
 
@@ -377,7 +340,7 @@
   </div>
 
   <!-- Overlay para orientación en móviles -->
-  <div id="orientationMsg">Para una mejor experiencia, gira tu dispositivo a horizontal</div>
+  <div id="orientationMsg">Para una mejor experiencia, gira tu dispositivo</div>
 
   <script>
     // Función para abrir el modal y cargar el juego
