@@ -4,251 +4,254 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - BlackSheep</title>
-    <script type="module">
-        // Importar Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
-        import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
-
-        // Configuración de Firebase
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            databaseURL: "YOUR_DATABASE_URL",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
-
-        // Inicializar Firebase
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-
-        // Función para validar email
-        function validateEmail(email) {
-            let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
-        // Manejar el envío del formulario
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("contact-form").addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                let name = document.getElementById("name").value.trim();
-                let email = document.getElementById("email").value.trim();
-                let message = document.getElementById("message").value.trim();
-
-                if (name === "" || email === "" || message === "") {
-                    alert("Por favor, completa todos los campos.");
-                    return;
-                }
-
-                if (!validateEmail(email)) {
-                    alert("Por favor, ingresa un correo válido.");
-                    return;
-                }
-
-                // Guardar en Firebase
-                const messagesRef = ref(database, "messages");
-                const newMessageRef = push(messagesRef);
-                set(newMessageRef, {
-                    name: name,
-                    email: email,
-                    message: message,
-                    timestamp: new Date().toISOString()
-                })
-                .then(() => {
-                    alert("Mensaje enviado con éxito.");
-                    document.getElementById("contact-form").reset();
-                })
-                .catch((error) => {
-                    console.error("Error al enviar el mensaje:", error);
-                    alert("Hubo un error al enviar el mensaje.");
-                });
-            });
-        });
-    </script>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #121212;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background: linear-gradient(90deg, #000, #333);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ff6f00;
-        }
-
-        /* Botón de menú */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-        header {
-            width: 100%;
-            background: #222;
-            padding: 10px;
-        }
-
-        header h1 {
-            font-size: 24px;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        main {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-top: 10px;
-            font-size: 14px;
-            text-align: left;
-        }
-
-        input, textarea {
-            margin-top: 5px;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        button {
-            background: #ff5733;
-            color: white;
-            border: none;
-            padding: 10px;
-            margin-top: 15px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #ff2200;
-        }
-
-        @media (max-width: 600px) {
-            main {
-                width: 100%;
-                border-radius: 0;
-            }
-            /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header class="header">
-        <h1 class="logo">🐑 BlackSheep</h1>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
-        <nav>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Black Sheep</a></li>
-                <li><a href="README.html">Portafolio</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-                <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
-            </ul>
-        </nav>
-        <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
-    </header>
+<header class="header">
+    <div class="logo">BlackSheep</div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#about">Sobre Nosotros</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+    <button id="darkModeToggle">🌙</button>
+</header>
 
-    <main>
-        <h2>Contáctanos</h2>
-        <form id="contact-form">
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required>
+<main>
+    <h2>Contacto</h2>
+    <form id="contact-form">
+        <input type="text" id="name" placeholder="Nombre" required>
+        <input type="email" id="email" placeholder="Correo Electrónico" required>
+        <textarea id="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</main>
 
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
+    import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
 
-            <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_AUTH_DOMAIN",
+        databaseURL: "YOUR_DATABASE_URL",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_STORAGE_BUCKET",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID"
+    };
 
-            <button type="submit">Enviar</button>
-        </form>
-    </main>
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
 
-</body>
-</html>
-    <footer>
-        <p>&copy; 2025 Nelly Da' Felly. Todos los derechos reservados.</p>
-    </footer>
-    <script src="main.js"></script>
+    function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contact-form");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !message) {
+                alert("Por favor, completa todos los campos.");
+                return;
+            }
+            if (!validateEmail(email)) {
+                alert("Por favor, ingresa un correo válido.");
+                return;
+            }
+
+            const messagesRef = ref(database, "messages");
+            const newMessageRef = push(messagesRef);
+            set(newMessageRef, {
+                name, email, message, timestamp: new Date().toISOString()
+            }).then(() => {
+                alert("Mensaje enviado con éxito.");
+                form.reset();
+            }).catch(error => {
+                console.error("Error al enviar el mensaje:", error);
+                alert("Hubo un error al enviar el mensaje.");
+            });
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        if (localStorage.getItem("darkMode") === "enabled") {
+            body.classList.add("dark-mode");
+        }
+
+        darkModeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
+        });
+
+        // Responsive Menu
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+    });
+</script>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #121212;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: linear-gradient(90deg, #000, #333);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #ff6f00;
+    }
+
+    .menu-toggle {
+        display: none;
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    main {
+        background: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    }
+
+    h2 {
+        color: #ff6f00;
+        text-align: center;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: none;
+    }
+
+    button {
+        background: #ff6f00;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background: #e65c00;
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+        background: #000;
+        color: #ddd;
+    }
+
+    .dark-mode .header {
+        background: linear-gradient(90deg, #333, #222);
+    }
+
+    .dark-mode main {
+        background: #222;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background: #333;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 10px;
+        }
+    }
+</style>
+
 </body>
 </html>
