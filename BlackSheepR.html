@@ -130,11 +130,11 @@
     <div class="suelo"></div>
     <div class="dino dino-corriendo"></div>
     <div class="score">0</div>
-    <div class="game-over">GAME OVER</div>
+    <div class="game-over">¡VAMOS!</div>
   </div>
   
   <!-- Overlay para jugar en horizontal si el dispositivo está en vertical -->
-  <div id="orientationMsg">Para una mejor experiencia, gira tu dispositivo a horizontal</div>
+  <div id="orientationMsg">Para una mejor experiencia, gira tu dispositivo</div>
   
   <script>
     //****** GAME LOOP ********//
@@ -424,7 +424,7 @@
           overlayMsg.style.padding = "5px 10px";
           overlayMsg.style.borderRadius = "5px";
           overlayMsg.style.zIndex = "30";
-          overlayMsg.innerHTML = "Para una mejor experiencia, gira tu dispositivo a horizontal";
+          overlayMsg.innerHTML = "Para una mejor experiencia, gira tu dispositivo";
           document.body.appendChild(overlayMsg);
         }
       } else {
