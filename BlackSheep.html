@@ -14,247 +14,81 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1a1a1a;
-            color: white;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            transition: background 0.5s, color 0.5s;
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background: linear-gradient(90deg, #000, #333);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ff6f00;
-        }
-
-        /* Botón de menú */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Contenido principal */
-        main {
-            flex: 1;
-            padding: 7rem 2rem 2rem;
-            max-width: 800px;
-            margin: auto;
-            background: #222;
-            border-radius: 8px;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        h2 {
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            color: #ff6f00;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        .project img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        /* Enlaces */
-        .enlaces {
-            list-style: none;
-            padding: 0;
-        }
-
-        .enlaces li {
-            margin-bottom: 0.8rem;
-        }
-
-        .enlaces a {
-            color: #3B82F6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .enlaces a:hover {
-            text-decoration: underline;
-        }
-
-        /* Redes Sociales */
-        .social-media {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-media a {
-            color: #3B82F6;
-            font-size: 1.8rem;
-            transition: transform 0.3s;
-        }
-
-        .social-media a:hover {
-            color: #1E3A8A;
-            transform: scale(1.1);
-        }
-
-        /* Footer */
-        footer {
-            background: #1E3A8A;
-            color: white;
-            text-align: center;
-            padding: 0.8rem;
-            font-size: 0.9rem;
-            border-radius: 0 0 8px 8px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: rgba(0, 0, 0, 0.9);
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 100%;
-                text-align: center;
-                padding: 1rem 0;
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 0.5rem;
-                display: block;
-            }
-
-            .social-media a {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Modo Oscuro */
-        .dark-mode {
-            background-color: #fff;
-            color: #000;
-        }
-
-        .dark-mode .header {
-            background: linear-gradient(90deg, #ccc, #fff);
-        }
-
-        .dark-mode .nav-links a {
-            color: black;
-        }
-
-        .dark-mode .nav-links a:hover {
-            color: #ff6f00;
-        }
-
-        .dark-mode main {
-            background: #f4f4f4;
-            color: #000;
-        }
-
-        .dark-mode footer {
-            background: #3B82F6;
-            color: white;
-        }
-        /* Botones del header */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      overflow-x: hidden;
+      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    }
+    /* 🚀 Header Mejorado */
+    .header {
+      background: linear-gradient(90deg, #000, #333);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+    /* Menú Desktop */
+    .desktop-nav {
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ff6f00;
+    }
+    /* Efecto subrayado en hover */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background-color: #ff6f00;
+      transition: width 0.3s;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    /* Botones del header */
     .header-buttons {
       display: flex;
       gap: 10px;
       align-items: center;
     }
-    .toggle-btn,
-    .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-    .menu-toggle .hamburger {
-      display: block;
-      width: 24px;
-      height: 3px;
-      background: white;
-      position: relative;
-      transition: all 0.3s;
+    .toggle-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
     }
-    .menu-toggle .hamburger::before,
-    .menu-toggle .hamburger::after {
-      content: '';
-      position: absolute;
-      width: 24px;
-      height: 3px;
-      background: white;
-      transition: all 0.3s;
-    }
-    .menu-toggle .hamburger::before {
-      top: -8px;
-    }
-    .menu-toggle .hamburger::after {
-      top: 8px;
-    }
-    /* Menú móvil */
+    /* Menú móvil (se conserva, aunque el botón de apertura se retira) */
     .mobile-nav {
       display: none;
       background: #1a1a1a;
@@ -289,9 +123,7 @@
     /* Responsive */
     @media (max-width: 768px) {
       .desktop-nav { display: none; }
-      .menu-toggle { display: block; }
-      .mobile-nav { display: block; }
-    }
+      /* Al no existir el botón hamburguesa, el menú móvil quedará inaccesible en móviles.\n         Si se requiere abrirlo, se deberá activar mediante otro método o dejar el botón. */\n      .mobile-nav { display: block; }\n    }
     /* ─── Resto de estilos (sin cambios) ─── */
     .fade-in {
       opacity: 0;
@@ -365,138 +197,62 @@
       background-size: cover;
       background-position: center;
     }
-    .dark-mode {
-      background-color: #fff;
-      color: #000;
-    }
-    .dark-mode .header {
-      background: linear-gradient(90deg, #555, #999);
-    }
-    .dark-mode .parallax {
-      filter: brightness(0.7);
-    }
-    /* Footer */
-        footer {
-            background: #1E3A8A;
-            color: white;
-            text-align: center;
-            padding: 0.8rem;
-            font-size: 0.9rem;
-            border-radius: 0 0 8px 8px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: rgba(0, 0, 0, 0.9);
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 100%;
-                text-align: center;
-                padding: 1rem 0;
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 0.5rem;
-                display: block;
-            }
-
-            .social-media a {
-                font-size: 1.5rem;
-            }
-        }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
-    }
-    .modal-content {
-      background-color: #1a1a1a;
-      margin: 5% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 960px;
-      position: relative;
-    }
-    .modal-content iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-    }
-    .close {
-      color: white;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    #orientationMsg {
-      position: fixed;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(0,0,0,0.4);
-      color: #fff;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 14px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      z-index: 3000;
-      display: none;
-    }
-    @media (max-width: 768px) {
-      .hero { padding: 120px 20px 80px; }
-      .nav-links { flex-direction: column; align-items: center; gap: 10px; }
-      .header-container { flex-wrap: wrap; justify-content: center; }\n      .grid-gallery { padding: 30px 10px; }\n      .slider { height: 200px; }\n      .slide { height: 200px; }\n      .modal-content { width: 95%; margin: 10% auto; }\n    }\n    @media (max-width: 480px) {\n      .logo { font-size: 20px; }\n      .btn { padding: 8px 16px; font-size: 14px; }\n      .hero { padding: 100px 10px 70px; }\n      .footer { font-size: 14px; }\n    }\n  </style>
-    </style>
-<body>
-    <header class="header">
-  <div class="header-container">
-    <h1 class="logo">🐑 BlackSheep</h1>
-    <!-- Botón de Dark Mode ubicado junto al logo -->
-    <div class="header-buttons">
-      <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
+    .dark-mode {\n      background-color: #fff;\n      color: #000;\n    }\n    .dark-mode .header {\n      background: linear-gradient(90deg, #555, #999);\n    }\n    .dark-mode .parallax {\n      filter: brightness(0.7);\n    }\n    .footer {\n      text-align: center;\n      padding: 20px;\n      background: #111;\n    }\n    .modal {\n      display: none;\n      position: fixed;\n      z-index: 2000;\n      left: 0;\n      top: 0;\n      width: 100%;\n      height: 100%;\n      overflow: auto;\n      background-color: rgba(0,0,0,0.7);\n    }\n    .modal-content {\n      background-color: #1a1a1a;\n      margin: 5% auto;\n      padding: 20px;\n      border: 1px solid #888;\n      width: 80%;\n      max-width: 960px;\n      position: relative;\n    }\n    .modal-content iframe {\n      width: 100%;\n      height: 500px;\n      border: none;\n    }\n    .close {\n      color: white;\n      position: absolute;\n      top: 10px;\n      right: 20px;\n      font-size: 30px;\n      font-weight: bold;\n      cursor: pointer;\n    }\n    #orientationMsg {\n      position: fixed;\n      bottom: 10px;\n      left: 50%;\n      transform: translateX(-50%);\n      background-color: rgba(0,0,0,0.4);\n      color: #fff;\n      font-family: 'Press Start 2P', cursive;\n      font-size: 14px;\n      padding: 5px 10px;\n      border-radius: 5px;\n      z-index: 3000;\n      display: none;\n    }\n    @media (max-width: 768px) {\n      .hero { padding: 120px 20px 80px; }\n      .nav-links { flex-direction: column; align-items: center; gap: 10px; }\n      .header-container { flex-wrap: wrap; justify-content: center; }\n      .grid-gallery { padding: 30px 10px; }\n      .slider { height: 200px; }\n      .slide { height: 200px; }\n      .modal-content { width: 95%; margin: 10% auto; }\n    }\n    @media (max-width: 480px) {\n      .logo { font-size: 20px; }\n      .btn { padding: 8px 16px; font-size: 14px; }\n      .hero { padding: 100px 10px 70px; }\n      .footer { font-size: 14px; }\n    }\n  </style>\n</head>\n<body>\n    <header class=\"header\">\n        <div class=\"header-container\">\n            <h1 class=\"logo\">🐑 BlackSheep</h1>\n\n            <nav class=\"desktop-nav\">\n                <ul class=\"nav-links\" id=\"navLinks\">\n                    <li><a href=\"index.html\">Black Sheep</a></li>\n                    <li><a href=\"README.html\">Portafolio</a></li>\n                    <li><a href=\"experiencia_github.html\">Gratitud Experiencia GitHub</a></li>\n                </ul>\n            </nav>\n\n            <div class=\"header-buttons\">\n                <!-- Botón hamburguesa eliminado -->\n                <button id=\"darkModeToggle\" class=\"toggle-btn\" aria-label=\"Alternar modo oscuro\">🌙</button>\n            </div>\n        </div>\n        <!-- Menú móvil (se conserva, aunque sin botón de apertura) -->\n        <nav class=\"mobile-nav\" id=\"mobileNav\">\n            <ul class=\"mobile-nav-links\">\n                <li><a href=\"index.html\">Black Sheep</a></li>\n                <li><a href=\"README.html\">Portafolio</a></li>\n                <li><a href=\"experiencia_github.html\">Gratitud Experiencia GitHub</a></li>\n            </ul>\n        </nav>\n    </header>\n\n    <main class=\"main-content\">\n        <section class=\"hero fade-in\">\n            <h2>Bienvenido a Black Sheep</h2>\n            <p>🖤 Rompe las reglas, crea tu propio camino. 🔥</p>\n            <p>\n                <button class=\"btn\" onclick=\"showMessage()\">Descubre más</button>\n                <button class=\"btn\" id=\"openGameModal\">Jugar Runner</button>\n            </p>\n        </section>\n\n        <section class=\"parallax\"></section>\n\n        <!-- 🎠 Slider -->\n        <section class=\"slider\">\n            <div class=\"slides\">\n                <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/artgraffiti.png');\"></div>\n                <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/techdark.png');\"></div>\n                <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/futurecyberpunk.png');\"></div>\n            </div>\n        </section>\n\n        <!-- 🎢 3D Cards -->\n        <section class=\"grid-gallery fade-in\">\n            <div class=\"card\">🐑 Innovación</div>\n            <div class=\"card\">🔥 Rebeldía Creativa</div>\n            <div class=\"card\">🚀 Futuro Digital</div>\n        </section>\n    </main>\n\n    <footer class=\"footer\">\n        <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>\n    </footer>\n\n    <!-- Modal Popup para el Juego -->\n    <div id=\"gameModal\" class=\"modal\">\n        <div class=\"modal-content\">\n            <span class=\"close\" onclick=\"closeGameModal()\">&times;</span>\n            <iframe id=\"gameFrame\" src=\"\" title=\"BlackSheep Runner\" allowfullscreen></iframe>\n        </div>\n    </div>\n\n    <!-- Overlay para orientación en móviles -->\n    <div id=\"orientationMsg\">Para una mejor experiencia, gira tu dispositivo a horizontal</div>\n\n    <script>\n        // Función para abrir el modal y cargar el juego\n        function openGameModal() {\n            document.getElementById(\"gameModal\").style.display = \"block\";\n            document.getElementById(\"gameFrame\").src = \"https://nellydafelly.github.io/blacksheep.proyect/BlackSheepR.html\";\n        }\n        // Función para cerrar el modal y detener el juego\n        function closeGameModal() {\n            document.getElementById(\"gameModal\").style.display = \"none\";\n            document.getElementById(\"gameFrame\").src = \"\";\n        }\n        document.getElementById(\"openGameModal\").addEventListener(\"click\", openGameModal);\n\n        // 🌙 Dark Mode\n        document.getElementById(\"darkModeToggle\").addEventListener(\"click\", function() {\n            document.body.classList.toggle(\"dark-mode\");\n            this.textContent = document.body.classList.contains(\"dark-mode\") ? \"☀️\" : \"🌙\";\n        });\n\n        // Como se ha retirado el botón hamburguesa, se elimina el toggle del menú móvil\n\n        // Animaciones al hacer scroll\n        const elements = document.querySelectorAll(\".fade-in\");\n        const observer = new IntersectionObserver(entries => {\n            entries.forEach(entry => {\n                if (entry.isIntersecting) entry.target.classList.add(\"visible\");\n            });\n        });\n        elements.forEach(el => observer.observe(el));\n\n        // Slider automático\n        let index = 0;\n        function moveSlider() {\n            index = (index + 1) % 3;\n            document.querySelector(\".slides\").style.transform = `translateX(-${index * 100}%)`;\n        }\n        setInterval(moveSlider, 3000);\n\n        // Mensaje interactivo\n        function showMessage() {\n            alert(\"¡Bienvenido a Black Sheep! Prepárate para romper esquemas. 🔥\");\n        }\n\n        // Cerrar el modal al hacer clic fuera del contenido\n        window.addEventListener(\"click\", function(event) {\n            const modal = document.getElementById(\"gameModal\");\n            if (event.target === modal) {\n                closeGameModal();\n            }\n        });\n\n        // Verificar orientación en dispositivos móviles\n        function checkOrientation() {\n            const orientationMsg = document.getElementById(\"orientationMsg\");\n            if (window.innerWidth < window.innerHeight) {\n                orientationMsg.style.display = \"block\";\n            } else {\n                orientationMsg.style.display = \"none\";\n            }\n        }\n        window.addEventListener(\"resize\", checkOrientation);\n        document.addEventListener(\"DOMContentLoaded\", checkOrientation);\n    </script>\n</body>\n</html>\n"}
+<header class="header">
+    <div class="header-container">
+        <h1 class="logo">🐑 BlackSheep</h1>
+        <!-- Menú para escritorio -->
+        <nav class="desktop-nav">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Black Sheep</a></li>
+                <li><a href="README.html">Portafolio</a></li>
+                <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+            </ul>
+        </nav>
+        <!-- Botón de dark mode (el botón hamburguesa se ha retirado) -->
+        <div class="header-buttons">
+            <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
+        </div>
     </div>
-    <!-- Menú para escritorio -->
-    <nav class="desktop-nav">
-      <ul class="nav-links" id="navLinks">
+    <!-- Menú móvil (se conserva, aunque sin botón de apertura) --> 
+    <nav class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Black Sheep</a></li>
+            <li><a href="README.html">Portafolio</a></li>
+            <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <h1 class="logo">🐑 Black Sheep</h1>
+      <!-- Menú para escritorio -->
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Black Sheep</a></li>
+          <li><a href="README.html">Portafolio</a></li>
+          <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+        </ul>
+      </nav>
+      <!-- Botones para menú móvil y dark mode -->
+      <div class="header-buttons">
+        <button id="menuToggle" class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
+        <button id="darkModeToggle" class="toggle-btn">🌙</button>
+      </div>
+    </div>
+    <!-- Menú móvil (se desliza desde la derecha) -->
+    <nav class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav-links">
         <li><a href="index.html">Black Sheep</a></li>
         <li><a href="README.html">Portafolio</a></li>
         <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
       </ul>
     </nav>
-  </div>
-  <!-- Menú móvil (se conserva, por si se activa por otro medio) -->
-  <nav class="mobile-nav" id="mobileNav">
-    <ul class="mobile-nav-links">
-      <li><a href="index.html">Black Sheep</a></li>
-      <li><a href="README.html">Portafolio</a></li>
-      <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
-    </ul>
-  </nav>
-</header>
+  </header>
 
   <main class="main-content">
     <section class="hero fade-in">
