@@ -6,16 +6,7 @@
   <title>🐑 Black Sheep</title>
   <!-- Fuentes Pixel Art -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-  <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🐑 Black Sheep</title>
-  <!-- Fuentes Pixel Art -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-  <style>
-    /* 🎨 Estilos Globales */
+  /* 🎨 Estilos Globales */
     * {
       margin: 0;
       padding: 0;
@@ -24,19 +15,20 @@
     }
     body {
       font-family: 'VT323', monospace;
-      background-color: #0d0d0d;
+      background-color: #0a0a0a;
       color: white;
       overflow-x: hidden;
     }
-    /* 🚀 Header Mejorado */
+    /* 🚀 Header Cyberpunk */
     .header {
-      background: linear-gradient(90deg, #000, #222);
+      background: linear-gradient(90deg, #0a0a0a, #1f1f1f, #0a0a0a);
+      box-shadow: 0 0 10px #ff00ff;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      box-shadow: 0px 3px 10px rgba(255, 255, 255, 0.1);
-      transition: background 0.5s ease-in-out;
+      padding: 15px 0;
+      transition: all 0.3s ease-in-out;
     }
     .header-container {
       display: flex;
@@ -44,89 +36,61 @@
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 15px 20px;
+      padding: 0 20px;
     }
-    /* 🎮 Logo con efecto glitch */
     .logo {
       font-size: 24px;
       font-weight: bold;
-      color: #ff6f00;
-      text-shadow: 2px 2px 10px rgba(255, 111, 0, 0.8);
+      color: white;
       position: relative;
-      animation: glitch 1.5s infinite;
+      animation: glitch 1s infinite alternate;
     }
     @keyframes glitch {
-      0% { text-shadow: 2px 2px 10px rgba(255, 111, 0, 0.8); }
-      50% { text-shadow: -2px -2px 10px rgba(255, 255, 0, 0.8); }
-      100% { text-shadow: 2px 2px 10px rgba(255, 111, 0, 0.8); }
+      0% { text-shadow: 2px 2px 5px #ff00ff, -2px -2px 5px #00ffff; }
+      50% { text-shadow: -2px -2px 5px #ff00ff, 2px 2px 5px #00ffff; }
+      100% { text-shadow: 2px -2px 5px #ff00ff, -2px 2px 5px #00ffff; }
     }
-    /* 🖥️ Menú Desktop */
-    .desktop-nav {
-      display: flex;
-    }
+    /* Menú Desktop */
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 15px;
       list-style: none;
     }
     .nav-links a {
       text-decoration: none;
       color: white;
       font-size: 16px;
+      position: relative;
+      transition: all 0.3s ease-in-out;
       padding: 5px 10px;
       border-radius: 5px;
-      transition: all 0.3s ease-in-out;
-      position: relative;
     }
     .nav-links a:hover {
-      color: #ff6f00;
-      text-shadow: 0px 0px 8px rgba(255, 111, 0, 0.8);
+      color: #ff00ff;
+      text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
     }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0%;
-      height: 2px;
-      background-color: #ff6f00;
-      transition: width 0.3s;
-    }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-    /* 📱 Menú Móvil */
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
+    /* Menú Móvil */
     .mobile-nav {
+      display: none;
+      background: #111;
       position: fixed;
       top: 0;
       right: -100%;
       width: 250px;
       height: 100vh;
-      background: #1a1a1a;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 60px;
+      padding-top: 80px;
       transition: right 0.5s ease-in-out;
-      box-shadow: -3px 0px 10px rgba(255, 111, 0, 0.2);
+      box-shadow: -5px 0 15px #ff00ff;
     }
     .mobile-nav.open {
       right: 0;
     }
-    .mobile-nav-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
+    .menu-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+      border: none;
+      background: none;
     }
     .mobile-nav-links a {
       text-decoration: none;
