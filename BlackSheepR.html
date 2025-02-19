@@ -38,7 +38,7 @@
       bottom: 22px;
       left: 42px;
       z-index: 2;
-      background: url(img/bsheep.png) repeat-x 0 0;
+      background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/bsheep.png') repeat-x 0 0;
       background-size: 336px 84px;
       background-position-x: 0;
     }
@@ -54,7 +54,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      background: url(img/suelo.png) repeat-x 0 0;
+      background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/suelo.png') repeat-x 0 0;
       background-size: 50% 42px;
     }
     .cactus {
@@ -64,19 +64,19 @@
       bottom: 16px;
       left: 600px;
       z-index: 1;
-      background: url(img/cactus1.png) no-repeat;
+      background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/cactus1.png') no-repeat;
     }
     .cactus2 {
       width: 92px;
       height: 121px;
-      background: url(img/cactus2.png) no-repeat;
+      background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/cactus2.png') no-repeat;
     }
     .nube {
       width: 93px;
       height: 37px;
       position: absolute;
       z-index: 0;
-      background: url(img/nube.png) no-repeat;
+      background: url('https://github.com/nellydafelly/blacksheep.proyect/raw/main/BlackSheep%20Runner%20Felly/img/nube.png') no-repeat;
       background-size: 92px 26px;
     }
     .score {
@@ -224,7 +224,7 @@
     }
     
     function HandleKeyDown(ev){
-      if(ev.keyCode == 32){
+      if(ev.keyCode == 32 || ev.keyCode == 38){
         Saltar();
       }
     }
