@@ -6,6 +6,14 @@
   <title>🐑 Black Sheep</title>
   <!-- Fuentes Pixel Art -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐑 Black Sheep</title>
+  <!-- Fuentes Pixel Art -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <style>
     /* 🎨 Estilos Globales */
     * {
@@ -15,19 +23,20 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #1a1a1a;
+      font-family: 'VT323', monospace;
+      background-color: #0d0d0d;
       color: white;
       overflow-x: hidden;
-      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
     }
     /* 🚀 Header Mejorado */
     .header {
-      background: linear-gradient(90deg, #000, #333);
+      background: linear-gradient(90deg, #000, #222);
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
+      box-shadow: 0px 3px 10px rgba(255, 255, 255, 0.1);
+      transition: background 0.5s ease-in-out;
     }
     .header-container {
       display: flex;
@@ -35,33 +44,44 @@
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 15px 20px;
     }
+    /* 🎮 Logo con efecto glitch */
     .logo {
       font-size: 24px;
       font-weight: bold;
-      color: white;
+      color: #ff6f00;
+      text-shadow: 2px 2px 10px rgba(255, 111, 0, 0.8);
+      position: relative;
+      animation: glitch 1.5s infinite;
     }
-    /* Menú Desktop */
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px 10px rgba(255, 111, 0, 0.8); }
+      50% { text-shadow: -2px -2px 10px rgba(255, 255, 0, 0.8); }
+      100% { text-shadow: 2px 2px 10px rgba(255, 111, 0, 0.8); }
+    }
+    /* 🖥️ Menú Desktop */
     .desktop-nav {
-      display: block;
+      display: flex;
     }
     .nav-links {
       display: flex;
-      gap: 15px;
+      gap: 20px;
       list-style: none;
     }
     .nav-links a {
       text-decoration: none;
       color: white;
       font-size: 16px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
       position: relative;
-      transition: color 0.3s;
     }
     .nav-links a:hover {
       color: #ff6f00;
+      text-shadow: 0px 0px 8px rgba(255, 111, 0, 0.8);
     }
-    /* Efecto subrayado en hover */
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -75,59 +95,28 @@
     .nav-links a:hover::after {
       width: 100%;
     }
-    /* Botones del header */
-    .header-buttons {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    .toggle-btn,
+    /* 📱 Menú Móvil */
     .menu-toggle {
+      display: none;
+      font-size: 24px;
       background: none;
       border: none;
-      font-size: 24px;
-      cursor: pointer;
       color: white;
+      cursor: pointer;
     }
-    /* Icono Hamburger */
-    .menu-toggle {
-      display: none;
-    }
-    .menu-toggle .hamburger {
-      display: block;
-      width: 24px;
-      height: 3px;
-      background: white;
-      position: relative;
-      transition: all 0.3s;
-    }
-    .menu-toggle .hamburger::before,
-    .menu-toggle .hamburger::after {
-      content: '';
-      position: absolute;
-      width: 24px;
-      height: 3px;
-      background: white;
-      transition: all 0.3s;
-    }
-    .menu-toggle .hamburger::before {
-      top: -8px;
-    }
-    .menu-toggle .hamburger::after {
-      top: 8px;
-    }
-    /* Menú móvil */
     .mobile-nav {
-      display: none;
-      background: #1a1a1a;
       position: fixed;
       top: 0;
-      right: -250px;
+      right: -100%;
       width: 250px;
       height: 100vh;
-      padding-top: 80px;
-      transition: right 0.3s ease-in-out;
-      z-index: 1100;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
+      transition: right 0.5s ease-in-out;
+      box-shadow: -3px 0px 10px rgba(255, 111, 0, 0.2);
     }
     .mobile-nav.open {
       right: 0;
@@ -148,182 +137,48 @@
     .mobile-nav-links a:hover {
       color: #ff6f00;
     }
-    /* Responsive */
+    /* 🔄 Responsive */
     @media (max-width: 768px) {
       .desktop-nav { display: none; }
       .menu-toggle { display: block; }
-      .mobile-nav { display: block; }
     }
-    /* ─── Resto de estilos (sin cambios) ─── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .hero {
-      text-align: center;
-      padding: 180px 20px 100px;
-      background: radial-gradient(circle, #222, #000);
-      animation: slideIn 1s ease-out;
-    }
-    @keyframes slideIn {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .btn {
-      padding: 10px 20px;
-      background: #ff6f00;
-      border: none;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease-in-out;
-      margin: 5px;
-    }
-    .btn:hover {
-      background: #cc5500;
-    }
-    .grid-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      padding: 50px 20px;
-      text-align: center;
-      perspective: 1000px;
-    }
-    .card {
-      background: #333;
-      padding: 20px;
-      border-radius: 10px;
-      transform-style: preserve-3d;
-      transition: transform 0.5s ease-in-out;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: rotateY(15deg);
-    }
-    .parallax {
-      height: 400px;
-      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/sheep.png') no-repeat center center/cover;
-      background-attachment: fixed;
-    }
-    .slider {
-      display: flex;
-      overflow: hidden;
-      width: 100%;
-      height: 300px;
-      position: relative;
-    }
-    .slides {
-      display: flex;
-      transition: transform 1s ease-in-out;
-    }
-    .slide {
-      min-width: 100%;
-      height: 300px;
-      background-size: cover;
-      background-position: center;
-    }
-    .dark-mode {
-      background-color: #fff;
-      color: #000;
-    }
-    .dark-mode .header {
-      background: linear-gradient(90deg, #555, #999);
-    }
-    .dark-mode .parallax {
-      filter: brightness(0.7);
-    }
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
-    }
-    .modal-content {
-      background-color: #1a1a1a;
-      margin: 5% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 960px;
-      position: relative;
-    }
-    .modal-content iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-    }
-    .close {
-      color: white;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    #orientationMsg {
-      position: fixed;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(0,0,0,0.4);
-      color: #fff;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 14px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      z-index: 3000;
-      display: none;
-    }
-    @media (max-width: 768px) {
-      .hero { padding: 120px 20px 80px; }
-      .nav-links { flex-direction: column; align-items: center; gap: 10px; }
-      .header-container { flex-wrap: wrap; justify-content: center; }\n      .grid-gallery { padding: 30px 10px; }\n      .slider { height: 200px; }\n      .slide { height: 200px; }\n      .modal-content { width: 95%; margin: 10% auto; }\n    }\n    @media (max-width: 480px) {\n      .logo { font-size: 20px; }\n      .btn { padding: 8px 16px; font-size: 14px; }\n      .hero { padding: 100px 10px 70px; }\n      .footer { font-size: 14px; }\n    }\n  </style>
+  </style>
 </head>
 <body>
+  <!-- 🔥 Header -->
   <header class="header">
     <div class="header-container">
-      <h1 class="logo">🐑 Black Sheep</h1>
-      <!-- Menú para escritorio -->
+      <div class="logo">🐑 Black Sheep</div>
+      <!-- 🔗 Menú Desktop -->
       <nav class="desktop-nav">
         <ul class="nav-links">
-          <li><a href="index.html">Black Sheep</a></li>
-          <li><a href="README.html">Portafolio</a></li>
-          <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Proyectos</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contacto</a></li>
         </ul>
       </nav>
-      <!-- Botones para menú móvil y dark mode -->
-      <div class="header-buttons">
-        <button id="menuToggle" class="menu-toggle">
-          <span class="hamburger"></span>
-        </button>
-        <button id="darkModeToggle" class="toggle-btn">🌙</button>
-      </div>
+      <!-- 📱 Botón de menú móvil -->
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </div>
-    <!-- Menú móvil (se desliza desde la derecha) -->
-    <nav class="mobile-nav" id="mobileNav">
-      <ul class="mobile-nav-links">
-        <li><a href="index.html">Black Sheep</a></li>
-        <li><a href="README.html">Portafolio</a></li>
-        <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
-      </ul>
-    </nav>
   </header>
+  <!-- 📱 Menú móvil -->
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="mobile-nav-links">
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Proyectos</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+  <!-- 🎮 Script para el Menú Móvil -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
 
   <main class="main-content">
     <section class="hero fade-in">
