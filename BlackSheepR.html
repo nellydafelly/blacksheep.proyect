@@ -38,7 +38,7 @@
       bottom: 22px;
       left: 42px;
       z-index: 2;
-      background: url(img/bsheep.png) repeat-x 0 0;
+      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/bsheep.png') repeat-x 0 0;
       background-size: 336px 84px;
       background-position-x: 0;
     }
@@ -54,7 +54,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      background: url(img/suelo.png) repeat-x 0 0;
+      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/suelo.png') repeat-x 0 0;
       background-size: 50% 42px;
     }
     .cactus {
@@ -64,19 +64,19 @@
       bottom: 16px;
       left: 600px;
       z-index: 1;
-      background: url(img/cactus1.png) no-repeat;
+      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/cactus1.png') no-repeat;
     }
     .cactus2 {
       width: 92px;
       height: 121px;
-      background: url(img/cactus2.png) no-repeat;
+      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/cactus2.png') no-repeat;
     }
     .nube {
       width: 93px;
       height: 37px;
       position: absolute;
       z-index: 0;
-      background: url(img/nube.png) no-repeat;
+      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/nube.png') no-repeat;
       background-size: 92px 26px;
     }
     .score {
@@ -123,10 +123,22 @@
       z-index: 20;
       display: none;
     }
+    /* Loader */
+    .loader {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 20px;
+      color: #fff;
+      z-index: 30;
+    }
   </style>
 </head>
 <body>
-  <div class="contenedor">
+  <div class="loader">Cargando...</div>
+  <div class="contenedor" style="display:none;">
     <div class="suelo"></div>
     <div class="dino dino-corriendo"></div>
     <div class="score">0</div>
@@ -135,6 +147,13 @@
   
   <!-- Overlay para jugar en horizontal si el dispositivo está en vertical -->
   <div id="orientationMsg">Para una mejor experiencia, gira tu dispositivo</div>
+  
+  <!-- Sonidos -->
+  <audio id="jumpSound" src="https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/jump.wav"></audio>
+  <audio id="collisionSound" src="https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/collision.wav"></audio>
+  <audio id="pointSound" src="https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/point.wav"></audio>
+  <audio id="highScoreSound" src="https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/highscore.wav"></audio>
+  <audio id="restartSound" src="https://github.com/nellydafelly/blacksheep.proyect/raw/refs/heads/main/sounds/restart.wav"></audio>
   
   <script>
     //****** GAME LOOP ********//
@@ -192,6 +211,9 @@
       // Comprobar orientación y mostrar overlay si es vertical
       checkOrientation();
       window.addEventListener("resize", checkOrientation);
+      // Ocultar loader y mostrar contenedor del juego
+      document.querySelector('.loader').style.display = 'none';
+      document.querySelector('.contenedor').style.display = 'block';
     }
     
     function Loop() {
@@ -224,7 +246,7 @@
     }
     
     function HandleKeyDown(ev){
-      if(ev.keyCode == 32){
+      if(ev.keyCode == 32 || ev.keyCode == 38){
         Saltar();
       }
     }
@@ -234,6 +256,7 @@
         saltando = true;
         velY = impulso;
         dino.classList.remove("dino-corriendo");
+        document.getElementById('jumpSound').play();
       }
     }
     
@@ -267,6 +290,7 @@
       dino.classList.remove("dino-corriendo");
       dino.classList.add("dino-estrellado");
       parado = true;
+      document.getElementById('collisionSound').play();
     }
     
     function DecidirCrearObstaculos() {
@@ -333,6 +357,14 @@
     function GanarPuntos() {
       score++;
       textoScore.innerText = score;
+      document.getElementById('pointSound').play();
+      
+      var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+      if(score > Math.max(...highScores, 0)) {
+        document.getElementById('highScoreSound').play();
+        alert("¡Nuevo puntaje más alto!");
+      }
+
       if(score == 5){
         gameVel = 1.5;
         contenedor.classList.add("mediodia");
@@ -351,6 +383,7 @@
       gameOver.style.display = "block";
       updateHighScores(); // Muestra los 5 mejores puntajes en overlay
       setTimeout(function() {
+        document.getElementById('restartSound').play();
         location.reload();
       }, 5000);
     }
