@@ -25,66 +25,43 @@
             transition: background 0.5s, color 0.5s;
         }
 
-       .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: linear-gradient(90deg, #000, #333);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: linear-gradient(90deg, #000, #333);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-.header-left {
-    flex: 1;
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Espaciado entre los botones */
-}
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
 
-.menu-toggle,
-.toggle-btn {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
 
-.nav {
-    flex: 2;
-}
+        .nav-links a:hover {
+            color: #ff6f00;
+        }
 
-.nav-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #ff6f00;
-}
-
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    .nav {
-        display: none; /* Oculta el menú en móviles */
-    }
-
-    .menu-toggle {
+        /* Botón de menú */
+        .menu-toggle {
             display: none;
             font-size: 1.8rem;
             background: none;
@@ -121,6 +98,14 @@
             text-align: justify;
         }
 
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Enlaces */
         .enlaces {
             list-style: none;
             padding: 0;
@@ -206,496 +191,72 @@
         /* Modo Oscuro */
         .dark-mode {
             background-color: #fff;
-            color: #000;<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Experiencia con GitHub y enlaces útiles para desarrolladores.">
-    <title>Mi Experiencia con GitHub</title>
-    <style>
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1a1a1a;
-            color: white;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            transition: background 0.5s, color 0.5s;
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background: linear-gradient(90deg, #000, #333);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ff6f00;
-        }
-
-        /* Botón de menú */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Contenido principal */
-        main {
-            flex: 1;
-            padding: 7rem 2rem 2rem;
-            max-width: 800px;
-            margin: auto;
-            background: #222;
-            border-radius: 8px;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        h2 {
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            color: #ff6f00;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        .project {
-            margin-bottom: 40px;
-        }
-
-        .project img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        /* Enlaces */
-        .enlaces {
-            list-style: none;
-            padding: 0;
-        }
-
-        .enlaces li {
-            margin-bottom: 0.8rem;
-        }
-
-        .enlaces a {
-            color: #3B82F6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .enlaces a:hover {
-            text-decoration: underline;
-        }
-
-        /* Contenido principal */
-        main {
-            flex: 1;
-            padding: 7rem 2rem 2rem;
-            max-width: 800px;
-            margin: auto;
-            background: #222;
-            border-radius: 8px;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        h2 {
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            color: #ff6f00;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        .enlaces {
-            list-style: none;
-            padding: 0;
-        }
-
-        .enlaces li {
-            margin-bottom: 0.8rem;
-        }
-
-        .enlaces a {
-            color: #3B82F6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .enlaces a:hover {
-            text-decoration: underline;
-        }
-
-        /* Redes Sociales */
-        .social-media {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-media a {
-            color: #3B82F6;
-            font-size: 1.8rem;
-            transition: transform 0.3s;
-        }
-
-        .social-media a:hover {
-            color: #1E3A8A;
-            transform: scale(1.1);
-        }
-
-        /* Footer */
-        footer {
-            background: #1E3A8A;
-            color: white;
-            text-align: center;
-            padding: 0.8rem;
-            font-size: 0.9rem;
-            border-radius: 0 0 8px 8px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: rgba(0, 0, 0, 0.9);
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 100%;
-                text-align: center;
-                padding: 1rem 0;
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 0.5rem;
-                display: block;
-            }
-
-            .social-media a {
-                font-size: 1.5rem;
-            }
-        }
-        }
-
-         /* Modo Oscuro */
-         .dark-mode {
-            background-color: #fff;
             color: #000;
         }
 
         .dark-mode .header {
-            background: linear-gradient(90deg, #555, #999);
+            background: linear-gradient(90deg, #ccc, #fff);
+        }
+
+        .dark-mode .nav-links a {
+            color: black;
+        }
+
+        .dark-mode .nav-links a:hover {
+            color: #ff6f00;
+        }
+
+        .dark-mode main {
+            background: #f4f4f4;
+            color: #000;
         }
 
         .dark-mode footer {
-            background: #333;
+            background: #3B82F6;
+            color: white;
         }
-        .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: linear-gradient(90deg, #000, #333);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-buttons {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Agrega espacio entre los botones */
-}
-
-.menu-toggle,
-.toggle-btn {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #ff6f00;
-}
-
     </style>
 </head>
 
 <body>
     <header class="header">
         <h1 class="logo">🐑 BlackSheep</h1>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+
+        <div class="header-buttons">
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+            <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
+        </div>
+
         <nav>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Black Sheep</a></li>
                 <li><a href="README.html">Portafolio</a></li>
+                <li><a href="si_somos.html">Sí Somos!</a></li>
                 <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
             </ul>
         </nav>
-        <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
     </header>
 
     <main>
-        <section id="testimonio">
-            <h2>Testimonio</h2>
-            <p>
-                GitHub ha revolucionado la forma en que gestionamos y colaboramos en proyectos. Con su interfaz intuitiva y potentes herramientas, ha mejorado mi productividad enormemente. ¡Altamente recomendado!
-            </p>
-            <p>
-                Desde la gestión de versiones hasta la colaboración en proyectos de código abierto, GitHub es una herramienta esencial. Su integración con múltiples servicios hace que el flujo de trabajo sea más eficiente. ¡Gracias, GitHub!
-            </p>
-        </section>
-
-        <section id="enlaces">
-            <h2>Enlaces Útiles</h2>
-            <ul class="enlaces">
-                <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-                <li><a href="https://docs.github.com/" target="_blank">Documentación de GitHub</a></li>
-                <li><a href="https://guides.github.com/" target="_blank">Guías de GitHub</a></li>
-            </ul>
-        </section>
-
-        <section id="redes-sociales" class="contenido">
-            <h2>Redes Sociales</h2>
-            <ul class="enlaces">
-                <li>
-                    <a href="https://www.facebook.com/nellydafelly" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="24" height="24"> Da Felly
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </main>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
-    </footer>
-
-    <script>
-        document.getElementById("darkModeToggle").addEventListener("click", function() {
-            document.body.classList.toggle("dark-mode");
-            this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-        });
-
-        document.getElementById("menuToggle").addEventListener("click", function() {
-            document.getElementById("navLinks").classList.toggle("active");
-        });
-    </script>
-</body>
-
-</html>
-        }
-
-        .dark-mode .header {
-            background: linear-gradient(90deg, #555, #999);
-        }
-
-        .dark-mode footer {
-            background: #333;
-        }
-        .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: linear-gradient(90deg, #000, #333);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-buttons {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Agrega espacio entre los botones */
-}
-
-.menu-toggle,
-.toggle-btn {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #ff6f00;
-}
-
-    </style>
-</head>
-
-<body>
-    <header class="header">
-    <h1 class="logo">🐑 BlackSheep</h1>
-    
-    <div class="header-buttons">
-        <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
-        <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
-    </div>
-
-    <nav>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Black Sheep</a></li>
-            <li><a href="README.html">Portafolio</a></li>
-            <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+        <h2>Mi Experiencia con GitHub</h2>
+        <p>GitHub es una plataforma increíble que ha permitido a desarrolladores de todo el mundo colaborar, compartir código y mejorar sus habilidades.</p>
+        <ul class="enlaces">
+            <li><a href="https://github.com/" target="_blank">Visita GitHub</a></li>
+            <li><a href="https://docs.github.com/" target="_blank">Documentación Oficial</a></li>
         </ul>
-    </nav>
-</header>
-
-
-    <main>
-        <section id="testimonio">
-            <h2>Testimonio</h2>
-            <p>
-                GitHub ha revolucionado la forma en que gestionamos y colaboramos en proyectos. Con su interfaz intuitiva y potentes herramientas, ha mejorado mi productividad enormemente. ¡Altamente recomendado!
-            </p>
-            <p>
-                Desde la gestión de versiones hasta la colaboración en proyectos de código abierto, GitHub es una herramienta esencial. Su integración con múltiples servicios hace que el flujo de trabajo sea más eficiente. ¡Gracias, GitHub!
-            </p>
-        </section>
-
-        <section id="enlaces">
-            <h2>Enlaces Útiles</h2>
-            <ul class="enlaces">
-                <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-                <li><a href="https://docs.github.com/" target="_blank">Documentación de GitHub</a></li>
-                <li><a href="https://guides.github.com/" target="_blank">Guías de GitHub</a></li>
-            </ul>
-        </section>
-
-        <section id="redes-sociales" class="contenido">
-            <h2>Redes Sociales</h2>
-            <ul class="enlaces">
-                <li>
-                    <a href="https://www.facebook.com/nellydafelly" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="24" height="24"> Da Felly
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </main>
-        </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
+        © 2025 BlackSheep - Todos los derechos reservados
     </footer>
 
     <script>
-        // Alternar modo oscuro
-        document.getElementById("darkModeToggle").addEventListener("click", function() {
-            document.body.classList.toggle("dark-mode");
-            this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        document.getElementById('darkModeToggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
         });
 
-        // Menú responsive
-        document.getElementById("menuToggle").addEventListener("click", function() {
-            document.getElementById("navLinks").classList.toggle("active");
+        document.getElementById('menuToggle').addEventListener('click', function () {
+            document.getElementById('navLinks').classList.toggle('active');
         });
     </script>
 </body>
