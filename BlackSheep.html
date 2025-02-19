@@ -242,66 +242,28 @@
     <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
   </footer>
 
-  /* 📦 Modal Popup */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
-    }
-    .modal-content {
-      background-color: #1a1a1a;
-      margin: 5% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 960px;
-      position: relative;
-    }
-    .modal-content iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-    }
-    .close {
-      color: white;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-
-  <button class="btn" onclick="openGameModal()">🎮 Jugar Ahora</button>
-
-  <!-- Modal -->
+  <!-- Modal Popup para el Juego -->
   <div id="gameModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeGameModal()">&times;</span>
-      <iframe id="gameFrame" src="" allowfullscreen></iframe>
+      <iframe id="gameFrame" src="" title="BlackSheep Runner" allowfullscreen></iframe>
     </div>
   </div>
 
   <script>
+    // Función para abrir el modal y cargar el juego
     function openGameModal() {
       document.getElementById("gameModal").style.display = "block";
-      document.getElementById("gameFrame").src = "URL_DEL_JUEGO_AQUI"; // Reemplazar con la URL del juego
+      document.getElementById("gameFrame").src = "https://nellydafelly.github.io/blacksheep.proyect/BlackSheepR.html";
     }
-
+    // Función para cerrar el modal y detener el juego
     function closeGameModal() {
       document.getElementById("gameModal").style.display = "none";
-      document.getElementById("gameFrame").src = ""; // Limpiar el iframe para detener el juego
+      document.getElementById("gameFrame").src = "";
     }
-  <script>
+    // Asignar evento al botón del modal
+    document.getElementById("openGameModal").addEventListener("click", openGameModal);
+
     // 🌙 Dark Mode
     document.getElementById("darkModeToggle").addEventListener("click", function() {
       document.body.classList.toggle("dark-mode");
@@ -330,22 +292,11 @@
       alert("¡Bienvenido a Black Sheep! Prepárate para romper esquemas. 🔥");
     }
 
-    // 📦 Lógica del Modal Popup para el juego
-    const gameModal = document.getElementById("gameModal");
-    const openGameModalBtn = document.getElementById("openGameModal");
-    const closeModal = document.querySelector(".modal .close");
-
-    openGameModalBtn.addEventListener("click", function() {
-      gameModal.style.display = "block";
-    });
-
-    closeModal.addEventListener("click", function() {
-      gameModal.style.display = "none";
-    });
-
+    // Cerrar el modal al hacer clic fuera del contenido
     window.addEventListener("click", function(event) {
-      if (event.target === gameModal) {
-        gameModal.style.display = "none";
+      const modal = document.getElementById("gameModal");
+      if (event.target === modal) {
+        closeGameModal();
       }
     });
   </script>
