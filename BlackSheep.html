@@ -84,17 +84,17 @@
     .toggle-btn,
     .menu-toggle {
       background: none;
-      border: none;
+      border: 5px;
       font-size: 24px;
       cursor: pointer;
-      color: white;
+      color: orange;
     }
     /* Icono Hamburger */
     .menu-toggle {
             display: none;
             font-size: 1.8rem;
             background: none;
-            border: none;
+            border: 5px;
             color: white;
             cursor: pointer;
     }
@@ -156,7 +156,7 @@
     /* Responsive */
     @media (max-width: 768px) {
       .desktop-nav { display: none; }
-      .menu-toggle { display: block; }
+      .menu-toggle { display: none; }
       .mobile-nav { display: block; }
     }
     /* ─── Resto de estilos (sin cambios) ─── */
@@ -318,10 +318,10 @@
       </nav>
       <!-- Botones para menú móvil y dark mode -->
       <div class="header-buttons">
-        <button id="menuToggle" class="menu-toggle">
-          <span class="hamburger"></span>
         </button>
         <button id="darkModeToggle" class="toggle-btn">🌙</button>
+        <button id="menuToggle" class="menu-toggle">
+          <span class="hamburger"></span>
       </div>
     </div>
     <!-- Menú móvil (se desliza desde la derecha) -->
