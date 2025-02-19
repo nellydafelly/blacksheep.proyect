@@ -47,13 +47,6 @@
       font-size: 24px;
       font-weight: bold;
     }
-    /* Contenedor del menú y botones de header */
-    .header-right {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-    }
-    /* Menú de navegación */
     .nav-links {
       display: flex;
       gap: 15px;
@@ -67,13 +60,16 @@
     .nav-links a:hover {
       color: #ff6f00;
     }
-    /* Botones (Hamburger y Dark Mode) */
-    .toggle-btn, .menu-toggle-btn {
+    .toggle-btn {
       background: none;
       border: none;
       font-size: 24px;
       cursor: pointer;
       color: white;
+    }
+    /* Nuevo: Botón hamburger para menú móvil (oculto en desktop) */
+    #menuToggle {
+      display: none;
     }
     /* 🌟 Hero Section */
     .hero {
@@ -81,17 +77,137 @@
       padding: 180px 20px 100px;
       background: radial-gradient(circle, #222, #000);
       animation: slideIn 1s ease-out;
-      margin-top: 80px; /* Evita solapamiento con header fijo */\n    }
-    @keyframes slideIn {\n      from { transform: translateY(-50px); opacity: 0; }\n      to { transform: translateY(0); opacity: 1; }\n    }\n    .btn {\n      padding: 10px 20px;\n      background: #ff6f00;\n      border: none;\n      color: white;\n      cursor: pointer;\n      transition: background 0.3s ease-in-out;\n      margin: 5px;\n      border-radius: 5px;\n    }\n    .btn:hover {\n      background: #cc5500;\n    }\n    /* 🎢 3D Cards */\n    .grid-gallery {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n      gap: 15px;\n      padding: 50px 20px;\n      text-align: center;\n      perspective: 1000px;\n    }\n    .card {\n      background: #333;\n      padding: 20px;\n      border-radius: 10px;\n      transform-style: preserve-3d;\n      transition: transform 0.5s ease-in-out;\n      cursor: pointer;\n    }\n    .card:hover {\n      transform: rotateY(15deg);\n    }\n    /* 🎭 Parallax */\n    .parallax {\n      height: 400px;\n      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/sheep.png') no-repeat center center/cover;\n      background-attachment: fixed;\n    }\n    /* 🎠 Slider */\n    .slider {\n      display: flex;\n      overflow: hidden;\n      width: 100%;\n      height: 300px;\n      position: relative;\n    }\n    .slides {\n      display: flex;\n      transition: transform 1s ease-in-out;\n    }\n    .slide {\n      min-width: 100%;\n      height: 300px;\n      background-size: cover;\n      background-position: center;\n    }\n    /* 🕶️ Dark Mode */\n    .dark-mode {\n      background-color: #fff;\n      color: #000;\n    }\n    .dark-mode .header {\n      background: linear-gradient(90deg, #555, #999);\n    }\n    .dark-mode .parallax {\n      filter: brightness(0.7);\n    }\n    /* ⚡ Footer */\n    .footer {\n      text-align: center;\n      padding: 20px;\n      background: #111;\n    }\n    /* 📦 Modal Popup */\n    .modal {\n      display: none;\n      position: fixed;\n      z-index: 2000;\n      left: 0;\n      top: 0;\n      width: 100%;\n      height: 100%;\n      overflow: auto;\n      background-color: rgba(0,0,0,0.7);\n    }\n    .modal-content {\n      background-color: #1a1a1a;\n      margin: 5% auto;\n      padding: 20px;\n      border: 1px solid #888;\n      width: 80%;\n      max-width: 960px;\n      position: relative;\n    }\n    .modal-content iframe {\n      width: 100%;\n      height: 500px;\n      border: none;\n    }\n    .close {\n      color: white;\n      position: absolute;\n      top: 10px;\n      right: 20px;\n      font-size: 30px;\n      font-weight: bold;\n      cursor: pointer;\n    }\n    /* Overlay para orientación */\n    #orientationMsg {\n      position: fixed;\n      bottom: 10px;\n      left: 50%;\n      transform: translateX(-50%);\n      background-color: rgba(0,0,0,0.4);\n      color: #fff;\n      font-family: 'Press Start 2P', cursive;\n      font-size: 14px;\n      padding: 5px 10px;\n      border-radius: 5px;\n      z-index: 3000;\n      display: none;\n    }\n    /* Responsive Styles */\n    @media (max-width: 768px) {\n      .hero { padding: 120px 20px 80px; }\n      /* Menú de navegación deslizante */\n      .nav-links {\n        display: none;\n        position: fixed;\n        top: 70px;\n        left: 0;\n        width: 100%;\n        background: linear-gradient(90deg, #000, #333);\n        overflow-x: auto;\n        white-space: nowrap;\n        padding: 10px 0;\n        transition: transform 0.3s ease;\n        transform: translateY(-100%);\n      }\n      .nav-links.show {\n        display: flex;\n        transform: translateY(0);\n      }\n      .nav-links li {\n        flex: 0 0 auto;\n        padding: 0 10px;\n      }\n      .header-right { gap: 10px; }\n    }\n    @media (max-width: 480px) {\n      .logo { font-size: 20px; }\n      .btn { padding: 8px 16px; font-size: 14px; }\n      .hero { padding: 100px 10px 70px; }\n      .footer { font-size: 14px; }\n    }\n  </style>\n</head>\n<body>\n  <header class=\"header\">\n    <h1 class=\"logo\">🐑 Black Sheep</h1>\n    <nav>\n      <ul class=\"nav-links\" id=\"navLinks\">\n        <li><a href=\"index.html\">Black Sheep</a></li>\n        <li><a href=\"README.html\">Portafolio</a></li>\n        <li><a href=\"si_somos.html\">Sí Somos!</a></li>\n        <li><a href=\"contact.html\">Contacto!</a></li>\n        <li><a href=\"experiencia_github.html\">Gratitud Experiencia GitHub</a></li>\n      </ul>\n    </nav>\n    <div class=\"header-right\">\n      <button id=\"menuToggle\" class=\"menu-toggle-btn\">☰</button>\n      <button id=\"darkModeToggle\" class=\"toggle-btn\">🌙</button>\n    </div>\n  </header>\n\n  <main class=\"main-content\">\n    <section class=\"hero fade-in\">\n      <h2>Bienvenido a Black Sheep</h2>\n      <p>🖤 Rompe las reglas, crea tu propio camino. 🔥</p>\n      <p>\n        <button class=\"btn\" onclick=\"showMessage()\">Descubre más</button>\n        <button class=\"btn\" id=\"openGameModal\">Jugar Runner</button>\n      </p>\n    </section>\n\n    <section class=\"parallax\"></section>\n\n    <!-- 🎠 Slider -->\n    <section class=\"slider\">\n      <div class=\"slides\">\n        <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/artgraffiti.png');\"></div>\n        <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/techdark.png');\"></div>\n        <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/futurecyberpunk.png');\"></div>\n      </div>\n    </section>\n\n    <!-- 🎢 3D Cards -->\n    <section class=\"grid-gallery fade-in\">\n      <div class=\"card\">🐑 Innovación</div>\n      <div class=\"card\">🔥 Rebeldía Creativa</div>\n      <div class=\"card\">🚀 Futuro Digital</div>\n    </section>\n  </main>\n\n  <footer class=\"footer\">\n    <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>\n  </footer>\n\n  <!-- Modal Popup para el Juego -->\n  <div id=\"gameModal\" class=\"modal\">\n    <div class=\"modal-content\">\n      <span class=\"close\" onclick=\"closeGameModal()\">&times;</span>\n      <iframe id=\"gameFrame\" src=\"\" title=\"BlackSheep Runner\" allowfullscreen></iframe>\n    </div>\n  </div>\n\n  <!-- Overlay para orientación en móviles -->\n  <div id=\"orientationMsg\">Para una mejor experiencia, gira tu dispositivo a horizontal</div>\n\n  <script>\n    // Función para abrir el modal y cargar el juego\n    function openGameModal() {\n      document.getElementById(\"gameModal\").style.display = \"block\";\n      document.getElementById(\"gameFrame\").src = \"https://nellydafelly.github.io/blacksheep.proyect/BlackSheepR.html\";\n    }\n    // Función para cerrar el modal y detener el juego\n    function closeGameModal() {\n      document.getElementById(\"gameModal\").style.display = \"none\";\n      document.getElementById(\"gameFrame\").src = \"\";\n    }\n    // Asignar evento al botón del modal\n    document.getElementById(\"openGameModal\").addEventListener(\"click\", openGameModal);\n\n    // 🌙 Dark Mode\n    document.getElementById(\"darkModeToggle\").addEventListener(\"click\", function() {\n      document.body.classList.toggle(\"dark-mode\");\n      this.textContent = document.body.classList.contains(\"dark-mode\") ? \"☀️\" : \"🌙\";\n    });\n\n    // Toggle menú para móviles\n    document.getElementById(\"menuToggle\").addEventListener(\"click\", function() {\n      const nav = document.getElementById(\"navLinks\");\n      nav.classList.toggle(\"show\");\n    });\n\n    // ⚡ Animaciones al hacer scroll\n    const elements = document.querySelectorAll(\".fade-in\");\n    const observer = new IntersectionObserver(entries => {\n      entries.forEach(entry => {\n        if (entry.isIntersecting) entry.target.classList.add(\"visible\");\n      });\n    });\n    elements.forEach(el => observer.observe(el));\n\n    // 🎠 Slider automático\n    let index = 0;\n    function moveSlider() {\n      index = (index + 1) % 3;\n      document.querySelector(\".slides\").style.transform = `translateX(-${index * 100}%)`;\n    }\n    setInterval(moveSlider, 3000);\n\n    // 🚀 Mensaje interactivo\n    function showMessage() {\n      alert(\"¡Bienvenido a Black Sheep! Prepárate para romper esquemas. 🔥\");\n    }\n\n    // Cerrar el modal al hacer clic fuera del contenido\n    window.addEventListener(\"click\", function(event) {\n      const modal = document.getElementById(\"gameModal\");\n      if (event.target === modal) {\n        closeGameModal();\n      }\n    });\n\n    // Verificar orientación en dispositivos móviles\n    function checkOrientation() {\n      const orientationMsg = document.getElementById(\"orientationMsg\");\n      if(window.innerWidth < window.innerHeight) {\n        orientationMsg.style.display = \"block\";\n      } else {\n        orientationMsg.style.display = \"none\";\n      }\n    }\n    window.addEventListener(\"resize\", checkOrientation);\n    document.addEventListener(\"DOMContentLoaded\", checkOrientation);\n  </script>\n</body>\n</html>\n```
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .btn {
+      padding: 10px 20px;
+      background: #ff6f00;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+      margin: 5px;
+    }
+    .btn:hover {
+      background: #cc5500;
+    }
+    /* 🎢 3D Cards */
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 50px 20px;
+      text-align: center;
+      perspective: 1000px;
+    }
+    .card {
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-in-out;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: rotateY(15deg);
+    }
+    /* 🎭 Parallax */
+    .parallax {
+      height: 400px;
+      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/sheep.png') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+    /* 🎠 Slider */
+    .slider {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      height: 300px;
+      position: relative;
+    }
+    .slides {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+    }
+    /* 🕶️ Dark Mode */
+    .dark-mode {
+      background-color: #fff;
+      color: #000;
+    }
+    .dark-mode .header {
+      background: linear-gradient(90deg, #555, #999);
+    }
+    .dark-mode .parallax {
+      filter: brightness(0.7);
+    }
+    /* ⚡ Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+    }
+    /* 📦 Modal Popup */
+    .modal {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+    .modal-content {
+      background-color: #1a1a1a;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 960px;
+      position: relative;
+    }
+    .modal-content iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+    .close {
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    /* Overlay para orientación */
+    #orientationMsg {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0,0,0,0.4);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      z-index: 3000;
+      display: none;
+    }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero { padding: 120px 20px 80px; }
+      /* Cambios para menú móvil: ocultar la lista y mostrarla deslizando desde la derecha */\n      .header { flex-wrap: wrap; justify-content: space-between; }\n      .nav-links {\n        flex-direction: column;\n        position: absolute;\n        top: 70px;\n        right: 0;\n        background: rgba(0, 0, 0, 0.9);\n        width: 200px;\n        padding: 10px 0;\n        transform: translateX(100%);\n        transition: transform 0.3s ease-in-out;\n      }\n      .nav-links li { margin: 10px 0; text-align: center; }\n      .nav-links.open { transform: translateX(0); }\n      /* Mostrar el botón hamburger */\n      #menuToggle { display: block; }\n    }\n    @media (max-width: 480px) {\n      .logo { font-size: 20px; }\n      .btn { padding: 8px 16px; font-size: 14px; }\n      .hero { padding: 100px 10px 70px; }\n      .footer { font-size: 14px; }\n    }\n  </style>\n</head>\n<body>\n  <header class=\"header\">\n    <h1 class=\"logo\">🐑 Black Sheep</h1>\n    <nav>\n      <ul class=\"nav-links\">\n        <li><a href=\"index.html\">Black Sheep</a></li>\n        <li><a href=\"README.html\">Portafolio</a></li>\n        <li><a href=\"si_somos.html\">Sí Somos!</a></li>\n        <li><a href=\"contact.html\">Contacto!</a></li>\n        <li><a href=\"experiencia_github.html\">Gratitud Experiencia GitHub</a></li>\n      </ul>\n    </nav>\n    <!-- Nuevo botón hamburger para menú móvil -->\n    <button id=\"menuToggle\" class=\"toggle-btn\">☰</button>\n    <button id=\"darkModeToggle\" class=\"toggle-btn\">🌙</button>\n  </header>\n\n  <main class=\"main-content\">\n    <section class=\"hero fade-in\">\n      <h2>Bienvenido a Black Sheep</h2>\n      <p>🖤 Rompe las reglas, crea tu propio camino. 🔥</p>\n      <p>\n        <button class=\"btn\" onclick=\"showMessage()\">Descubre más</button>\n        <button class=\"btn\" id=\"openGameModal\">Jugar Runner</button>\n      </p>\n    </section>\n\n    <section class=\"parallax\"></section>\n\n    <!-- 🎠 Slider -->\n    <section class=\"slider\">\n      <div class=\"slides\">\n        <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/artgraffiti.png');\"></div>\n        <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/techdark.png');\"></div>\n        <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/futurecyberpunk.png');\"></div>\n      </div>\n    </section>\n\n    <!-- 🎢 3D Cards -->\n    <section class=\"grid-gallery fade-in\">\n      <div class=\"card\">🐑 Innovación</div>\n      <div class=\"card\">🔥 Rebeldía Creativa</div>\n      <div class=\"card\">🚀 Futuro Digital</div>\n    </section>\n  </main>\n\n  <footer class=\"footer\">\n    <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>\n  </footer>\n\n  <!-- Modal Popup para el Juego -->\n  <div id=\"gameModal\" class=\"modal\">\n    <div class=\"modal-content\">\n      <span class=\"close\" onclick=\"closeGameModal()\">&times;</span>\n      <iframe id=\"gameFrame\" src=\"\" title=\"BlackSheep Runner\" allowfullscreen></iframe>\n    </div>\n  </div>\n\n  <!-- Overlay para orientación en móviles -->\n  <div id=\"orientationMsg\">Para una mejor experiencia, gira tu dispositivo a horizontal</div>\n\n  <script>\n    // Función para abrir el modal y cargar el juego\n    function openGameModal() {\n      document.getElementById(\"gameModal\").style.display = \"block\";\n      document.getElementById(\"gameFrame\").src = \"https://nellydafelly.github.io/blacksheep.proyect/BlackSheepR.html\";\n    }\n    // Función para cerrar el modal y detener el juego\n    function closeGameModal() {\n      document.getElementById(\"gameModal\").style.display = \"none\";\n      document.getElementById(\"gameFrame\").src = \"\";\n    }\n    // Asignar evento al botón del modal\n    document.getElementById(\"openGameModal\").addEventListener(\"click\", openGameModal);\n\n    // 🌙 Dark Mode\n    document.getElementById(\"darkModeToggle\").addEventListener(\"click\", function() {\n      document.body.classList.toggle(\"dark-mode\");\n      this.textContent = document.body.classList.contains(\"dark-mode\") ? \"☀️\" : \"🌙\";\n    });\n\n    // Nuevo: Toggle para el menú móvil\n    document.getElementById(\"menuToggle\").addEventListener(\"click\", function() {\n      document.querySelector(\".nav-links\").classList.toggle(\"open\");\n    });\n\n    // ⚡ Animaciones al hacer scroll\n    const elements = document.querySelectorAll(\".fade-in\");\n    const observer = new IntersectionObserver(entries => {\n      entries.forEach(entry => {\n        if (entry.isIntersecting) entry.target.classList.add(\"visible\");\n      });\n    });\n    elements.forEach(el => observer.observe(el));\n\n    // 🎠 Slider automático\n    let index = 0;\n    function moveSlider() {\n      index = (index + 1) % 3;\n      document.querySelector(\".slides\").style.transform = `translateX(-${index * 100}%)`;\n    }\n    setInterval(moveSlider, 3000);\n\n    // 🚀 Mensaje interactivo\n    function showMessage() {\n      alert(\"¡Bienvenido a Black Sheep! Prepárate para romper esquemas. 🔥\");\n    }\n\n    // Cerrar el modal al hacer clic fuera del contenido\n    window.addEventListener(\"click\", function(event) {\n      const modal = document.getElementById(\"gameModal\");\n      if (event.target === modal) {\n        closeGameModal();\n      }\n    });\n\n    // Verificar orientación en dispositivos móviles\n    function checkOrientation() {\n      const orientationMsg = document.getElementById(\"orientationMsg\");\n      if(window.innerWidth < window.innerHeight) {\n        orientationMsg.style.display = \"block\";\n      } else {\n        orientationMsg.style.display = \"none\";\n      }\n    }\n    // Ejecutar al iniciar y al redimensionar\n    window.addEventListener(\"resize\", checkOrientation);\n    document.addEventListener(\"DOMContentLoaded\", checkOrientation);\n  </script>\n</body>\n</html>\n```
 
-### Detalles de las mejoras implementadas:
-- **Menú de Navegación Responsivo:**  
-  En dispositivos con ancho máximo de 768px, el menú se oculta inicialmente y se activa de forma deslizante al pulsar el botón ☰. Además, los enlaces se disponen horizontalmente y permiten scroll táctil si fuese necesario.
-
-- **Estructura Conservada:**  
-  Se han mantenido las secciones originales (Hero, Parallax, Slider, Grid Gallery, Footer, Modal Popup) y las URLs de los assets.
-
-- **Ajustes Responsivos:**  
-  Se han mejorado las media queries para adaptar el padding y el tamaño de fuentes en dispositivos pequeños, asegurando una experiencia óptima tanto en pantallas grandes como en móviles.
-
-¡Espero que esta versión sea de tu agrado, Genio!
+En esta versión se conserva todo el contenido, el modal para el juego y la estructura original, mejorando únicamente la presentación del menú para hacerlo más interactivo y responsivo en dispositivos móviles. ¡Espero que esta mejora cumpla tus expectativas, Genio!
