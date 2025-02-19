@@ -25,43 +25,66 @@
             transition: background 0.5s, color 0.5s;
         }
 
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background: linear-gradient(90deg, #000, #333);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+       .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(90deg, #000, #333);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+.header-left {
+    flex: 1;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            list-style: none;
-        }
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espaciado entre los botones */
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
+.menu-toggle,
+.toggle-btn {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
 
-        .nav-links a:hover {
-            color: #ff6f00;
-        }
+.nav {
+    flex: 2;
+}
 
-        /* Botón hamburguesa */
-        .menu-toggle {
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6f00;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .nav {
+        display: none; /* Oculta el menú en móviles */
+    }
+
+    .menu-toggle {
             display: none;
             font-size: 1.8rem;
             background: none;
