@@ -1,303 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🐑 Black Sheep</title>
-  <style>
-    /* 🎨 Estilos Globales */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #1a1a1a;
-      color: white;
-      overflow-x: hidden;
-      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
-    }
-    /* 🎭 Efecto Fade In */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* 🚀 Header */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background: linear-gradient(90deg, #000, #333);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .nav-links {
-      display: flex;
-      gap: 15px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: white;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover {
-      color: #ff6f00;
-    }
-    .toggle-btn {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: white;
-    }
-    /* 🌟 Hero Section */
-    .hero {
-      text-align: center;
-      padding: 180px 20px 100px;
-      background: radial-gradient(circle, #222, #000);
-      animation: slideIn 1s ease-out;
-    }
-    @keyframes slideIn {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    .btn {
-      padding: 10px 20px;
-      background: #ff6f00;
-      border: none;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease-in-out;
-      margin: 5px;
-    }
-    .btn:hover {
-      background: #cc5500;
-    }
-    /* 🎢 3D Cards */
-    .grid-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      padding: 50px 20px;
-      text-align: center;
-      perspective: 1000px;
-    }
-    .card {
-      background: #333;
-      padding: 20px;
-      border-radius: 10px;
-      transform-style: preserve-3d;
-      transition: transform 0.5s ease-in-out;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: rotateY(15deg);
-    }
-    /* 🎭 Parallax */
-    .parallax {
-      height: 400px;
-      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/sheep.png') no-repeat center center/cover;
-      background-attachment: fixed;
-    }
-    /* 🎠 Slider */
-    .slider {
-      display: flex;
-      overflow: hidden;
-      width: 100%;
-      height: 300px;
-      position: relative;
-    }
-    .slides {
-      display: flex;
-      transition: transform 1s ease-in-out;
-    }
-    .slide {
-      min-width: 100%;
-      height: 300px;
-      background-size: cover;
-      background-position: center;
-    }
-    /* 🕶️ Dark Mode */
-    .dark-mode {
-      background-color: #fff;
-      color: #000;
-    }
-    .dark-mode .header {
-      background: linear-gradient(90deg, #555, #999);
-    }
-    .dark-mode .parallax {
-      filter: brightness(0.7);
-    }
-    /* ⚡ Footer */
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-    }
-    /* 📦 Modal Popup */
-    .modal {
-      display: none; /* Oculto por defecto */
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
-    }
-    .modal-content {
-      background-color: #1a1a1a;
-      margin: 5% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 960px;
-      position: relative;
-    }
-    .modal-content iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-    }
-    .close {
-      color: white;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐑 Black Sheep - Bienvenido</title>
+    <style>
+        /* 🎨 Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 🔥 Estilo General */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* 🌌 Fondo Glitch */
+        .glitch-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/sheep.png') no-repeat center center/cover;
+            animation: glitchAnim 3s infinite alternate;
+            opacity: 0.3;
+            filter: blur(2px);
+        }
+
+        @keyframes glitchAnim {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-2px, 2px); }
+            100% { transform: translate(2px, -2px); }
+        }
+
+        /* 🐑 Logo y Mensaje */
+        .splash-container {
+            text-align: center;
+            z-index: 2;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .logo {
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .tagline {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* ⏳ Barra de carga */
+        .loading-bar {
+            width: 80%;
+            max-width: 300px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 20px auto 0;
+            overflow: hidden;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .loading-bar::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: #ff6f00;
+            position: absolute;
+            left: -100%;
+            animation: loadingAnim 3s linear infinite;
+        }
+
+        @keyframes loadingAnim {
+            from { left: -100%; }
+            to { left: 100%; }
+        }
+    </style>
+    <script>
+        // ⏳ Redirige después de 4 segundos
+        setTimeout(() => {
+            window.location.href = "https://nellydafelly.github.io/blacksheep.proyect/BlackSheep_Index.html";
+        }, 4000);
+    </script>
 </head>
 <body>
-  <header class="header">
-    <h1 class="logo">🐑 Black Sheep</h1>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Black Sheep</a></li>
-        <li><a href="README.html">Portafolio</a></li>
-        <li><a href="si_somos.html">Sí Somos!</a></li>
-        <li><a href="contact.html">Contacto!</a></li>
-        <li><a href="experiencia_github.html">Gratitud GitHub</a></li>
-        <li><a href="about.html">Acerca de</a></li>
-        <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
-      </ul>
-    </nav>
-    <button id="darkModeToggle" class="toggle-btn">🌙</button>
-  </header>
-
-  <main class="main-content">
-    <section class="hero fade-in">
-      <h2>Bienvenido a Black Sheep</h2>
-      <p>🖤 Rompe las reglas, crea tu propio camino. 🔥</p>
-      <p>
-        <button class="btn" onclick="showMessage()">Descubre más</button>
-        <button class="btn" id="openGameModal">Jugar Runner</button>
-      </p>
-    </section>
-
-    <section class="parallax"></section>
-
-    <!-- 🎠 Slider -->
-    <section class="slider">
-      <div class="slides">
-        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/artgraffiti.png');"></div>
-        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/techdark.png');"></div>
-        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/futurecyberpunk.png');"></div>
-      </div>
-    </section>
-
-    <!-- 🎢 3D Cards -->
-    <section class="grid-gallery fade-in">
-      <div class="card">🐑 Innovación</div>
-      <div class="card">🔥 Rebeldía Creativa</div>
-      <div class="card">🚀 Futuro Digital</div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
-  </footer>
-
-  <!-- 📦 Modal Popup para el Juego -->
-  <div id="gameModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <!-- Se carga el juego a través de un iframe; asegúrate de tener "BlackSheepR.html" en el mismo directorio -->
-      <iframe src="https://nellydafelly.github.io/blacksheep.proyect/BlackSheep.html" title="BlackSheep Runner"></iframe>
+    <div class="glitch-bg"></div>
+@@ -103,18 +109,5 @@
+        <div class="tagline">🔥 Rompe las reglas, crea tu propio camino. 🖤</div>
+        <div class="loading-bar"></div>
     </div>
-  </div>
-
-  <script>
-    // 🌙 Dark Mode
-    document.getElementById("darkModeToggle").addEventListener("click", function() {
-      document.body.classList.toggle("dark-mode");
-      this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-    });
-
-    // ⚡ Animaciones al hacer scroll
-    const elements = document.querySelectorAll(".fade-in");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    });
-    elements.forEach(el => observer.observe(el));
-
-    // 🎠 Slider automático
-    let index = 0;
-    function moveSlider() {
-      index = (index + 1) % 3;
-      document.querySelector(".slides").style.transform = `translateX(-${index * 100}%)`;
-    }
-    setInterval(moveSlider, 3000);
-
-    // 🚀 Mensaje interactivo
-    function showMessage() {
-      alert("¡Bienvenido a Black Sheep! Prepárate para romper esquemas. 🔥");
-    }
-
-    // 📦 Lógica del Modal Popup para el juego
-    const gameModal = document.getElementById("gameModal");
-    const openGameModalBtn = document.getElementById("openGameModal");
-    const closeModal = document.querySelector(".modal .close");
-
-    openGameModalBtn.addEventListener("click", function() {
-      gameModal.style.display = "block";
-    });
-
-    closeModal.addEventListener("click", function() {
-      gameModal.style.display = "none";
-    });
-
-    window.addEventListener("click", function(event) {
-      if (event.target === gameModal) {
-        gameModal.style.display = "none";
-      }
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Sheep</title>
+    <style>
+        /* Estilos existentes */
+    </style>
+    <script>
+        // ⏳ Redirige después de 23 segundos
+        setTimeout(() => {
+            window.location.href = "https://github.com/nellydafelly/blacksheep.proyect/blob/main/BlackSheep_Index.html";
+        }, 4000);
+    </script>
 </body>
 </html>
