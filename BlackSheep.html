@@ -75,52 +75,6 @@
     .nav-links a:hover::after {
       width: 100%;
     }
-    /* Botones del header */
-    .header-buttons {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    .toggle-btn,
-    .menu-toggle {
-      background: none;
-      border: 5px;
-      font-size: 24px;
-      cursor: pointer;
-      color: orange;
-    }
-    /* Icono Hamburger */
-    .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: 5px;
-            color: white;
-            cursor: pointer;
-    }
-    .menu-toggle .hamburger {
-      display: block;
-      width: 24px;
-      height: 3px;
-      background: white;
-      position: relative;
-      transition: all 0.3s;
-    }
-    .menu-toggle .hamburger::before,
-    .menu-toggle .hamburger::after {
-      content: '';
-      position: absolute;
-      width: 24px;
-      height: 3px;
-      background: white;
-      transition: all 0.3s;
-    }
-    .menu-toggle .hamburger::before {
-      top: -8px;
-    }
-    .menu-toggle .hamburger::after {
-      top: 8px;
-    }
     /* Menú móvil */
     .mobile-nav {
       display: none;
@@ -156,7 +110,6 @@
     /* Responsive */
     @media (max-width: 768px) {
       .desktop-nav { display: none; }
-      .menu-toggle { display: none; }
       .mobile-nav { display: block; }
     }
     /* ─── Resto de estilos (sin cambios) ─── */
@@ -316,12 +269,10 @@
           <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
         </ul>
       </nav>
-      <!-- Botones para menú móvil y dark mode -->
+      <!-- Botones para dark mode -->
       <div class="header-buttons">
         </button>
         <button id="darkModeToggle" class="toggle-btn">🌙</button>
-        <button id="menuToggle" class="menu-toggle">
-          <span class="hamburger"></span>
       </div>
     </div>
     <!-- Menú móvil (se desliza desde la derecha) -->
