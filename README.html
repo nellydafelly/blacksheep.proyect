@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sí Somos - Proyectos de innovación, tecnología y sostenibilidad.">
-    <title>Sí Somos!</title>
+    <title>Portafolio</title>
     <style>
         /* Reset */
         * {
@@ -98,10 +98,6 @@
             text-align: justify;
         }
 
-        .project {
-            margin-bottom: 40px;
-        }
-
         .project img {
             max-width: 100%;
             height: auto;
@@ -127,6 +123,25 @@
 
         .enlaces a:hover {
             text-decoration: underline;
+        }
+
+        /* Redes Sociales */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-media a {
+            color: #3B82F6;
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #1E3A8A;
+            transform: scale(1.1);
         }
 
         /* Footer */
@@ -167,6 +182,10 @@
                 padding: 0.5rem;
                 display: block;
             }
+
+            .social-media a {
+                font-size: 1.5rem;
+            }
         }
 
         /* Modo Oscuro */
@@ -176,11 +195,25 @@
         }
 
         .dark-mode .header {
-            background: linear-gradient(90deg, #555, #999);
+            background: linear-gradient(90deg, #ccc, #fff);
+        }
+
+        .dark-mode .nav-links a {
+            color: black;
+        }
+
+        .dark-mode .nav-links a:hover {
+            color: #ff6f00;
+        }
+
+        .dark-mode main {
+            background: #f4f4f4;
+            color: #000;
         }
 
         .dark-mode footer {
-            background: #333;
+            background: #3B82F6;
+            color: white;
         }
     </style>
 </head>
@@ -188,15 +221,20 @@
 <body>
     <header class="header">
         <h1 class="logo">🐑 BlackSheep</h1>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+
+        <div class="header-buttons">
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+            <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
+        </div>
+
         <nav>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Black Sheep</a></li>
                 <li><a href="README.html">Portafolio</a></li>
+                <li><a href="si_somos.html">Sí Somos!</a></li>
                 <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
             </ul>
         </nav>
-        <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
     </header>
 
     <main>
