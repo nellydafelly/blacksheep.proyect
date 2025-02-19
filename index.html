@@ -2,473 +2,302 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BlackSheep Runner</title>
-  <!-- Fuentes pixel art -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <title>🐑 Black Sheep</title>
   <style>
-    * { padding: 0; margin: 0; }
+    /* 🎨 Estilos Globales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
     body {
-      height: 100vh;
-      background: #584040;
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      overflow-x: hidden;
+      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    }
+    /* 🎭 Efecto Fade In */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* 🚀 Header */
+    .header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .contenedor {
-      width: 920px;
-      height: 280px;
-      position: relative;
-      background: linear-gradient(#b7d6c7, transparent) #ffe2d1;
-      transition: background-color 1s linear;
-      overflow: hidden;
-    }
-    .mediodia { background-color: #ffdcf3; }
-    .tarde { background-color: #ffadad; }
-    .noche { background-color: #aca8c7; }
-    .dino {
-      width: 84px;
-      height: 84px;
-      position: absolute;
-      bottom: 22px;
-      left: 42px;
-      z-index: 2;
-      background: url(img/bsheep.png) repeat-x 0 0;
-      background-size: 336px 84px;
-      background-position-x: 0;
-    }
-    .dino-corriendo {
-      animation: animarDino 0.25s steps(2) infinite;
-    }
-    .dino-estrellado {
-      background-position-x: -252px;
-    }
-    .suelo {
-      width: 200%;
-      height: 42px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background: url(img/suelo.png) repeat-x 0 0;
-      background-size: 50% 42px;
-    }
-    .cactus {
-      width: 119px;
-      height: 129px;
-      position: absolute;
-      bottom: 16px;
-      left: 600px;
-      z-index: 1;
-      background: url(img/cactus1.png) no-repeat;
-    }
-    .cactus2 {
-      width: 92px;
-      height: 121px;
-      background: url(img/cactus2.png) no-repeat;
-    }
-    .nube {
-      position: absolute;
-      z-index: 0;
-      background: url(img/nube.png) no-repeat;
-      background-size: 100% 100%;
-    }
-    .score {
-      width: 100px;
-      height: 30px;
-      position: absolute;
-      top: 5px;
-      right: 15px;
-      z-index: 10;
-      color: #d48871;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 20px;
-      font-weight: bold;
-      text-align: right;
-    }
-    .game-over {
-      display: none;
-      position: absolute;
+      padding: 20px;
+      background: linear-gradient(90deg, #000, #333);
+      position: fixed;
       width: 100%;
-      text-align: center;
-      top: 40%;
-      color: #7e928b;
-      font-size: 30px;
-      font-family: 'VT323', monospace;
-      font-weight: 700;
-      z-index: 20;
-    }
-    /* High score overlay con mensaje sutil */
-    .highscores {
-      display: none;
-      position: absolute;
       top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ff6f00;
+    }
+    .toggle-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+    /* 🌟 Hero Section */
+    .hero {
+      text-align: center;
+      padding: 180px 20px 100px;
+      background: radial-gradient(circle, #222, #000);
+      animation: slideIn 1s ease-out;
+    }
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .btn {
+      padding: 10px 20px;
+      background: #ff6f00;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+      margin: 5px;
+    }
+    .btn:hover {
+      background: #cc5500;
+    }
+    /* 🎢 3D Cards */
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 50px 20px;
+      text-align: center;
+      perspective: 1000px;
+    }
+    .card {
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-in-out;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: rotateY(15deg);
+    }
+    /* 🎭 Parallax */
+    .parallax {
+      height: 400px;
+      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/sheep.png') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+    /* 🎠 Slider */
+    .slider {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      height: 300px;
+      position: relative;
+    }
+    .slides {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+    }
+    /* 🕶️ Dark Mode */
+    .dark-mode {
+      background-color: #fff;
+      color: #000;
+    }
+    .dark-mode .header {
+      background: linear-gradient(90deg, #555, #999);
+    }
+    .dark-mode .parallax {
+      filter: brightness(0.7);
+    }
+    /* ⚡ Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+    }
+    /* 📦 Modal Popup */
+    .modal {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      z-index: 2000;
       left: 0;
+      top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.8);
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+    .modal-content {
+      background-color: #1a1a1a;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 960px;
+      position: relative;
+    }
+    .modal-content iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+    .close {
       color: white;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 16px;
-      text-align: center;
-      padding-top: 50px;
-      z-index: 30;
-    }
-    /* Mensaje para rotar el dispositivo (muy sutil) */
-    .rotate-message {
-      display: none;
-      position: fixed;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.4);
-      color: #fff;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 14px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      z-index: 40;
-    }
-    @keyframes animarDino {
-      from { background-position-x: -84px; }
-      to { background-position-x: -252px; }
-    }
-    /* Responsive Design */
-    @media (max-width: 600px) {
-      .contenedor {
-        width: 100%;
-        height: 200px;
-      }
-      .dino {
-        width: 60px;
-        height: 60px;
-        bottom: 15px;
-        left: 20px;
-        background-size: 240px 60px;
-      }
-      .suelo {
-        height: 30px;
-        background-size: 50% 30px;
-      }
-      .score {
-        font-size: 16px;
-      }
-      .game-over {
-        font-size: 24px;
-      }
-    }
-    /* Ajustes para orientación vertical (portrait) */
-    @media (orientation: portrait) {
-      .contenedor {
-        width: 100%;
-        max-width: 500px;
-        height: 250px;
-      }
-      .dino {
-        width: 60px;
-        height: 60px;
-        bottom: 10px;
-        left: 10px;
-        background-size: 240px 60px;
-      }
-      .suelo {
-        height: 30px;
-        background-size: 50% 30px;
-      }
-      .score {
-        font-size: 14px;
-      }
-      .game-over {
-        font-size: 20px;
-      }
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="contenedor">
-    <div class="suelo"></div>
-    <div class="dino dino-corriendo"></div>
-    <div class="score">0</div>
-    <div class="game-over">¡VAMOS!</div>
+  <header class="header">
+    <h1 class="logo">🐑 Black Sheep</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Black Sheep</a></li>
+        <li><a href="README.html">Portafolio</a></li>
+        <li><a href="si_somos.html">Sí Somos!</a></li>
+        <li><a href="contact.html">Contacto!</a></li>
+        <li><a href="experiencia_github.html">Gratitud GitHub</a></li>
+        <li><a href="about.html">Acerca de</a></li>
+        <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+      </ul>
+    </nav>
+    <button id="darkModeToggle" class="toggle-btn">🌙</button>
+  </header>
+
+  <main class="main-content">
+    <section class="hero fade-in">
+      <h2>Bienvenido a Black Sheep</h2>
+      <p>🖤 Rompe las reglas, crea tu propio camino. 🔥</p>
+      <p>
+        <button class="btn" onclick="showMessage()">Descubre más</button>
+        <button class="btn" id="openGameModal">Jugar Runner</button>
+      </p>
+    </section>
+
+    <section class="parallax"></section>
+
+    <!-- 🎠 Slider -->
+    <section class="slider">
+      <div class="slides">
+        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/artgraffiti.png');"></div>
+        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/techdark.png');"></div>
+        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/futurecyberpunk.png');"></div>
+      </div>
+    </section>
+
+    <!-- 🎢 3D Cards -->
+    <section class="grid-gallery fade-in">
+      <div class="card">🐑 Innovación</div>
+      <div class="card">🔥 Rebeldía Creativa</div>
+      <div class="card">🚀 Futuro Digital</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- 📦 Modal Popup para el Juego -->
+  <div id="gameModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <!-- Se carga el juego a través de un iframe; asegúrate de tener "BlackSheepR.html" en el mismo directorio -->
+      <iframe src="BlackSheepR.html" title="BlackSheep Runner"></iframe>
+    </div>
   </div>
-  <div class="highscores" id="highScoreOverlay"></div>
-  <div class="rotate-message" id="rotateMessage">Para una mejor experiencia, gira el dispositivo</div>
-  
+
   <script>
-    //****** GAME LOOP ********//
-    var time = new Date();
-    var deltaTime = 0;
-    
-    if(document.readyState === "complete" || document.readyState === "interactive"){
-      setTimeout(Init, 1);
-    } else {
-      document.addEventListener("DOMContentLoaded", Init); 
-    }
-    
-    //****** VARIABLES DEL JUEGO ********//
-    var sueloY = 22;
-    var velY = 0;
-    var impulso = 900;
-    var gravedad = 2500;
-    
-    var dinoPosX = 42;
-    var dinoPosY = sueloY; 
-    
-    var sueloX = 0;
-    var velEscenario = 1280/3;
-    var gameVel = 1;
-    var score = 0;
-    
-    var parado = false;
-    var saltando = false;
-    
-    // Intervalos para mayor dificultad (más frecuentes)
-    var tiempoHastaObstaculo = 2;
-    var tiempoObstaculoMin = 0.8;
-    var tiempoObstaculoMax = 2.5;
-    var obstaculos = [];
-    
-    var tiempoHastaNube = 0.5;
-    var tiempoNubeMin = 0.8;  
-    var tiempoNubeMax = 2.5;  
-    var maxNubeY = 270;
-    var minNubeY = 100;
-    var nubes = [];
-    var velNube = 0.5;
-    
-    var contenedor, dino, textoScore, suelo, gameOver;
-    
-    function Init() {
-      time = new Date();
-      Start();
-      Loop();
-      // Control táctil para dispositivos móviles
-      document.addEventListener("touchstart", function(e) {
-        e.preventDefault();
-        Saltar();
+    // 🌙 Dark Mode
+    document.getElementById("darkModeToggle").addEventListener("click", function() {
+      document.body.classList.toggle("dark-mode");
+      this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    });
+
+    // ⚡ Animaciones al hacer scroll
+    const elements = document.querySelectorAll(".fade-in");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
       });
-      // Comprobar orientación al iniciar y al redimensionar
-      checkOrientation();
-      window.addEventListener("resize", checkOrientation);
+    });
+    elements.forEach(el => observer.observe(el));
+
+    // 🎠 Slider automático
+    let index = 0;
+    function moveSlider() {
+      index = (index + 1) % 3;
+      document.querySelector(".slides").style.transform = `translateX(-${index * 100}%)`;
     }
-    
-    function Loop() {
-      deltaTime = (new Date() - time) / 1000;
-      time = new Date();
-      if(!parado) { Update(); }
-      requestAnimationFrame(Loop);
+    setInterval(moveSlider, 3000);
+
+    // 🚀 Mensaje interactivo
+    function showMessage() {
+      alert("¡Bienvenido a Black Sheep! Prepárate para romper esquemas. 🔥");
     }
-    
-    function Start() {
-      gameOver = document.querySelector(".game-over");
-      suelo = document.querySelector(".suelo");
-      contenedor = document.querySelector(".contenedor");
-      textoScore = document.querySelector(".score");
-      dino = document.querySelector(".dino");
-      document.addEventListener("keydown", HandleKeyDown);
-    }
-    
-    function Update() {
-      MoverDinosaurio();
-      MoverSuelo();
-      DecidirCrearObstaculos();
-      DecidirCrearNubes();
-      MoverObstaculos();
-      MoverNubes();
-      DetectarColision();
-      velY -= gravedad * deltaTime;
-    }
-    
-    function HandleKeyDown(ev){
-      if(ev.keyCode == 32){ Saltar(); }
-    }
-    
-    function Saltar(){
-      if(dinoPosY === sueloY){
-        saltando = true;
-        velY = impulso;
-        dino.classList.remove("dino-corriendo");
+
+    // 📦 Lógica del Modal Popup para el juego
+    const gameModal = document.getElementById("gameModal");
+    const openGameModalBtn = document.getElementById("openGameModal");
+    const closeModal = document.querySelector(".modal .close");
+
+    openGameModalBtn.addEventListener("click", function() {
+      gameModal.style.display = "block";
+    });
+
+    closeModal.addEventListener("click", function() {
+      gameModal.style.display = "none";
+    });
+
+    window.addEventListener("click", function(event) {
+      if (event.target === gameModal) {
+        gameModal.style.display = "none";
       }
-    }
-    
-    function MoverDinosaurio() {
-      dinoPosY += velY * deltaTime;
-      if(dinoPosY < sueloY){ TocarSuelo(); }
-      dino.style.bottom = dinoPosY + "px";
-    }
-    
-    function TocarSuelo() {
-      dinoPosY = sueloY;
-      velY = 0;
-      if(saltando){ dino.classList.add("dino-corriendo"); }
-      saltando = false;
-    }
-    
-    function MoverSuelo() {
-      sueloX += CalcularDesplazamiento();
-      suelo.style.left = -(sueloX % contenedor.clientWidth) + "px";
-    }
-    
-    function CalcularDesplazamiento() {
-      return velEscenario * deltaTime * gameVel;
-    }
-    
-    function Estrellarse() {
-      dino.classList.remove("dino-corriendo");
-      dino.classList.add("dino-estrellado");
-      parado = true;
-    }
-    
-    function DecidirCrearObstaculos() {
-      tiempoHastaObstaculo -= deltaTime;
-      if(tiempoHastaObstaculo <= 0) { CrearObstaculo(); }
-    }
-    
-    function DecidirCrearNubes() {
-      tiempoHastaNube -= deltaTime;
-      if(tiempoHastaNube <= 0) { CrearNube(); }
-    }
-    
-    function CrearObstaculo() {
-      var obstaculo = document.createElement("div");
-      contenedor.appendChild(obstaculo);
-      obstaculo.classList.add("cactus");
-      // Alternar entre cactus y cactus2
-      if(Math.random() > 0.5) { obstaculo.classList.add("cactus2"); }
-      // Asignar posición inicial
-      obstaculo.posX = contenedor.clientWidth;
-      obstaculo.style.left = contenedor.clientWidth + "px";
-      // Aplicar un scale aleatorio para aumentar dificultad
-      var obstacleScale = Math.random() * 0.1 + 0,5;
-      obstaculo.style.transform = "scale(" + obstacleScale + ")";
-    
-      obstaculos.push(obstaculo);
-      tiempoHastaObstaculo = tiempoObstaculoMin + Math.random() * (tiempoObstaculoMax - tiempoObstaculoMin) / gameVel;
-    }
-    
-    function CrearNube() {
-      var nube = document.createElement("div");
-      contenedor.appendChild(nube);
-      nube.classList.add("nube");
-      nube.posX = contenedor.clientWidth;
-      nube.style.left = contenedor.clientWidth + "px";
-      nube.style.bottom = minNubeY + Math.random() * (maxNubeY - minNubeY) + "px";
-      
-      // Alternar tamaño de la nube
-      var scale = Math.random() * 0.5 + 0.75; // entre 0.75 y 1.25
-      nube.style.width = (93 * scale) + "px";
-      nube.style.height = (37 * scale) + "px";
-    
-      nubes.push(nube);
-      tiempoHastaNube = tiempoNubeMin + Math.random() * (tiempoNubeMax - tiempoNubeMin) / gameVel;
-    }
-    
-    function MoverObstaculos() {
-      for (var i = obstaculos.length - 1; i >= 0; i--) {
-        if(obstaculos[i].posX < -obstaculos[i].clientWidth) {
-          obstaculos[i].parentNode.removeChild(obstaculos[i]);
-          obstaculos.splice(i, 1);
-          GanarPuntos();
-        } else {
-          obstaculos[i].posX -= CalcularDesplazamiento();
-          obstaculos[i].style.left = obstaculos[i].posX + "px";
-        }
-      }
-    }
-    
-    function MoverNubes() {
-      for (var i = nubes.length - 1; i >= 0; i--) {
-        if(nubes[i].posX < -nubes[i].clientWidth) {
-          nubes[i].parentNode.removeChild(nubes[i]);
-          nubes.splice(i, 1);
-        } else {
-          nubes[i].posX -= CalcularDesplazamiento() * velNube;
-          nubes[i].style.left = nubes[i].posX + "px";
-        }
-      }
-    }
-    
-    function GanarPuntos() {
-      score++;
-      textoScore.innerText = score;
-      // Incremento de dificultad progresivo
-      if(score == 5){
-        gameVel = 1.5;
-        contenedor.classList.add("mediodia");
-      } else if(score == 10) {
-        gameVel = 2;
-        contenedor.classList.add("tarde");
-      } else if(score == 20) {
-        gameVel = 3;
-        contenedor.classList.add("noche");
-      }
-      suelo.style.animationDuration = (3 / gameVel) + "s";
-    }
-    
-    function GameOver() {
-      Estrellarse();
-      gameOver.style.display = "block";
-      updateHighScores();
-      // Mostrar overlay de puntajes durante los 5 segundos
-      var overlay = document.getElementById("highScoreOverlay");
-      overlay.style.display = "block";
-      // Agregar mensaje sutil de reinicio
-      overlay.innerHTML += "<p style='opacity:0.7; font-size:14px;'>Reiniciando...</p>";
-      setTimeout(function() {
-        location.reload();
-      }, 5000);
-    }
-    
-    // Detección de colisión con mayor tolerancia para acercarse más a los obstáculos
-    function DetectarColision() {
-      for (var i = 0; i < obstaculos.length; i++) {
-        if(obstaculos[i].posX > dinoPosX + dino.clientWidth) {
-          break;
-        } else {
-          if(IsCollision(dino, obstaculos[i], 20, 40, 20, 40)) {
-            GameOver();
-          }
-        }
-      }
-    }
-    
-    function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft) {
-      var aRect = a.getBoundingClientRect();
-      var bRect = b.getBoundingClientRect();
-      return !(
-        ((aRect.top + aRect.height - paddingBottom) < (bRect.top)) ||
-        (aRect.top + paddingTop > (bRect.top + bRect.height)) ||
-        ((aRect.left + aRect.width - paddingRight) < bRect.left) ||
-        (aRect.left + paddingLeft > (bRect.left + bRect.width))
-      );
-    }
-    
-    // Lógica de puntajes máximos (Top 5)
-    function updateHighScores() {
-      var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-      highScores.push(score);
-      highScores.sort(function(a, b) { return b - a; });
-      highScores = highScores.slice(0, 5);
-      localStorage.setItem("highScores", JSON.stringify(highScores));
-    
-      var overlay = document.getElementById("highScoreOverlay");
-      overlay.innerHTML = "<h2>Mejores Puntajes</h2>";
-      for(var i = 0; i < highScores.length; i++){
-        overlay.innerHTML += "<p>" + (i+1) + ". " + highScores[i] + "</p>";
-      }
-    }
-    
-    // Comprobar orientación del dispositivo (mensaje sutil)
-    function checkOrientation() {
-      var rotateMessage = document.getElementById("rotateMessage");
-      if(window.innerWidth < window.innerHeight){
-        rotateMessage.style.display = "block";
-      } else {
-        rotateMessage.style.display = "none";
-      }
-    }
+    });
   </script>
 </body>
 </html>
