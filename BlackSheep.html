@@ -146,17 +146,36 @@
 </head>
 <body>
   <!-- 🔥 Header -->
+  </head>
+<body>
   <header class="header">
     <div class="header-container">
-      <div class="logo">🐑 Black Sheep</div>
-      <!-- 🔗 Menú Desktop -->
+      <h1 class="logo">🐑 Black Sheep</h1>
+      <!-- Menú para escritorio -->
       <nav class="desktop-nav">
         <ul class="nav-links">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Proyectos</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="index.html">Black Sheep</a></li>
+          <li><a href="README.html">Portafolio</a></li>
+          <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
         </ul>
+      </nav>
+      <!-- Botones para menú móvil y dark mode -->
+      <div class="header-buttons">
+        <button id="menuToggle" class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
+        <button id="darkModeToggle" class="toggle-btn">🌙</button>
+      </div>
+    </div>
+    <!-- Menú móvil (se desliza desde la derecha) -->
+    <nav class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">Black Sheep</a></li>
+        <li><a href="README.html">Portafolio</a></li>
+        <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
       </nav>
       <!-- 📱 Botón de menú móvil -->
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
@@ -165,11 +184,10 @@
   <!-- 📱 Menú móvil -->
   <nav class="mobile-nav" id="mobileNav">
     <ul class="mobile-nav-links">
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Proyectos</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
+        <li><a href="index.html">Black Sheep</a></li>
+        <li><a href="README.html">Portafolio</a></li>
+        <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+      </ul>
   </nav>
   <!-- 🎮 Script para el Menú Móvil -->
   <script>
