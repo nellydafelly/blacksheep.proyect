@@ -236,7 +236,7 @@
       time = new Date();
       Start();
       Loop();
-      // Control táctil (tap) para dispositivos móviles: adicional al espacio
+      // Control táctil para dispositivos móviles (tap adicional al espacio)
       document.addEventListener("touchstart", function(e) {
         e.preventDefault();
         Saltar();
@@ -387,17 +387,12 @@
       }
     }
     
+    // Se eliminó la verificación de récord de GanarPuntos para evitar pausas durante el juego
     function GanarPuntos() {
       score++;
       textoScore.innerText = score;
       document.getElementById('pointSound').play();
       
-      var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-      if(score > Math.max(...highScores, 0)) {
-        document.getElementById('highScoreSound').play();
-        alert("¡Nuevo puntaje más alto!");
-      }
-
       if(score == 5){
         gameVel = 1.5;
         contenedor.classList.add("mediodia");
@@ -412,13 +407,47 @@
     }
     
     function GameOver() {
+      // Reproducir sonido de colisión y marcar el estado de Game Over
       Estrellarse();
       gameOver.style.display = "block";
+      
+      // Recuperar el récord previo antes de actualizar
+      var storedHighScores = JSON.parse(localStorage.getItem("highScores")) || [];
+      var prevMax = Math.max(...storedHighScores, 0);
+      
+      // Si el puntaje actual supera el récord, mostrar mensaje y reproducir sonido
+      if(score > prevMax) {
+        document.getElementById('highScoreSound').play();
+        var newHighMsg = document.createElement('div');
+        newHighMsg.innerText = "¡Nuevo puntaje más alto!";
+        newHighMsg.style.fontSize = "24px";
+        newHighMsg.style.color = "#fff";
+        newHighMsg.style.marginTop = "20px";
+        gameOver.appendChild(newHighMsg);
+      }
+      
       updateHighScores(); // Muestra los 5 mejores puntajes en overlay
+      
+      // Encadenar el sonido de reinicio tras finalizar el sonido de colisión
+      var collisionSound = document.getElementById('collisionSound');
+      collisionSound.onended = function() {
+        var restartSound = document.getElementById('restartSound');
+        restartSound.play();
+        restartSound.onended = function() {
+          location.reload();
+        };
+      };
+      
+      // Fallback en caso de que el evento 'ended' no se dispare (por ejemplo, en algunos navegadores)
       setTimeout(function() {
-        document.getElementById('restartSound').play();
-        location.reload();
-      }, 5000);
+        if(document.getElementById('restartSound').paused) {
+          var restartSound = document.getElementById('restartSound');
+          restartSound.play();
+          restartSound.onended = function() {
+            location.reload();
+          };
+        }
+      }, 2000);
     }
     
     function DetectarColision() {
