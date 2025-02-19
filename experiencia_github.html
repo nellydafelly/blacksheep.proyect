@@ -193,24 +193,72 @@
         .dark-mode footer {
             background: #333;
         }
+        .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(90deg, #000, #333);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Agrega espacio entre los botones */
+}
+
+.menu-toggle,
+.toggle-btn {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6f00;
+}
+
     </style>
 </head>
 
 <body>
     <header class="header">
-        <h1 class="logo">🐑 BlackSheep</h1>
+    <h1 class="logo">🐑 BlackSheep</h1>
+    
+    <div class="header-buttons">
         <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
-        <nav>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Black Sheep</a></li>
-                <li><a href="README.html">Portafolio</a></li>
-                <li><a href="si_somos.html">Sí Somos!</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-                <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
-            </ul>
-        </nav>
         <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
-    </header>
+    </div>
+
+    <nav>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Black Sheep</a></li>
+            <li><a href="README.html">Portafolio</a></li>
+            <li><a href="si_somos.html">Sí Somos!</a></li>
+            <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
 
     <main>
         <section id="testimonio">
