@@ -7,216 +7,40 @@
   <!-- Fuentes Pixel Art -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <style>
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1a1a1a;
-            color: white;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            transition: background 0.5s, color 0.5s;
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background: linear-gradient(90deg, #000, #333);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ff6f00;
-        }
-
-        /* Botón de menú */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Contenido principal */
-        main {
-            flex: 1;
-            padding: 7rem 2rem 2rem;
-            max-width: 800px;
-            margin: auto;
-            background: #222;
-            border-radius: 8px;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        h2 {
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            color: #ff6f00;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        .project img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        /* Enlaces */
-        .enlaces {
-            list-style: none;
-            padding: 0;
-        }
-
-        .enlaces li {
-            margin-bottom: 0.8rem;
-        }
-
-        .enlaces a {
-            color: #3B82F6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .enlaces a:hover {
-            text-decoration: underline;
-        }
-
-        /* Redes Sociales */
-        .social-media {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-media a {
-            color: #3B82F6;
-            font-size: 1.8rem;
-            transition: transform 0.3s;
-        }
-
-        .social-media a:hover {
-            color: #1E3A8A;
-            transform: scale(1.1);
-        }
-
-        /* Footer */
-        footer {
-            background: #1E3A8A;
-            color: white;
-            text-align: center;
-            padding: 0.8rem;
-            font-size: 0.9rem;
-            border-radius: 0 0 8px 8px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: rgba(0, 0, 0, 0.9);
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 100%;
-                text-align: center;
-                padding: 1rem 0;
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 0.5rem;
-                display: block;
-            }
-
-            .social-media a {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Modo Oscuro */
-        .dark-mode {
-            background-color: #fff;
-            color: #000;
-        }
-
-        .dark-mode .header {
-            background: linear-gradient(90deg, #ccc, #fff);
-        }
-
-        .dark-mode .nav-links a {
-            color: black;
-        }
-
-        .dark-mode .nav-links a:hover {
-            color: #ff6f00;
-        }
-
-        .dark-mode main {
-            background: #f4f4f4;
-            color: #000;
-        }
-
-        .dark-mode footer {
-            background: #3B82F6;
-            color: white;
-        }
-    </style>
-
+    /* 🎨 Estilos Globales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      overflow-x: hidden;
+      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    }
+    /* 🚀 Header Mejorado */
+    .header {
+      background: linear-gradient(90deg, #000, #333);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
     }
     /* Menú Desktop */
     .desktop-nav {
@@ -471,9 +295,8 @@
       .nav-links { flex-direction: column; align-items: center; gap: 10px; }
       .header-container { flex-wrap: wrap; justify-content: center; }\n      .grid-gallery { padding: 30px 10px; }\n      .slider { height: 200px; }\n      .slide { height: 200px; }\n      .modal-content { width: 95%; margin: 10% auto; }\n    }\n    @media (max-width: 480px) {\n      .logo { font-size: 20px; }\n      .btn { padding: 8px 16px; font-size: 14px; }\n      .hero { padding: 100px 10px 70px; }\n      .footer { font-size: 14px; }\n    }\n  </style>
 </head>
-
 <body>
-    <header class="header">
+  <header class="header">
         <h1 class="logo">🐑 BlackSheep</h1>
 
         <div class="header-buttons">
