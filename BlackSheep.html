@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🐑 Black Sheep</title>
+  <!-- Fuentes Pixel Art -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <style>
     /* 🎨 Estilos Globales */
     * {
@@ -73,14 +75,8 @@
       animation: slideIn 1s ease-out;
     }
     @keyframes slideIn {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
     .btn {
       padding: 10px 20px;
@@ -190,6 +186,36 @@
       font-weight: bold;
       cursor: pointer;
     }
+    /* Overlay para orientación */
+    #orientationMsg {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0,0,0,0.4);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      z-index: 3000;
+      display: none;
+    }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero { padding: 120px 20px 80px; }
+      .nav-links { flex-direction: column; align-items: center; gap: 10px; }
+      .header { flex-wrap: wrap; justify-content: center; }
+      .grid-gallery { padding: 30px 10px; }
+      .slider { height: 200px; }
+      .slide { height: 200px; }
+      .modal-content { width: 95%; margin: 10% auto; }\n    }
+    @media (max-width: 480px) {
+      .logo { font-size: 20px; }
+      .btn { padding: 8px 16px; font-size: 14px; }
+      .hero { padding: 100px 10px 70px; }
+      .footer { font-size: 14px; }
+    }
   </style>
 </head>
 <body>
@@ -250,6 +276,9 @@
     </div>
   </div>
 
+  <!-- Overlay para orientación en móviles -->
+  <div id="orientationMsg">Para una mejor experiencia, gira tu dispositivo a horizontal</div>
+
   <script>
     // Función para abrir el modal y cargar el juego
     function openGameModal() {
@@ -299,6 +328,19 @@
         closeGameModal();
       }
     });
+
+    // Verificar orientación en dispositivos móviles
+    function checkOrientation() {
+      const orientationMsg = document.getElementById("orientationMsg");
+      if(window.innerWidth < window.innerHeight) {
+        orientationMsg.style.display = "block";
+      } else {
+        orientationMsg.style.display = "none";
+      }
+    }
+    // Ejecutar al iniciar y al redimensionar
+    window.addEventListener("resize", checkOrientation);
+    document.addEventListener("DOMContentLoaded", checkOrientation);
   </script>
 </body>
 </html>
