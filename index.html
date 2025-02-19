@@ -1,113 +1,471 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐑 Black Sheep - Bienvenido</title>
-    <style>
-        /* 🎨 Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* 🔥 Estilo General */
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* 🌌 Fondo Glitch */
-        .glitch-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/sheep.png') no-repeat center center/cover;
-            animation: glitchAnim 3s infinite alternate;
-            opacity: 0.3;
-            filter: blur(2px);
-        }
-
-        @keyframes glitchAnim {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(-2px, 2px); }
-            100% { transform: translate(2px, -2px); }
-        }
-
-        /* 🐑 Logo y Mensaje */
-        .splash-container {
-            text-align: center;
-            z-index: 2;
-            animation: fadeIn 2s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .logo {
-            font-size: 50px;
-            font-weight: bold;
-        }
-
-        .tagline {
-            font-size: 18px;
-            margin-top: 10px;
-            opacity: 0.8;
-        }
-
-        /* ⏳ Barra de carga */
-        .loading-bar {
-            width: 80%;
-            max-width: 300px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.2);
-            margin: 20px auto 0;
-            overflow: hidden;
-            position: relative;
-            border-radius: 5px;
-        }
-
-        .loading-bar::after {
-            content: '';
-            width: 100%;
-            height: 100%;
-            background: #ff6f00;
-            position: absolute;
-            left: -100%;
-            animation: loadingAnim 3s linear infinite;
-        }
-
-        @keyframes loadingAnim {
-            from { left: -100%; }
-            to { left: 100%; }
-        }
-    </style>
-    <script>
-        // ⏳ Redirige después de 5 segundos
-        setTimeout(() => {
-            window.location.href = "https://nellydafelly.github.io/blacksheep.proyect/BlackSheep.html";
-        }, 4000);
-    </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlackSheep Runner</title>
+  <!-- Fuentes pixel art -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      height: 100vh;
+      background: #584040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contenedor {
+      width: 920px;
+      height: 280px;
+      position: relative;
+      background: linear-gradient(#b7d6c7, transparent) #ffe2d1;
+      transition: background-color 1s linear;
+      overflow: hidden;
+    }
+    .mediodia {
+      background-color: #ffdcf3;
+    }
+    .tarde {
+      background-color: #ffadad;
+    }
+    .noche {
+      background-color: #aca8c7;
+    }
+    .dino {
+      width: 84px;
+      height: 84px;
+      position: absolute;
+      bottom: 22px;
+      left: 42px;
+      z-index: 2;
+      background: url(img/bsheep.png) repeat-x 0 0;
+      background-size: 336px 84px;
+      background-position-x: 0;
+    }
+    .dino-corriendo {
+      animation: animarDino 0.25s steps(2) infinite;
+    }
+    .dino-estrellado {
+      background-position-x: -252px;
+    }
+    .suelo {
+      width: 200%;
+      height: 42px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: url(img/suelo.png) repeat-x 0 0;
+      background-size: 50% 42px;
+    }
+    .cactus {
+      width: 119px;
+      height: 129px;
+      position: absolute;
+      bottom: 16px;
+      left: 600px;
+      z-index: 1;
+      background: url(img/cactus1.png) no-repeat;
+    }
+    .cactus2 {
+      width: 92px;
+      height: 121px;
+      background: url(img/cactus2.png) no-repeat;
+    }
+    .nube {
+      position: absolute;
+      z-index: 0;
+      background: url(img/nube.png) no-repeat;
+      background-size: 100% 100%;
+    }
+    .score {
+      width: 100px;
+      height: 30px;
+      position: absolute;
+      top: 5px;
+      right: 15px;
+      z-index: 10;
+      color: #d48871;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: right;
+    }
+    .game-over {
+      display: none;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 40%;
+      color: #7e928b;
+      font-size: 30px;
+      font-family: 'VT323', monospace;
+      font-weight: 700;
+      z-index: 20;
+    }
+    /* High score overlay */
+    .highscores {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 16px;
+      text-align: center;
+      padding-top: 50px;
+      z-index: 30;
+    }
+    /* Rotate device message */
+    .rotate-message {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 20px;
+      text-align: center;
+      padding-top: 40%;
+      z-index: 40;
+    }
+    @keyframes animarDino {
+      from {
+        background-position-x: -84px;
+      }
+      to {
+        background-position-x: -252px;
+      }
+    }
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .contenedor {
+        width: 100%;
+        height: 200px;
+      }
+      .dino {
+        width: 60px;
+        height: 60px;
+        bottom: 15px;
+        left: 20px;
+        background-size: 240px 60px;
+      }
+      .suelo {
+        height: 30px;
+        background-size: 50% 30px;
+      }
+      .score {
+        font-size: 16px;
+      }
+      .game-over {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="glitch-bg"></div>
-
-    <div class="splash-container">
-        <div class="logo">🐑 BLACK SHEEP</div>
-        <div class="tagline">🔥 Rompe las reglas, crea tu propio camino. 🖤</div>
-        <div class="loading-bar"></div>
-    </div>
+  <div class="contenedor">
+    <div class="suelo"></div>
+    <div class="dino dino-corriendo"></div>
+    <div class="score">0</div>
+    <div class="game-over">GAME OVER</div>
+  </div>
+  <div class="highscores" id="highScoreOverlay"></div>
+  <div class="rotate-message" id="rotateMessage">Por favor, gira tu dispositivo horizontalmente para una mejor experiencia</div>
+  
+  <script>
+    //****** GAME LOOP ********//
+    var time = new Date();
+    var deltaTime = 0;
+    
+    if(document.readyState === "complete" || document.readyState === "interactive"){
+      setTimeout(Init, 1);
+    } else {
+      document.addEventListener("DOMContentLoaded", Init); 
+    }
+    
+    //****** VARIABLES DEL JUEGO ********//
+    var sueloY = 22;
+    var velY = 0;
+    var impulso = 900;
+    var gravedad = 2500;
+    
+    var dinoPosX = 42;
+    var dinoPosY = sueloY; 
+    
+    var sueloX = 0;
+    var velEscenario = 1280/3;
+    var gameVel = 1;
+    var score = 0;
+    
+    var parado = false;
+    var saltando = false;
+    
+    // Tiempos modificados para mayor aleatoriedad y espaciamiento
+    var tiempoHastaObstaculo = 2;
+    var tiempoObstaculoMin = 1.0;
+    var tiempoObstaculoMax = 3.0;
+    var obstaculos = [];
+    
+    var tiempoHastaNube = 0.5;
+    var tiempoNubeMin = 0.8;  // Aumenta la frecuencia
+    var tiempoNubeMax = 2.5;  // Rango reducido para más aparición
+    var maxNubeY = 270;
+    var minNubeY = 100;
+    var nubes = [];
+    var velNube = 0.5;
+    
+    var contenedor, dino, textoScore, suelo, gameOver;
+    
+    function Init() {
+      time = new Date();
+      Start();
+      Loop();
+      // Control táctil para dispositivos móviles
+      document.addEventListener("touchstart", function(e) {
+        e.preventDefault();
+        Saltar();
+      });
+      // Comprobar orientación al iniciar y al redimensionar
+      checkOrientation();
+      window.addEventListener("resize", checkOrientation);
+    }
+    
+    function Loop() {
+      deltaTime = (new Date() - time) / 1000;
+      time = new Date();
+      if(!parado) {
+        Update();
+      }
+      requestAnimationFrame(Loop);
+    }
+    
+    function Start() {
+      gameOver = document.querySelector(".game-over");
+      suelo = document.querySelector(".suelo");
+      contenedor = document.querySelector(".contenedor");
+      textoScore = document.querySelector(".score");
+      dino = document.querySelector(".dino");
+      document.addEventListener("keydown", HandleKeyDown);
+    }
+    
+    function Update() {
+      MoverDinosaurio();
+      MoverSuelo();
+      DecidirCrearObstaculos();
+      DecidirCrearNubes();
+      MoverObstaculos();
+      MoverNubes();
+      DetectarColision();
+    
+      velY -= gravedad * deltaTime;
+    }
+    
+    function HandleKeyDown(ev){
+      if(ev.keyCode == 32){
+        Saltar();
+      }
+    }
+    
+    function Saltar(){
+      if(dinoPosY === sueloY){
+        saltando = true;
+        velY = impulso;
+        dino.classList.remove("dino-corriendo");
+      }
+    }
+    
+    function MoverDinosaurio() {
+      dinoPosY += velY * deltaTime;
+      if(dinoPosY < sueloY){
+        TocarSuelo();
+      }
+      dino.style.bottom = dinoPosY + "px";
+    }
+    
+    function TocarSuelo() {
+      dinoPosY = sueloY;
+      velY = 0;
+      if(saltando){
+        dino.classList.add("dino-corriendo");
+      }
+      saltando = false;
+    }
+    
+    function MoverSuelo() {
+      sueloX += CalcularDesplazamiento();
+      suelo.style.left = -(sueloX % contenedor.clientWidth) + "px";
+    }
+    
+    function CalcularDesplazamiento() {
+      return velEscenario * deltaTime * gameVel;
+    }
+    
+    function Estrellarse() {
+      dino.classList.remove("dino-corriendo");
+      dino.classList.add("dino-estrellado");
+      parado = true;
+    }
+    
+    function DecidirCrearObstaculos() {
+      tiempoHastaObstaculo -= deltaTime;
+      if(tiempoHastaObstaculo <= 0) {
+        CrearObstaculo();
+      }
+    }
+    
+    function DecidirCrearNubes() {
+      tiempoHastaNube -= deltaTime;
+      if(tiempoHastaNube <= 0) {
+        CrearNube();
+      }
+    }
+    
+    function CrearObstaculo() {
+      var obstaculo = document.createElement("div");
+      contenedor.appendChild(obstaculo);
+      obstaculo.classList.add("cactus");
+      if(Math.random() > 0.5) obstaculo.classList.add("cactus2");
+      obstaculo.posX = contenedor.clientWidth;
+      obstaculo.style.left = contenedor.clientWidth + "px";
+    
+      obstaculos.push(obstaculo);
+      tiempoHastaObstaculo = tiempoObstaculoMin + Math.random() * (tiempoObstaculoMax - tiempoObstaculoMin) / gameVel;
+    }
+    
+    function CrearNube() {
+      var nube = document.createElement("div");
+      contenedor.appendChild(nube);
+      nube.classList.add("nube");
+      nube.posX = contenedor.clientWidth;
+      nube.style.left = contenedor.clientWidth + "px";
+      nube.style.bottom = minNubeY + Math.random() * (maxNubeY - minNubeY) + "px";
+      
+      // Alternar tamaño de la nube
+      var scale = Math.random() * 0.5 + 0.75; // Valor entre 0.75 y 1.25
+      nube.style.width = (93 * scale) + "px";
+      nube.style.height = (37 * scale) + "px";
+    
+      nubes.push(nube);
+      tiempoHastaNube = tiempoNubeMin + Math.random() * (tiempoNubeMax - tiempoNubeMin) / gameVel;
+    }
+    
+    function MoverObstaculos() {
+      for (var i = obstaculos.length - 1; i >= 0; i--) {
+        if(obstaculos[i].posX < -obstaculos[i].clientWidth) {
+          obstaculos[i].parentNode.removeChild(obstaculos[i]);
+          obstaculos.splice(i, 1);
+          GanarPuntos();
+        } else {
+          obstaculos[i].posX -= CalcularDesplazamiento();
+          obstaculos[i].style.left = obstaculos[i].posX + "px";
+        }
+      }
+    }
+    
+    function MoverNubes() {
+      for (var i = nubes.length - 1; i >= 0; i--) {
+        if(nubes[i].posX < -nubes[i].clientWidth) {
+          nubes[i].parentNode.removeChild(nubes[i]);
+          nubes.splice(i, 1);
+        } else {
+          nubes[i].posX -= CalcularDesplazamiento() * velNube;
+          nubes[i].style.left = nubes[i].posX + "px";
+        }
+      }
+    }
+    
+    function GanarPuntos() {
+      score++;
+      textoScore.innerText = score;
+      if(score == 5){
+        gameVel = 1.5;
+        contenedor.classList.add("mediodia");
+      } else if(score == 10) {
+        gameVel = 2;
+        contenedor.classList.add("tarde");
+      } else if(score == 20) {
+        gameVel = 3;
+        contenedor.classList.add("noche");
+      }
+      suelo.style.animationDuration = (3 / gameVel) + "s";
+    }
+    
+    function GameOver() {
+      Estrellarse();
+      gameOver.style.display = "block";
+      updateHighScores();
+      // Mostrar overlay de puntajes
+      document.getElementById("highScoreOverlay").style.display = "block";
+      // Reiniciar el juego automáticamente en 5 segundos
+      setTimeout(function() {
+        location.reload();
+      }, 5000);
+    }
+    
+    // Ajuste en la detección de colisión: mayor margen de tolerancia para acercarse más a los obstáculos
+    function DetectarColision() {
+      for (var i = 0; i < obstaculos.length; i++) {
+        if(obstaculos[i].posX > dinoPosX + dino.clientWidth) {
+          break;
+        } else {
+          if(IsCollision(dino, obstaculos[i], 20, 40, 20, 40)) {
+            GameOver();
+          }
+        }
+      }
+    }
+    
+    function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft) {
+      var aRect = a.getBoundingClientRect();
+      var bRect = b.getBoundingClientRect();
+    
+      return !(
+        ((aRect.top + aRect.height - paddingBottom) < (bRect.top)) ||
+        (aRect.top + paddingTop > (bRect.top + bRect.height)) ||
+        ((aRect.left + aRect.width - paddingRight) < bRect.left) ||
+        (aRect.left + paddingLeft > (bRect.left + bRect.width))
+      );
+    }
+    
+    // Lógica de puntajes máximos (Top 5)
+    function updateHighScores() {
+      var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+      highScores.push(score);
+      highScores.sort(function(a, b) { return b - a; });
+      highScores = highScores.slice(0, 5);
+      localStorage.setItem("highScores", JSON.stringify(highScores));
+    
+      // Mostrar puntajes en el overlay
+      var overlay = document.getElementById("highScoreOverlay");
+      overlay.innerHTML = "<h2>Mejores Puntajes</h2>";
+      for(var i = 0; i < highScores.length; i++){
+        overlay.innerHTML += "<p>" + (i+1) + ". " + highScores[i] + "</p>";
+      }
+    }
+    
+    // Comprobar orientación del dispositivo
+    function checkOrientation() {
+      var rotateMessage = document.getElementById("rotateMessage");
+      // Si el ancho es menor que el alto, se asume orientación vertical
+      if(window.innerWidth < window.innerHeight) {
+        rotateMessage.style.display = "block";
+      } else {
+        rotateMessage.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
