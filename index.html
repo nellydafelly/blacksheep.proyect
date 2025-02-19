@@ -191,7 +191,7 @@
     <div class="suelo"></div>
     <div class="dino dino-corriendo"></div>
     <div class="score">0</div>
-    <div class="game-over">GAME OVER</div>
+    <div class="game-over">¡VAMOS!</div>
   </div>
   <div class="highscores" id="highScoreOverlay"></div>
   <div class="rotate-message" id="rotateMessage">Para una mejor experiencia, gira el dispositivo</div>
@@ -415,7 +415,7 @@
       var overlay = document.getElementById("highScoreOverlay");
       overlay.style.display = "block";
       // Agregar mensaje sutil de reinicio
-      overlay.innerHTML += "<p style='opacity:0.7; font-size:14px;'>Reiniciando en 5 segundos...</p>";
+      overlay.innerHTML += "<p style='opacity:0.7; font-size:14px;'>Reiniciando...</p>";
       setTimeout(function() {
         location.reload();
       }, 5000);
