@@ -133,11 +133,17 @@
       font-size: 20px;
       color: #fff;
       z-index: 30;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="loader">Cargando...</div>
+  <!-- Loader con GIF 200x200 -->
+  <div class="loader">
+    <img src="https://github.com/nellydafelly/blacksheep.proyect/blob/main/img/loader.gif?raw=true" width="256" height="256" alt="Cargando...">
+    <p>Cargando...</p>
+  </div>
+  
   <div class="contenedor" style="display:none;">
     <div class="suelo"></div>
     <div class="dino dino-corriendo"></div>
@@ -160,6 +166,7 @@
     function preloadAssets() {
       return new Promise((resolve) => {
         const assets = [
+          { type: "image", url: "https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" }, // GIF del loader
           { type: "image", url: "https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/bsheep.png" },
           { type: "image", url: "https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/suelo.png" },
           { type: "image", url: "https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/img/cactus1.png" },
@@ -180,12 +187,12 @@
         }
 
         assets.forEach(asset => {
-          if(asset.type === "image") {
+          if (asset.type === "image") {
             const img = new Image();
             img.onload = checkLoaded;
             img.onerror = checkLoaded;
             img.src = asset.url;
-          } else if(asset.type === "audio") {
+          } else if (asset.type === "audio") {
             const aud = new Audio();
             aud.oncanplaythrough = checkLoaded;
             aud.onerror = checkLoaded;
@@ -252,7 +259,7 @@
     function Loop() {
       deltaTime = (new Date() - time) / 1000;
       time = new Date();
-      if(!parado) {
+      if (!parado) {
         Update();
       }
       requestAnimationFrame(Loop);
@@ -278,14 +285,14 @@
       velY -= gravedad * deltaTime;
     }
     
-    function HandleKeyDown(ev){
-      if(ev.keyCode == 32 || ev.keyCode == 38){
+    function HandleKeyDown(ev) {
+      if (ev.keyCode == 32 || ev.keyCode == 38) {
         Saltar();
       }
     }
     
-    function Saltar(){
-      if(dinoPosY === sueloY){
+    function Saltar() {
+      if (dinoPosY === sueloY) {
         saltando = true;
         velY = impulso;
         dino.classList.remove("dino-corriendo");
@@ -295,7 +302,7 @@
     
     function MoverDinosaurio() {
       dinoPosY += velY * deltaTime;
-      if(dinoPosY < sueloY){
+      if (dinoPosY < sueloY) {
         TocarSuelo();
       }
       dino.style.bottom = dinoPosY + "px";
@@ -304,7 +311,7 @@
     function TocarSuelo() {
       dinoPosY = sueloY;
       velY = 0;
-      if(saltando){
+      if (saltando) {
         dino.classList.add("dino-corriendo");
       }
       saltando = false;
@@ -328,14 +335,14 @@
     
     function DecidirCrearObstaculos() {
       tiempoHastaObstaculo -= deltaTime;
-      if(tiempoHastaObstaculo <= 0) {
+      if (tiempoHastaObstaculo <= 0) {
         CrearObstaculo();
       }
     }
     
     function DecidirCrearNubes() {
       tiempoHastaNube -= deltaTime;
-      if(tiempoHastaNube <= 0) {
+      if (tiempoHastaNube <= 0) {
         CrearNube();
       }
     }
@@ -344,7 +351,7 @@
       var obstaculo = document.createElement("div");
       contenedor.appendChild(obstaculo);
       obstaculo.classList.add("cactus");
-      if(Math.random() > 0.5) obstaculo.classList.add("cactus2");
+      if (Math.random() > 0.5) obstaculo.classList.add("cactus2");
       obstaculo.posX = contenedor.clientWidth;
       obstaculo.style.left = contenedor.clientWidth + "px";
       obstaculos.push(obstaculo);
@@ -364,7 +371,7 @@
     
     function MoverObstaculos() {
       for (var i = obstaculos.length - 1; i >= 0; i--) {
-        if(obstaculos[i].posX < -obstaculos[i].clientWidth) {
+        if (obstaculos[i].posX < -obstaculos[i].clientWidth) {
           obstaculos[i].parentNode.removeChild(obstaculos[i]);
           obstaculos.splice(i, 1);
           GanarPuntos();
@@ -377,7 +384,7 @@
     
     function MoverNubes() {
       for (var i = nubes.length - 1; i >= 0; i--) {
-        if(nubes[i].posX < -nubes[i].clientWidth) {
+        if (nubes[i].posX < -nubes[i].clientWidth) {
           nubes[i].parentNode.removeChild(nubes[i]);
           nubes.splice(i, 1);
         } else {
@@ -393,13 +400,13 @@
       textoScore.innerText = score;
       document.getElementById('pointSound').play();
       
-      if(score == 5){
+      if (score == 5) {
         gameVel = 1.5;
         contenedor.classList.add("mediodia");
-      } else if(score == 10) {
+      } else if (score == 10) {
         gameVel = 2;
         contenedor.classList.add("tarde");
-      } else if(score == 20) {
+      } else if (score == 20) {
         gameVel = 3;
         contenedor.classList.add("noche");
       }
@@ -416,7 +423,7 @@
       var prevMax = Math.max(...storedHighScores, 0);
       
       // Si el puntaje actual supera el récord, mostrar mensaje y reproducir sonido
-      if(score > prevMax) {
+      if (score > prevMax) {
         document.getElementById('highScoreSound').play();
         var newHighMsg = document.createElement('div');
         newHighMsg.innerText = "¡Nuevo puntaje más alto!";
@@ -440,7 +447,7 @@
       
       // Fallback en caso de que el evento 'ended' no se dispare (por ejemplo, en algunos navegadores)
       setTimeout(function() {
-        if(document.getElementById('restartSound').paused) {
+        if (document.getElementById('restartSound').paused) {
           var restartSound = document.getElementById('restartSound');
           restartSound.play();
           restartSound.onended = function() {
@@ -452,10 +459,10 @@
     
     function DetectarColision() {
       for (var i = 0; i < obstaculos.length; i++) {
-        if(obstaculos[i].posX > dinoPosX + dino.clientWidth) {
+        if (obstaculos[i].posX > dinoPosX + dino.clientWidth) {
           break;
         } else {
-          if(IsCollision(dino, obstaculos[i], 20, 40, 20, 40)) {
+          if (IsCollision(dino, obstaculos[i], 20, 40, 20, 40)) {
             GameOver();
           }
         }
@@ -495,8 +502,8 @@
       overlay.style.paddingTop = "50px";
       overlay.style.zIndex = "25";
       overlay.innerHTML = "<h2>Mejores Puntajes</h2>";
-      for(var i = 0; i < highScores.length; i++){
-        overlay.innerHTML += "<p>" + (i+1) + ". " + highScores[i] + "</p>";
+      for (var i = 0; i < highScores.length; i++) {
+        overlay.innerHTML += "<p>" + (i + 1) + ". " + highScores[i] + "</p>";
       }
       document.body.appendChild(overlay);
     }
@@ -504,8 +511,8 @@
     // Comprobar orientación y mostrar mensaje sutil para jugar en horizontal
     function checkOrientation() {
       var overlayMsg = document.getElementById("orientationMsg");
-      if(window.innerWidth < window.innerHeight) {
-        if(!overlayMsg) {
+      if (window.innerWidth < window.innerHeight) {
+        if (!overlayMsg) {
           overlayMsg = document.createElement("div");
           overlayMsg.id = "orientationMsg";
           overlayMsg.style.position = "fixed";
@@ -523,7 +530,7 @@
           document.body.appendChild(overlayMsg);
         }
       } else {
-        if(overlayMsg) {
+        if (overlayMsg) {
           overlayMsg.remove();
         }
       }
