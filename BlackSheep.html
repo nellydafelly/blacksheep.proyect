@@ -6,7 +6,8 @@
   <title>🐑 Black Sheep</title>
   <!-- Fuentes Pixel Art -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-  /* 🎨 Estilos Globales */
+  <style>
+    /* 🎨 Estilos Globales */
     * {
       margin: 0;
       padding: 0;
@@ -14,21 +15,19 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'VT323', monospace;
-      background-color: #0a0a0a;
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
       color: white;
       overflow-x: hidden;
+      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
     }
-    /* 🚀 Header Cyberpunk */
+    /* 🚀 Header Mejorado */
     .header {
-      background: linear-gradient(90deg, #0a0a0a, #1f1f1f, #0a0a0a);
-      box-shadow: 0 0 10px #ff00ff;
+      background: linear-gradient(90deg, #000, #333);
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      padding: 15px 0;
-      transition: all 0.3s ease-in-out;
     }
     .header-container {
       display: flex;
@@ -36,21 +35,17 @@
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 20px;
     }
     .logo {
       font-size: 24px;
       font-weight: bold;
       color: white;
-      position: relative;
-      animation: glitch 1s infinite alternate;
-    }
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px 5px #ff00ff, -2px -2px 5px #00ffff; }
-      50% { text-shadow: -2px -2px 5px #ff00ff, 2px 2px 5px #00ffff; }
-      100% { text-shadow: 2px -2px 5px #ff00ff, -2px 2px 5px #00ffff; }
     }
     /* Menú Desktop */
+    .desktop-nav {
+      display: block;
+    }
     .nav-links {
       display: flex;
       gap: 15px;
@@ -61,36 +56,88 @@
       color: white;
       font-size: 16px;
       position: relative;
-      transition: all 0.3s ease-in-out;
-      padding: 5px 10px;
-      border-radius: 5px;
+      transition: color 0.3s;
     }
     .nav-links a:hover {
-      color: #ff00ff;
-      text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+      color: #ff6f00;
     }
-    /* Menú Móvil */
+    /* Efecto subrayado en hover */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background-color: #ff6f00;
+      transition: width 0.3s;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    /* Botones del header */
+    .header-buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .toggle-btn,
+    .menu-toggle {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+    /* Icono Hamburger */
+    .menu-toggle {
+      display: none;
+    }
+    .menu-toggle .hamburger {
+      display: block;
+      width: 24px;
+      height: 3px;
+      background: white;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .menu-toggle .hamburger::before,
+    .menu-toggle .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 3px;
+      background: white;
+      transition: all 0.3s;
+    }
+    .menu-toggle .hamburger::before {
+      top: -8px;
+    }
+    .menu-toggle .hamburger::after {
+      top: 8px;
+    }
+    /* Menú móvil */
     .mobile-nav {
       display: none;
-      background: #111;
+      background: #1a1a1a;
       position: fixed;
       top: 0;
-      right: -100%;
+      right: -250px;
       width: 250px;
       height: 100vh;
       padding-top: 80px;
-      transition: right 0.5s ease-in-out;
-      box-shadow: -5px 0 15px #ff00ff;
+      transition: right 0.3s ease-in-out;
+      z-index: 1100;
     }
     .mobile-nav.open {
       right: 0;
     }
-    .menu-toggle {
-      font-size: 24px;
-      cursor: pointer;
-      color: white;
-      border: none;
-      background: none;
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
     }
     .mobile-nav-links a {
       text-decoration: none;
@@ -101,66 +148,171 @@
     .mobile-nav-links a:hover {
       color: #ff6f00;
     }
-    /* 🔄 Responsive */
+    /* Responsive */
     @media (max-width: 768px) {
       .desktop-nav { display: none; }
       .menu-toggle { display: block; }
+      .mobile-nav { display: block; }
     }
-  </style>
+    /* ─── Resto de estilos (sin cambios) ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero {
+      text-align: center;
+      padding: 180px 20px 100px;
+      background: radial-gradient(circle, #222, #000);
+      animation: slideIn 1s ease-out;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .btn {
+      padding: 10px 20px;
+      background: #ff6f00;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+      margin: 5px;
+    }
+    .btn:hover {
+      background: #cc5500;
+    }
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 50px 20px;
+      text-align: center;
+      perspective: 1000px;
+    }
+    .card {
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-in-out;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: rotateY(15deg);
+    }
+    .parallax {
+      height: 400px;
+      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/sheep.png') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+    .slider {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      height: 300px;
+      position: relative;
+    }
+    .slides {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+    }
+    .dark-mode {
+      background-color: #fff;
+      color: #000;
+    }
+    .dark-mode .header {
+      background: linear-gradient(90deg, #555, #999);
+    }
+    .dark-mode .parallax {
+      filter: brightness(0.7);
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+    .modal-content {
+      background-color: #1a1a1a;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 960px;
+      position: relative;
+    }
+    .modal-content iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+    .close {
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #orientationMsg {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0,0,0,0.4);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      z-index: 3000;
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 120px 20px 80px; }
+      .nav-links { flex-direction: column; align-items: center; gap: 10px; }
+      .header-container { flex-wrap: wrap; justify-content: center; }\n      .grid-gallery { padding: 30px 10px; }\n      .slider { height: 200px; }\n      .slide { height: 200px; }\n      .modal-content { width: 95%; margin: 10% auto; }\n    }\n    @media (max-width: 480px) {\n      .logo { font-size: 20px; }\n      .btn { padding: 8px 16px; font-size: 14px; }\n      .hero { padding: 100px 10px 70px; }\n      .footer { font-size: 14px; }\n    }\n  </style>
 </head>
+
 <body>
-  <!-- 🔥 Header -->
-  </head>
-<body>
-  <header class="header">
-    <div class="header-container">
-      <h1 class="logo">🐑 Black Sheep</h1>
-      <!-- Menú para escritorio -->
-      <nav class="desktop-nav">
-        <ul class="nav-links">
-          <li><a href="index.html">Black Sheep</a></li>
-          <li><a href="README.html">Portafolio</a></li>
-          <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
-        </ul>
-      </nav>
-      <!-- Botones para menú móvil y dark mode -->
-      <div class="header-buttons">
-        <button id="menuToggle" class="menu-toggle">
-          <span class="hamburger"></span>
-        </button>
-        <button id="darkModeToggle" class="toggle-btn">🌙</button>
-      </div>
-    </div>
-    <!-- Menú móvil (se desliza desde la derecha) -->
-    <nav class="mobile-nav" id="mobileNav">
-      <ul class="mobile-nav-links">
-        <li><a href="index.html">Black Sheep</a></li>
-        <li><a href="README.html">Portafolio</a></li>
-        <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
-      </ul>
-    </nav>
-  </header>
-      </nav>
-      <!-- 📱 Botón de menú móvil -->
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    </div>
-  </header>
-  <!-- 📱 Menú móvil -->
-  <nav class="mobile-nav" id="mobileNav">
-    <ul class="mobile-nav-links">
-        <li><a href="index.html">Black Sheep</a></li>
-        <li><a href="README.html">Portafolio</a></li>
-        <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
-      </ul>
-  </nav>
-  <!-- 🎮 Script para el Menú Móvil -->
-  <script>
-    function toggleMenu() {
-      document.getElementById('mobileNav').classList.toggle('open');
-    }
-  </script>
-</body>
-</html>
+    <header class="header">
+        <h1 class="logo">🐑 BlackSheep</h1>
+
+        <div class="header-buttons">
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+            <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
+        </div>
+
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Black Sheep</a></li>
+                <li><a href="README.html">Portafolio</a></li>
+                <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
 
   <main class="main-content">
     <section class="hero fade-in">
