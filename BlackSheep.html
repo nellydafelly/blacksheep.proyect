@@ -4,210 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🐑 Black Sheep</title>
-  <!-- Fuentes Pixel Art -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <style>
-    /* 🎨 Estilos Globales */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #1a1a1a;
-      color: white;
-      overflow-x: hidden;
-      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
-    }
-    /* 🎭 Efecto Fade In */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* 🚀 Header */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background: linear-gradient(90deg, #000, #333);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .nav-links {
-      display: flex;
-      gap: 15px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: white;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover {
-      color: #ff6f00;
-    }
-    .toggle-btn {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: white;
-    }
-    /* Nuevo: Botón hamburger para menú móvil (se mostrará solo en pantallas pequeñas) */
-    #menuToggle {
-      display: none;
-    }
-    /* 🌟 Hero Section */
-    .hero {
-      text-align: center;
-      padding: 180px 20px 100px;
-      background: radial-gradient(circle, #222, #000);
-      animation: slideIn 1s ease-out;
-    }
-    @keyframes slideIn {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .btn {
-      padding: 10px 20px;
-      background: #ff6f00;
-      border: none;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease-in-out;
-      margin: 5px;
-    }
-    .btn:hover {
-      background: #cc5500;
-    }
-    /* 🎢 3D Cards */
-    .grid-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      padding: 50px 20px;
-      text-align: center;
-      perspective: 1000px;
-    }
-    .card {
-      background: #333;
-      padding: 20px;
-      border-radius: 10px;
-      transform-style: preserve-3d;
-      transition: transform 0.5s ease-in-out;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: rotateY(15deg);
-    }
-    /* 🎭 Parallax */
-    .parallax {
-      height: 400px;
-      background: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/sheep.png') no-repeat center center/cover;
-      background-attachment: fixed;
-    }
-    /* 🎠 Slider */
-    .slider {
-      display: flex;
-      overflow: hidden;
-      width: 100%;
-      height: 300px;
-      position: relative;
-    }
-    .slides {
-      display: flex;
-      transition: transform 1s ease-in-out;
-    }
-    .slide {
-      min-width: 100%;
-      height: 300px;
-      background-size: cover;
-      background-position: center;
-    }
-    /* 🕶️ Dark Mode */
-    .dark-mode {
-      background-color: #fff;
-      color: #000;
-    }
-    .dark-mode .header {
-      background: linear-gradient(90deg, #555, #999);
-    }
-    .dark-mode .parallax {
-      filter: brightness(0.7);
-    }
-    /* ⚡ Footer */
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-    }
-    /* 📦 Modal Popup */
-    .modal {
-      display: none; /* Oculto por defecto */
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
-    }
-    .modal-content {
-      background-color: #1a1a1a;
-      margin: 5% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 960px;
-      position: relative;
-    }
-    .modal-content iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-    }
-    .close {
-      color: white;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    /* Overlay para orientación */
-    #orientationMsg {
-      position: fixed;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(0,0,0,0.4);
-      color: #fff;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 14px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      z-index: 3000;
-      display: none;
-    }
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      .hero { padding: 120px 20px 80px; }
-      .header { flex-wrap: wrap; justify-content: space-between; }
-      /* Menú móvil: ocultar la lista de navegación y posicionarla fuera de la pantalla */ 
-      .nav-links {\n        position: fixed;\n        top: 70px;\n        right: -250px;\n        width: 250px;\n        background: #1a1a1a;\n        flex-direction: column;\n        align-items: center;\n        gap: 10px;\n        padding: 20px 0;\n        transition: right 0.3s ease-in-out;\n      }\n      .nav-links.active {\n        right: 0;\n      }\n      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }\n      /* Mostrar botón hamburger */\n      #menuToggle { display: block; }\n    }\n    @media (max-width: 480px) {\n      .logo { font-size: 20px; }\n      .btn { padding: 8px 16px; font-size: 14px; }\n      .hero { padding: 100px 10px 70px; }\n      .footer { font-size: 14px; }\n    }\n  </style>\n</head>\n<body>\n  <header class=\"header\">\n    <h1 class=\"logo\">🐑 Black Sheep</h1>\n    <nav>\n      <ul class=\"nav-links\">\n        <li><a href=\"index.html\">Black Sheep</a></li>\n        <li><a href=\"README.html\">Portafolio</a></li>\n        <li><a href=\"si_somos.html\">Sí Somos!</a></li>\n        <li><a href=\"contact.html\">Contacto!</a></li>\n        <li><a href=\"experiencia_github.html\">Gratitud Experiencia GitHub</a></li>\n      </ul>\n    </nav>\n    <!-- Botón hamburger para menú móvil -->\n    <button id=\"menuToggle\" class=\"toggle-btn\">☰</button>\n    <button id=\"darkModeToggle\" class=\"toggle-btn\">🌙</button>\n  </header>\n\n  <main class=\"main-content\">\n    <section class=\"hero fade-in\">\n      <h2>Bienvenido a Black Sheep</h2>\n      <p>🖤 Rompe las reglas, crea tu propio camino. 🔥</p>\n      <p>\n        <button class=\"btn\" onclick=\"showMessage()\">Descubre más</button>\n        <button class=\"btn\" id=\"openGameModal\">Jugar Runner</button>\n      </p>\n    </section>\n\n    <section class=\"parallax\"></section>\n\n    <!-- 🎠 Slider -->\n    <section class=\"slider\">\n      <div class=\"slides\">\n        <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/artgraffiti.png');\"></div>\n        <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/techdark.png');\"></div>\n        <div class=\"slide\" style=\"background-image: url('https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/futurecyberpunk.png');\"></div>\n      </div>\n    </section>\n\n    <!-- 🎢 3D Cards -->\n    <section class=\"grid-gallery fade-in\">\n      <div class=\"card\">🐑 Innovación</div>\n      <div class=\"card\">🔥 Rebeldía Creativa</div>\n      <div class=\"card\">🚀 Futuro Digital</div>\n    </section>\n  </main>\n\n  <footer class=\"footer\">\n    <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>\n  </footer>\n\n  <!-- Modal Popup para el Juego -->\n  <div id=\"gameModal\" class=\"modal\">\n    <div class=\"modal-content\">\n      <span class=\"close\" onclick=\"closeGameModal()\">&times;</span>\n      <iframe id=\"gameFrame\" src=\"\" title=\"BlackSheep Runner\" allowfullscreen></iframe>\n    </div>\n  </div>\n\n  <!-- Overlay para orientación en móviles -->\n  <div id=\"orientationMsg\">Para una mejor experiencia, gira tu dispositivo a horizontal</div>\n\n  <script>\n    // Función para abrir el modal y cargar el juego\n    function openGameModal() {\n      document.getElementById(\"gameModal\").style.display = \"block\";\n      document.getElementById(\"gameFrame\").src = \"https://nellydafelly.github.io/blacksheep.proyect/BlackSheepR.html\";\n    }\n    // Función para cerrar el modal y detener el juego\n    function closeGameModal() {\n      document.getElementById(\"gameModal\").style.display = \"none\";\n      document.getElementById(\"gameFrame\").src = \"\";\n    }\n    // Asignar evento al botón del modal\n    document.getElementById(\"openGameModal\").addEventListener(\"click\", openGameModal);\n\n    // 🌙 Dark Mode\n    document.getElementById(\"darkModeToggle\").addEventListener(\"click\", function() {\n      document.body.classList.toggle(\"dark-mode\");\n      this.textContent = document.body.classList.contains(\"dark-mode\") ? \"☀️\" : \"🌙\";\n    });\n\n    // Toggle menú móvil\n    document.getElementById(\"menuToggle\").addEventListener(\"click\", function() {\n      document.querySelector(\".nav-links\").classList.toggle(\"active\");\n    });\n\n    // ⚡ Animaciones al hacer scroll\n    const elements = document.querySelectorAll(\".fade-in\");\n    const observer = new IntersectionObserver(entries => {\n      entries.forEach(entry => {\n        if (entry.isIntersecting) entry.target.classList.add(\"visible\");\n      });\n    });\n    elements.forEach(el => observer.observe(el));\n\n    // 🎠 Slider automático\n    let index = 0;\n    function moveSlider() {\n      index = (index + 1) % 3;\n      document.querySelector(\".slides\").style.transform = `translateX(-${index * 100}%)`;\n    }\n    setInterval(moveSlider, 3000);\n\n    // 🚀 Mensaje interactivo\n    function showMessage() {\n      alert(\"¡Bienvenido a Black Sheep! Prepárate para romper esquemas. 🔥\");\n    }\n\n    // Cerrar el modal al hacer clic fuera del contenido\n    window.addEventListener(\"click\", function(event) {\n      const modal = document.getElementById(\"gameModal\");\n      if (event.target === modal) {\n        closeGameModal();\n      }\n    });\n\n    // Verificar orientación en dispositivos móviles\n    function checkOrientation() {\n      const orientationMsg = document.getElementById(\"orientationMsg\");\n      if(window.innerWidth < window.innerHeight) {\n        orientationMsg.style.display = \"block\";\n      } else {\n        orientationMsg.style.display = \"none\";\n      }\n    }\n    // Ejecutar al iniciar y al redimensionar\n    window.addEventListener(\"resize\", checkOrientation);\n    document.addEventListener(\"DOMContentLoaded\", checkOrientation);\n  </script>\n</body>\n</html>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Arial', sans-serif; background-color: #1a1a1a; color: white; overflow-x: hidden; }
+    .header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: linear-gradient(90deg, #000, #333); position: fixed; width: 100%; top: 0; z-index: 1000; }
+    .nav-links { display: flex; gap: 15px; list-style: none; }
+    .nav-links a { text-decoration: none; color: white; transition: color 0.3s; }
+    .nav-links a:hover { color: #ff6f00; }
+    .hero { text-align: center; padding: 180px 20px 100px; background: radial-gradient(circle, #222, #000); }
+    .btn { padding: 10px 20px; background: #ff6f00; border: none; color: white; cursor: pointer; margin: 5px; }
+    .btn:hover { background: #cc5500; }
+    .footer { text-align: center; padding: 20px; background: #111; }
+    .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); }
+    .modal-content { background-color: #1a1a1a; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 960px; position: relative; }
+    .close { color: white; position: absolute; top: 10px; right: 20px; font-size: 30px; font-weight: bold; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🐑 Black Sheep</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Portafolio</a></li>
+        <li><a href="#">Sí Somos!</a></li>
+        <li><a href="#">Contacto!</a></li>
+        <li><a href="#">Gratitud Experiencia GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <h1>Bienvenido a Black Sheep</h1>
+    <p>🖤 Rompe las reglas, crea tu propio camino. 🔥</p>
+    <button class="btn">Descubre más</button>
+    <button class="btn">Jugar Runner</button>
+  </section>
+  <footer class="footer">
+    <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
