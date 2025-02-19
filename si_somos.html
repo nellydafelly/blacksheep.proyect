@@ -44,20 +44,24 @@
         }
 
         .nav-links {
+            list-style: none;
             display: flex;
             gap: 1rem;
-            list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
             color: white;
             font-size: 1rem;
-            transition: color 0.3s;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s, background 0.3s;
+            border-radius: 5px;
         }
 
         .nav-links a:hover {
             color: #ff6f00;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* Botón de menú */
@@ -93,52 +97,6 @@
             color: #ff6f00;
         }
 
-        p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        .project {
-            margin-bottom: 40px;
-        }
-
-        .project img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        /* Enlaces */
-        .enlaces {
-            list-style: none;
-            padding: 0;
-        }
-
-        .enlaces li {
-            margin-bottom: 0.8rem;
-        }
-
-        .enlaces a {
-            color: #3B82F6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .enlaces a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            background: #1E3A8A;
-            color: white;
-            text-align: center;
-            padding: 0.8rem;
-            font-size: 0.9rem;
-            border-radius: 0 0 8px 8px;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .menu-toggle {
@@ -155,32 +113,11 @@
                 width: 100%;
                 text-align: center;
                 padding: 1rem 0;
-                transition: transform 0.3s ease-in-out;
             }
 
             .nav-links.active {
                 display: flex;
             }
-
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 0.5rem;
-                display: block;
-            }
-        }
-
-        /* Modo Oscuro */
-        .dark-mode {
-            background-color: #fff;
-            color: #000;
-        }
-
-        .dark-mode .header {
-            background: linear-gradient(90deg, #555, #999);
-        }
-
-        .dark-mode footer {
-            background: #333;
         }
     </style>
 </head>
@@ -198,57 +135,23 @@
                 <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
             </ul>
         </nav>
-        <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
     </header>
 
     <main>
         <section class="project">
             <h2>Black Sheep</h2>
             <img src="https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/social_preview.png" alt="Black Sheep">
-            <p>Black Sheep es un proyecto innovador centrado en la tecnología y la creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas a problemas complejos.</p>
-            <h3>Características</h3>
-            <ul>
-                <li>Diseño moderno y minimalista</li>
-                <li>Enfoque en la innovación tecnológica</li>
-                <li>Elementos gráficos futuristas</li>
-            </ul>
-            <h3>Enlaces</h3>
-            <ul class="enlaces">
-                <li><a href="https://nellydafelly.github.io/blacksheep.proyect/" target="_blank">Página del proyecto</a></li>
-            </ul>
-        </section>
-
-        <section class="project">
-            <h2>ORIGEN Huella Consciente</h2>
-            <img src="https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/ori_social_preview.png" alt="ORIGEN Huella Consciente">
-            <p>ORIGEN Huella Consciente es un proyecto dedicado a la sostenibilidad y la conciencia ambiental. Promovemos prácticas ecológicas y sostenibles para un futuro mejor y más verde.</p>
-            <h3>Características</h3>
-            <ul>
-                <li>Enfoque en la sostenibilidad y el medio ambiente</li>
-                <li>Diseño vibrante y natural</li>
-                <li>Elementos gráficos que evocan la naturaleza</li>
-            </ul>
-            <h3>Enlaces</h3>
-            <ul class="enlaces">
-                <li><a href="https://abrilsu.github.io/saberes-vivos/" target="_blank">Página del proyecto</a></li>
-            </ul>
+            <p>Black Sheep es un proyecto innovador...</p>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
-    </footer>
-
     <script>
-        document.getElementById("darkModeToggle").addEventListener("click", function() {
-            document.body.classList.toggle("dark-mode");
-            this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-        });
-
-        document.getElementById("menuToggle").addEventListener("click", function() {
-            document.getElementById("navLinks").classList.toggle("active");
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
     </script>
 </body>
-
 </html>
