@@ -15,54 +15,47 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #1a1a1a;
-      color: white;
-      overflow-x: hidden;
-      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
-    }
-    /* 🚀 Header Mejorado */
-    .header {
-      background: linear-gradient(90deg, #000, #333);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: white;
-    }
-    /* Menú Desktop */
-    .desktop-nav {
-      display: block;
-    }
-    .nav-links {
-      display: flex;
-      gap: 15px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: white;
-      font-size: 16px;
-      position: relative;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover {
-      color: #ff6f00;
-    }
-    /* Efecto subrayado en hover */
-    .nav-links a::after {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background 0.5s, color 0.5s;
+        }
+    /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: linear-gradient(90deg, #000, #333);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
       content: '';
       position: absolute;
       left: 0;
@@ -83,16 +76,13 @@
     }
     .toggle-btn,
     .menu-toggle {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: white;
-    }
-    /* Icono Hamburger */
-    .menu-toggle {
-      display: none;
-    }
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
     .menu-toggle .hamburger {
       display: block;
       width: 24px;
@@ -237,11 +227,49 @@
     .dark-mode .parallax {
       filter: brightness(0.7);
     }
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-    }
+    /* Footer */
+        footer {
+            background: #1E3A8A;
+            color: white;
+            text-align: center;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 0.5rem;
+                display: block;
+            }
+
+            .social-media a {
+                font-size: 1.5rem;
+            }
+        }
     .modal {
       display: none;
       position: fixed;
