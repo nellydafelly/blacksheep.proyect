@@ -341,7 +341,7 @@
       obstaculo.posX = contenedor.clientWidth;
       obstaculo.style.left = contenedor.clientWidth + "px";
       // Aplicar un scale aleatorio para aumentar dificultad
-      var obstacleScale = Math.random() * 0.4 + 1; // entre 1 y 1.4
+      var obstacleScale = Math.random() * 0.1 + 0,5;
       obstaculo.style.transform = "scale(" + obstacleScale + ")";
     
       obstaculos.push(obstaculo);
