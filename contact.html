@@ -87,7 +87,50 @@
             height: 100vh;
             text-align: center;
         }
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: linear-gradient(90deg, #000, #333);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6f00;
+        }
+
+        /* Botón de menú */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
         header {
             width: 100%;
             background: #222;
@@ -161,22 +204,28 @@
                 width: 100%;
                 border-radius: 0;
             }
+            /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Contacto</h1>
+    <header class="header">
+        <h1 class="logo">🐑 BlackSheep</h1>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
         <nav>
-            <ul>
-                <li><a href="index.html">BlackSheep</a></li>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Black Sheep</a></li>
                 <li><a href="README.html">Portafolio</a></li>
-                <li><a href="si_somos.html">Sí Somos!</a></li>
                 <li><a href="contact.html">Contacto</a></li>
-                <li><a href="experiencia_github.html">Experiencia GitHub</a></li>
+                <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
             </ul>
         </nav>
+        <button id="darkModeToggle" class="toggle-btn" aria-label="Alternar modo oscuro">🌙</button>
     </header>
 
     <main>
