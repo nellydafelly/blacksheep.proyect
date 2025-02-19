@@ -1,124 +1,462 @@
 <!DOCTYPE html>
-<html lang="es">
+<htm lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sí Somos!</title>
+    <style>
+        /* 🎨 Estilos Globales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            overflow-x: hidden;
+            transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* 🚀 Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #000, #333);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ff6f00;
+        }
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+        /* 🎨 Estilos del Contenido Principal */
+        main {
+            flex: 1;
+            padding: 100px 20px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #222;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #ff6f00;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .project {
+            margin-bottom: 40px;
+        }
+        .project img {
+            margin-bottom: 20px;
+        }
+        /* ⚡ Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+        }
+    </style>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BlackSheep Proyecto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Sheep</title>
   <style>
-    /* Diseño global de la página */
-    body {
+    /* ================================
+       Global Styles
+    ================================ */
+    * {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: #584040;
-      color: #fff;
-      text-align: center;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
-    header {
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      overflow-x: hidden;
+      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    /* ================================
+       Header
+    ================================ */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 20px;
+      background: linear-gradient(90deg, #000, #333);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
     }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
     }
-    p {
-      font-size: 1.2em;
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ff6f00;
+    }
+    .toggle-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+    
+    /* ================================
+       Main Content
+    ================================ */
+    main {
+      flex: 1;
+      padding: 100px 20px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #222;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1, h2 {
+      color: #ff6f00;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .project {
+      margin-bottom: 40px;
+    }
+    .project img {
       margin-bottom: 20px;
     }
-    /* Botón para abrir el modal */
-    .btn-jugar {
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #ffadad;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      color: #fff;
+    
+    /* ================================
+       Footer
+    ================================ */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
     }
-    .btn-jugar:hover {
-      background-color: #ffdcf3;
-    }
-    /* Estilos para el modal popup */
-    .modal {
-      display: none; /* Oculto por defecto */
+    
+    /* ================================
+       Botón para abrir el juego (Modal)
+    ================================ */
+    .game-button {
       position: fixed;
-      z-index: 1000;
+      bottom: 30px;
+      right: 30px;
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      background: #ffcc00;
+      color: #333;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+      z-index: 1100;
+    }
+    .game-button:hover {
+      background: #ffdb4d;
+    }
+    
+    /* ================================
+       Modal y Juego
+    ================================ */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
     }
     .modal-content {
       position: relative;
-      margin: 5% auto;
-      width: 95%;
-      max-width: 960px;
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
+      width: 90vw;
+      max-width: 800px;
+      height: 50vh;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #fff;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
     }
-    .modal-content iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-    }
-    .close-modal {
+    .close-btn {
       position: absolute;
       top: 10px;
-      right: 20px;
-      font-size: 28px;
-      color: #000;
+      right: 15px;
+      font-size: 25px;
       cursor: pointer;
-      z-index: 10;
+      color: white;
+    }
+    /* ------------------------------
+       Juego: Container y Elementos
+    ------------------------------ */
+    .game-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: url('assets/background/background.jpg') no-repeat center/cover;
+    }
+    .sheep {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      bottom: 5%;
+      left: 10%;
+      background: url('assets/sheep/sheep.png') no-repeat center/cover;
+      transition: transform 0.3s ease-out;
+    }
+    .jump {
+      transform: translateY(-8vh);
+    }
+    .obstacle {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      bottom: 5%;
+      right: -10%;
+      background-size: cover;
+      animation: moveObstacle 3s linear infinite;
+    }
+    @keyframes moveObstacle {
+      from { right: -10%; }
+      to { right: 100%; }
+    }
+    .score {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 4px black;
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Bienvenido a BlackSheep Proyecto</h1>
-    <p>Explora nuestro universo interactivo y descubre nuevas dimensiones.</p>
-    <!-- Botón que activa el modal con el juego -->
-    <button class="btn-jugar" id="openModal">Jugar BlackSheep Runner</button>
+<>
+    <header class="header">
+        <h1 class="logo">🐑 BlackSheep</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Black Sheep</a></li>
+                <li><a href="README.html">Portafolio</a></li>
+                <li><a href="si_somos.html">Sí Somos!</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle" class="toggle-btn">🌙</button>
+    </header>
+    <main>
+        <section class="project">
+            <h2>Black Sheep</h2>
+            <img src="https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/main/social_preview.png">
+            <p>Black Sheep es un proyecto innovador centrado en la tecnología y la creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas a problemas complejos.</p>
+            <h3>Características</h3>
+            <ul>
+                <li>Diseño moderno y minimalista</li>
+                <li>Enfoque en la innovación tecnológica</li>
+                <li>Elementos gráficos futuristas</li>
+            </ul>
+            <h3>Enlaces</h3>
+            <ul>
+                <li><a href="https://nellydafelly.github.io/blacksheep.proyect/" target="_blank">Página del proyecto</a></li>
+            </ul>
+        </section>
+        <section class="project">
+            <h2>ORIGEN Huella Consciente</h2>
+            <img src="https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/main/ori_social_preview.png">
+            <p>ORIGEN Huella Consciente es un proyecto dedicado a la sostenibilidad y la conciencia ambiental. Promovemos prácticas ecológicas y sostenibles para un futuro mejor y más verde.</p>
+            <h3>Características</h3>
+            <ul>
+                <li>Enfoque en la sostenibilidad y el medio ambiente</li>
+                <li>Diseño vibrante y natural</li>
+                <li>Elementos gráficos que evocan la naturaleza</li>
+            </ul>
+            <h3>Enlaces</h3>
+            <ul>
+                <li><a href="https://abrilsu.github.io/saberes-vivos/" target="_blank">Página del proyecto</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        // 🌙 Dark Mode
+        document.getElementById("darkModeToggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        });
+    </script>
+  <!-- Header -->
+  <header class="header">
+    <h1 class="logo">🐑 Black Sheep</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Black Sheep</a></li>
+        <li><a href="README.html">Portafolio</a></li>
+        <li><a href="si_somos.html">Sí Somos!</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+        <li><a href="about.html">Acerca de</a></li>
+        <li><a href="experiencia_github.html">Gratitud Experiencia GitHub</a></li>
+      </ul>
+    </nav>
+    <button id="darkModeToggle" class="toggle-btn">🌙</button>
   </header>
-
-  <!-- Aquí puedes agregar más contenido de tu index -->
+  
+  <!-- Main Content -->
   <main>
-    <!-- Contenido adicional -->
+    <section class="project">
+      <h2>Black Sheep</h2>
+      <img src="https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/main/social_preview.png">
+      <p>Black Sheep es un proyecto innovador centrado en la tecnología y la creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas a problemas complejos.</p>
+      <h3>Características</h3>
+      <ul>
+        <li>Diseño moderno y minimalista</li>
+        <li>Enfoque en la innovación tecnológica</li>
+        <li>Elementos gráficos futuristas</li>
+      </ul>
+      <h3>Enlaces</h3>
+      <ul>
+        <li><a href="https://nellydafelly.github.io/blacksheep.proyect/" target="_blank">Página del proyecto</a></li>
+      </ul>
+    </section>
+    <section class="project">
+      <h2>ORIGEN Huella Consciente</h2>
+      <img src="https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/main/ori_social_preview.png">
+      <p>ORIGEN Huella Consciente es un proyecto dedicado a la sostenibilidad y la conciencia ambiental. Promovemos prácticas ecológicas y sostenibles para un futuro mejor y más verde.</p>
+      <h3>Características</h3>
+      <ul>
+        <li>Enfoque en la sostenibilidad y el medio ambiente</li>
+        <li>Diseño vibrante y natural</li>
+        <li>Elementos gráficos que evocan la naturaleza</li>
+      </ul>
+      <h3>Enlaces</h3>
+      <ul>
+        <li><a href="https://abrilsu.github.io/saberes-vivos/" target="_blank">Página del proyecto</a></li>
+      </ul>
+    </section>
   </main>
-
-  <!-- Modal Popup -->
-  <div class="modal" id="gameModal">
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 BlackSheep. Todos los derechos reservados.</p>
+  </footer>
+  
+  <!-- Botón para abrir el juego (Modal) -->
+  <button class="game-button" onclick="openGame()">Jugar Oveja Runner 🕹️</button>
+  
+  <!-- Modal Pop-Up con el juego -->
+  <div id="gameModal" class="modal">
     <div class="modal-content">
-      <span class="close-modal" id="closeModal">&times;</span>
-      <!-- Iframe que carga el juego -->
-      <iframe src="BlackSheepR.html" title="BlackSheep Runner"></iframe>
+      <span class="close-btn" onclick="closeGame()">✖</span>
+      <div class="game-container" id="gameContainer">
+        <div class="sheep" id="sheep"></div>
+        <div class="score" id="scoreDisplay">0</div>
+      </div>
     </div>
   </div>
-
+  
   <script>
-    // Seleccionar elementos
-    const openModalBtn = document.getElementById('openModal');
-    const closeModalBtn = document.getElementById('closeModal');
-    const gameModal = document.getElementById('gameModal');
-
-    // Abrir el modal al hacer clic en el botón
-    openModalBtn.addEventListener('click', () => {
-      gameModal.style.display = 'block';
+    /* -------------------------------
+       Dark Mode Toggle
+    ------------------------------- */
+    document.getElementById("darkModeToggle").addEventListener("click", function() {
+      document.body.classList.toggle("dark-mode");
+      this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
     });
+    <!-- Botón que activa el modal con el juego -->
+ <button class="btn-jugar" id="openModal">Jugar BlackSheep Runner</button>
+</header>
+<!-- Modal Popup -->
+<div class="modal" id="gameModal">
+  <div class="modal-content">
+    <span class="close-modal" id="closeModal">&times;</span>
+    <!-- Iframe que carga el juego -->
+    <iframe src="https://github.com/nellydafelly/blacksheep.proyect/blob/main/BlackSheepR.html" title="BlackSheep Runner"></iframe>
+  </div>
+</div>
 
-    // Cerrar el modal al hacer clic en la "X"
-    closeModalBtn.addEventListener('click', () => {
+<script>
+  // Seleccionar elementos
+  const openModalBtn = document.getElementById('openModal');
+  const closeModalBtn = document.getElementById('closeModal');
+  const gameModal = document.getElementById('gameModal');
+
+  // Abrir el modal al hacer clic en el botón
+  openModalBtn.addEventListener('click', () => {
+    gameModal.style.display = 'block';
+  });
+
+  // Cerrar el modal al hacer clic en la "X"
+  closeModalBtn.addEventListener('click', () => {
+    gameModal.style.display = 'none';
+  });
+
+  // Cerrar el modal al hacer clic fuera del contenido del modal
+  window.addEventListener('click', (e) => {
+    if (e.target === gameModal) {
       gameModal.style.display = 'none';
-    });
-
-    // Cerrar el modal al hacer clic fuera del contenido del modal
-    window.addEventListener('click', (e) => {
-      if (e.target === gameModal) {
-        gameModal.style.display = 'none';
-      }
-    });
+    }
+  });
   </script>
 </body>
 </html>
