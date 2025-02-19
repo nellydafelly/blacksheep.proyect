@@ -4,9 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BlackSheep Runner</title>
+  <!-- Fuentes Pixel Art -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <style>
-    * { padding: 0; margin: 0; box-sizing: border-box; }
+    /* Estilos Globales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
     body {
       height: 100vh;
       background: #584040;
@@ -14,44 +21,96 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      font-family: 'Press Start 2P', cursive;
+      font-family: 'Arial', sans-serif;
+      image-rendering: pixelated;
     }
+    /* Pantalla de carga (Splash) */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 24px;
+      z-index: 100;
+      transition: opacity 0.5s ease-out;
+    }
+    /* Contenedor principal del juego (oculto hasta cargar assets) */
     .contenedor {
       width: 920px;
       height: 280px;
       position: relative;
       background: linear-gradient(#b7d6c7, transparent) #ffe2d1;
+      transition: background-color 1s linear;
       overflow: hidden;
+      display: none;
     }
+    .mediodia { background-color: #ffdcf3; }
+    .tarde { background-color: #ffadad; }
+    .noche { background-color: #aca8c7; }
     .dino {
       width: 84px;
       height: 84px;
       position: absolute;
       bottom: 22px;
       left: 42px;
-      background: url(img/bsheep.png) repeat-x;
+      z-index: 2;
+      background: url(img/bsheep.png) repeat-x 0 0;
       background-size: 336px 84px;
       background-position-x: 0;
       will-change: transform;
     }
-    .dino-corriendo { animation: animarDino 0.25s steps(2) infinite; }
-    .dino-estrellado { background-position-x: -252px; }
+    .dino-corriendo {
+      animation: animarDino 0.25s steps(2) infinite;
+    }
+    .dino-estrellado {
+      background-position-x: -252px;
+    }
     .suelo {
       width: 200%;
       height: 42px;
       position: absolute;
       bottom: 0;
       left: 0;
-      background: url(img/suelo.png) repeat-x;
+      background: url(img/suelo.png) repeat-x 0 0;
       background-size: 50% 42px;
       will-change: transform;
+    }
+    .cactus {
+      width: 119px;
+      height: 129px;
+      position: absolute;
+      bottom: 16px;
+      left: 600px;
+      z-index: 1;
+      background: url(img/cactus1.png) no-repeat;
+    }
+    .cactus2 {
+      width: 92px;
+      height: 121px;
+      background: url(img/cactus2.png) no-repeat;
+    }
+    .nube {
+      position: absolute;
+      z-index: 0;
+      background: url(img/nube.png) no-repeat;
+      background-size: 92px 26px;
     }
     .score {
       position: absolute;
       top: 5px;
       right: 15px;
+      z-index: 10;
       color: #d48871;
+      font-family: 'Press Start 2P', sans-serif;
       font-size: 20px;
+      font-weight: bold;
       text-align: right;
     }
     .game-over {
@@ -62,11 +121,15 @@
       top: 40%;
       color: #7e928b;
       font-size: 30px;
+      font-family: 'VT323', monospace;
+      font-weight: 700;
+      z-index: 15;
     }
     @keyframes animarDino {
       from { background-position-x: -84px; }
       to { background-position-x: -252px; }
     }
+    /* Overlay para orientación en móviles */
     #orientationMsg {
       position: fixed;
       bottom: 10px;
@@ -74,40 +137,135 @@
       transform: translateX(-50%);
       background-color: rgba(0,0,0,0.4);
       color: #fff;
+      font-family: 'Press Start 2P', sans-serif;
       font-size: 14px;
       padding: 5px 10px;
       border-radius: 5px;
+      z-index: 20;
       display: none;
     }
   </style>
 </head>
 <body>
-  <div class="contenedor">
+  <!-- Splash / Pantalla de carga -->
+  <div class="loading-screen" id="loadingScreen">Cargando...</div>
+  <!-- Contenedor del juego -->
+  <div class="contenedor" id="gameContainer">
     <div class="suelo"></div>
     <div class="dino dino-corriendo"></div>
     <div class="score">0</div>
-    <div class="game-over">¡VAMOS!</div>
+    <div class="game-over">GAME OVER</div>
   </div>
+  <!-- Overlay para orientación -->
   <div id="orientationMsg">Para una mejor experiencia, gira tu dispositivo</div>
+  
   <script>
+    /***** Preload de Assets *****/
+    function preloadAssets(images, callback) {
+      let loaded = 0;
+      images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          loaded++;
+          if (loaded === images.length) { callback(); }
+        };
+        img.onerror = () => {
+          loaded++;
+          if (loaded === images.length) { callback(); }
+        };
+      });
+    }
+    const assets = [\n      'img/bsheep.png',\n      'img/suelo.png',\n      'img/cactus1.png',\n      'img/cactus2.png',\n      'img/nube.png'\n    ];
+    preloadAssets(assets, function() {
+      const loadingScreen = document.getElementById('loadingScreen');
+      loadingScreen.style.opacity = '0';
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+        document.getElementById('gameContainer').style.display = 'block';
+        Init(); // Inicia el juego cuando todos los assets están cargados
+      }, 500);
+    });
+    
+    /***** Variables del juego *****/
+    var time = new Date();
+    var deltaTime = 0;
+    var sueloY = 22;
+    var velY = 0;
+    var impulso = 900;
+    var gravedad = 2500;
+    var dinoPosX = 42;
+    var dinoPosY = sueloY;
+    var sueloX = 0;
+    var velEscenario = 1280 / 3;
+    var gameVel = 1;
+    var score = 0;
+    var parado = false;
+    var saltando = false;
+    var jumpCount = 0; // Para doble salto
+    var highestSurpassed = false; // Para mostrar el mensaje una sola vez
+    var storedHighScore = 0;
+    
+    // Intervalos para obstáculos y nubes
+    var tiempoHastaObstaculo = 2;
+    var tiempoObstaculoMin = 1.0;
+    var tiempoObstaculoMax = 3.0;
+    var obstaculos = [];
+    var tiempoHastaNube = 0.5;
+    var tiempoNubeMin = 1.0;
+    var tiempoNubeMax = 3.5;
+    var maxNubeY = 270;
+    var minNubeY = 100;
+    var nubes = [];
+    var velNube = 0.5;
+    
+    var contenedor, dino, textoScore, suelo, gameOver;
+    
+    // Cargar puntaje máximo almacenado
+    var highScoresStored = JSON.parse(localStorage.getItem("highScores")) || [];
+    if (highScoresStored.length > 0) { storedHighScore = highScoresStored[0]; }
+    
+    /***** Funciones de Inicialización y Loop *****/
     function Init() {
-      console.log("Juego iniciado");
-      checkOrientation();
-      window.addEventListener("resize", checkOrientation);
+      time = new Date();
+      Start();
+      Loop();
+      // Control táctil para salto (doble salto incluido)\n      document.addEventListener("touchstart", function(e) {\n        e.preventDefault();\n        Saltar();\n      });\n      // Detectar orientación\n      checkOrientation();\n      window.addEventListener("resize", checkOrientation);\n    }
+    
+    function Loop() {
+      deltaTime = (new Date() - time) / 1000;
+      time = new Date();
+      if (!parado) { Update(); }
+      requestAnimationFrame(Loop);
     }
-    function checkOrientation() {
-      var orientationMsg = document.getElementById("orientationMsg");
-      if (window.innerHeight > window.innerWidth) {
-        orientationMsg.style.display = "block";
-      } else {
-        orientationMsg.style.display = "none";
-      }
+    
+    function Start() {
+      gameOver = document.querySelector(".game-over");
+      suelo = document.querySelector(".suelo");
+      contenedor = document.querySelector(".contenedor");
+      textoScore = document.querySelector(".score");
+      dino = document.querySelector(".dino");
+      document.addEventListener("keydown", HandleKeyDown);
     }
-    if (document.readyState !== "loading") {
-      Init();
-    } else {
-      document.addEventListener("DOMContentLoaded", Init);
+    
+    function Update() {
+      MoverDinosaurio();
+      MoverSuelo();
+      DecidirCrearObstaculos();
+      DecidirCrearNubes();
+      MoverObstaculos();
+      MoverNubes();
+      DetectarColision();
+      velY -= gravedad * deltaTime;
     }
-  </script>
-</body>
-</html>
+    
+    function HandleKeyDown(ev) {
+      if (ev.keyCode == 32) { // Barra espaciadora\n        Saltar();\n      }\n    }
+    
+    function Saltar() {\n      if (jumpCount < 2) {\n        if (jumpCount === 1) { // Segundo salto con impulso extra\n          velY = impulso * 1.2;\n        } else {\n          velY = impulso;\n        }\n        jumpCount++;\n        saltando = true;\n        dino.classList.remove("dino-corriendo");\n      }\n    }
+    
+    function MoverDinosaurio() {\n      dinoPosY += velY * deltaTime;\n      if (dinoPosY < sueloY) { TocarSuelo(); }\n      dino.style.bottom = dinoPosY + "px";\n    }
+    
+    function TocarSuelo() {\n      dinoPosY = sueloY;\n      velY = 0;\n      jumpCount = 0;\n      if (saltando) { dino.classList.add("dino-corriendo"); }\n      saltando = false;\n    }
+    
+    function MoverSuelo() {\n      sueloX += CalcularDesplazamiento();\n      suelo.style.left = -(sueloX % contenedor.clientWidth) + "px";\n    }\n    function CalcularDesplazamiento() {\n      return velEscenario * deltaTime * gameVel;\n    }\n    function Estrellarse() {\n      dino.classList.remove("dino-corriendo");\n      dino.classList.add("dino-estrellado");\n      parado = true;\n    }\n    function DecidirCrearObstaculos() {\n      tiempoHastaObstaculo -= deltaTime;\n      if (tiempoHastaObstaculo <= 0) { CrearObstaculo(); }\n    }\n    function DecidirCrearNubes() {\n      tiempoHastaNube -= deltaTime;\n      if (tiempoHastaNube <= 0) { CrearNube(); }\n    }\n    function CrearObstaculo() {\n      var obstaculo = document.createElement("div");\n      contenedor.appendChild(obstaculo);\n      obstaculo.classList.add("cactus");\n      if (Math.random() > 0.5) obstaculo.classList.add("cactus2");\n      obstaculo.posX = contenedor.clientWidth;\n      obstaculo.style.left = contenedor.clientWidth + "px";\n      obstaculos.push(obstaculo);\n      tiempoHastaObstaculo = tiempoObstaculoMin + Math.random() * (tiempoObstaculoMax - tiempoObstaculoMin) / gameVel;\n    }\n    function CrearNube() {\n      var nube = document.createElement("div");\n      contenedor.appendChild(nube);\n      nube.classList.add("nube");\n      nube.posX = contenedor.clientWidth;\n      nube.style.left = contenedor.clientWidth + "px";\n      var scale = Math.random() * 1 + 0.5; // Escala variable entre 0.5 y 1.5\n      nube.style.width = (93 * scale) + "px";\n      nube.style.height = (37 * scale) + "px";\n      nube.style.bottom = minNubeY + Math.random() * (maxNubeY - minNubeY) + "px";\n      nubes.push(nube);\n      tiempoHastaNube = tiempoNubeMin + Math.random() * (tiempoNubeMax - tiempoNubeMin) / gameVel;\n    }\n    function MoverObstaculos() {\n      for (var i = obstaculos.length - 1; i >= 0; i--) {\n        if (obstaculos[i].posX < -obstaculos[i].clientWidth) {\n          obstaculos[i].parentNode.removeChild(obstaculos[i]);\n          obstaculos.splice(i, 1);\n          GanarPuntos();\n        } else {\n          obstaculos[i].posX -= CalcularDesplazamiento();\n          obstaculos[i].style.left = obstaculos[i].posX + \"px\";\n        }\n      }\n    }\n    function MoverNubes() {\n      for (var i = nubes.length - 1; i >= 0; i--) {\n        if (nubes[i].posX < -nubes[i].clientWidth) {\n          nubes[i].parentNode.removeChild(nubes[i]);\n          nubes.splice(i, 1);\n        } else {\n          nubes[i].posX -= CalcularDesplazamiento() * velNube;\n          nubes[i].style.left = nubes[i].posX + \"px\";\n        }\n      }\n    }\n    function GanarPuntos() {\n      score++;\n      textoScore.innerText = score;\n      if (score > storedHighScore && !highestSurpassed) {\n        alert(\"¡Has superado el mayor puntaje!\");\n        highestSurpassed = true;\n      }\n      if (score == 5) {\n        gameVel = 1.5;\n        contenedor.classList.add(\"mediodia\");\n      } else if (score == 10) {\n        gameVel = 2;\n        contenedor.classList.add(\"tarde\");\n      } else if (score == 20) {\n        gameVel = 3;\n        contenedor.classList.add(\"noche\");\n      }\n      suelo.style.animationDuration = (3 / gameVel) + \"s\";\n    }\n    function GameOver() {\n      Estrellarse();\n      gameOver.style.display = \"block\";\n      updateHighScores();\n      setTimeout(function() { location.reload(); }, 5000);\n    }\n    function DetectarColision() {\n      for (var i = 0; i < obstaculos.length; i++) {\n        if (obstaculos[i].posX > dinoPosX + dino.clientWidth) {\n          break;\n        } else {\n          if (IsCollision(dino, obstaculos[i], 10, 30, 15, 20)) {\n            GameOver();\n          }\n        }\n      }\n    }\n    function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft) {\n      var aRect = a.getBoundingClientRect();\n      var bRect = b.getBoundingClientRect();\n      return !(\n        ((aRect.top + aRect.height - paddingBottom) < (bRect.top)) ||\n        (aRect.top + paddingTop > (bRect.top + bRect.height)) ||\n        ((aRect.left + aRect.width - paddingRight) < bRect.left) ||\n        (aRect.left + paddingLeft > (bRect.left + bRect.width))\n      );\n    }\n    function updateHighScores() {\n      var highScores = JSON.parse(localStorage.getItem(\"highScores\")) || [];\n      highScores.push(score);\n      highScores.sort(function(a, b) { return b - a; });\n      highScores = highScores.slice(0, 5);\n      localStorage.setItem(\"highScores\", JSON.stringify(highScores));\n      var overlay = document.createElement(\"div\");\n      overlay.style.position = \"fixed\";\n      overlay.style.top = \"0\";\n      overlay.style.left = \"0\";\n      overlay.style.width = \"100%\";\n      overlay.style.height = \"100%\";\n      overlay.style.backgroundColor = \"rgba(0,0,0,0.8)\";\n      overlay.style.color = \"white\";\n      overlay.style.fontFamily = \"'Press Start 2P', cursive\";\n      overlay.style.fontSize = \"16px\";\n      overlay.style.textAlign = \"center\";\n      overlay.style.paddingTop = \"50px\";\n      overlay.style.zIndex = \"25\";\n      overlay.innerHTML = \"<h2>Mejores Puntajes</h2>\";\n      for (var i = 0; i < highScores.length; i++) {\n        overlay.innerHTML += \"<p>\" + (i+1) + \". \" + highScores[i] + \"</p>\";\n      }\n      document.body.appendChild(overlay);\n    }\n    function checkOrientation() {\n      var overlayMsg = document.getElementById(\"orientationMsg\");\n      if (window.innerWidth < window.innerHeight) {\n        if (!overlayMsg) {\n          overlayMsg = document.createElement(\"div\");\n          overlayMsg.id = \"orientationMsg\";\n          overlayMsg.style.position = \"fixed\";\n          overlayMsg.style.bottom = \"10px\";\n          overlayMsg.style.left = \"50%\";\n          overlayMsg.style.transform = \"translateX(-50%)\";\n          overlayMsg.style.backgroundColor = \"rgba(0,0,0,0.4)\";\n          overlayMsg.style.color = \"#fff\";\n          overlayMsg.style.fontFamily = \"'Press Start 2P', cursive\";\n          overlayMsg.style.fontSize = \"14px\";\n          overlayMsg.style.padding = \"5px 10px\";\n          overlayMsg.style.borderRadius = \"5px\";\n          overlayMsg.style.zIndex = \"30\";\n          overlayMsg.innerHTML = \"Para una mejor experiencia, gira tu dispositivo\";\n          document.body.appendChild(overlayMsg);\n        }\n      } else {\n        if (overlayMsg) { overlayMsg.remove(); }\n      }\n    }\n    \n    // Iniciar el juego (se llama cuando los assets se han cargado desde el preload)\n    function InitGame() {\n      time = new Date();\n      Start();\n      Loop();\n      document.addEventListener(\"keydown\", HandleKeyDown);\n      document.addEventListener(\"touchstart\", function(e) {\n        e.preventDefault();\n        Saltar();\n      });\n      checkOrientation();\n      window.addEventListener(\"resize\", checkOrientation);\n    }\n    \n    // Si el documento ya está cargado, iniciamos de inmediato; de lo contrario, esperamos\n    if (document.readyState !== \"loading\") {\n      InitGame();\n    } else {\n      document.addEventListener(\"DOMContentLoaded\", InitGame);\n    }\n  </script>\n</body>\n</html>\n"}
