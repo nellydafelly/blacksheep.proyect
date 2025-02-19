@@ -6,11 +6,7 @@
   <title>BlackSheep Runner</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
+    * { padding: 0; margin: 0; box-sizing: border-box; }
     body {
       height: 100vh;
       background: #584040;
@@ -18,39 +14,14 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Press Start 2P', cursive;
     }
     .contenedor {
       width: 920px;
       height: 280px;
       position: relative;
       background: linear-gradient(#b7d6c7, transparent) #ffe2d1;
-      transition: background-color 1s linear;
       overflow: hidden;
-      display: none; /* Se oculta hasta que se carguen los assets */
-    }
-    .loading-screen {
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      background: #000;
-      color: white;
-      font-family: 'Press Start 2P', cursive;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      z-index: 50;
-      transition: opacity 0.5s ease-in-out;
-    }
-    .suelo {
-      width: 200%;
-      height: 42px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background: url(img/suelo.png) repeat-x 0 0;
-      background-size: 50% 42px;
     }
     .dino {
       width: 84px;
@@ -58,68 +29,85 @@
       position: absolute;
       bottom: 22px;
       left: 42px;
-      z-index: 2;
-      background: url(img/bsheep.png) repeat-x 0 0;
+      background: url(img/bsheep.png) repeat-x;
       background-size: 336px 84px;
+      background-position-x: 0;
+      will-change: transform;
+    }
+    .dino-corriendo { animation: animarDino 0.25s steps(2) infinite; }
+    .dino-estrellado { background-position-x: -252px; }
+    .suelo {
+      width: 200%;
+      height: 42px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: url(img/suelo.png) repeat-x;
+      background-size: 50% 42px;
+      will-change: transform;
     }
     .score {
       position: absolute;
       top: 5px;
       right: 15px;
       color: #d48871;
-      font-family: 'Press Start 2P', cursive;
       font-size: 20px;
-      font-weight: bold;
       text-align: right;
+    }
+    .game-over {
+      display: none;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 40%;
+      color: #7e928b;
+      font-size: 30px;
+    }
+    @keyframes animarDino {
+      from { background-position-x: -84px; }
+      to { background-position-x: -252px; }
+    }
+    #orientationMsg {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0,0,0,0.4);
+      color: #fff;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: none;
     }
   </style>
 </head>
 <body>
-  
-  <div class="loading-screen">Cargando...</div> <!-- Pantalla de carga -->
-
   <div class="contenedor">
     <div class="suelo"></div>
     <div class="dino dino-corriendo"></div>
     <div class="score">0</div>
+    <div class="game-over">¡VAMOS!</div>
   </div>
-
+  <div id="orientationMsg">Para una mejor experiencia, gira tu dispositivo</div>
   <script>
-    // Esperar a que todos los assets estén cargados
-    function preloadAssets(images, callback) {
-      let loaded = 0;
-      images.forEach(src => {
-        let img = new Image();
-        img.src = src;
-        img.onload = () => {
-          loaded++;
-          if (loaded === images.length) {
-            callback();
-          }
-        };
-      });
+    function Init() {
+      console.log("Juego iniciado");
+      checkOrientation();
+      window.addEventListener("resize", checkOrientation);
     }
-
-    // Lista de imágenes que deben cargarse antes de iniciar
-    const assets = [
-      'img/bsheep.png',
-      'img/suelo.png'
-    ];
-
-    // Mostrar pantalla de carga y luego iniciar el juego
-    preloadAssets(assets, function() {
-      document.querySelector('.loading-screen').style.opacity = '0';
-      setTimeout(() => {
-        document.querySelector('.loading-screen').style.display = 'none';
-        document.querySelector('.contenedor').style.display = 'block';
-        startGame(); // Llamar a la función de inicio del juego
-      }, 500);
-    });
-
-    function startGame() {
-      console.log("Juego iniciado"); // Aquí inicia la lógica de tu juego
+    function checkOrientation() {
+      var orientationMsg = document.getElementById("orientationMsg");
+      if (window.innerHeight > window.innerWidth) {
+        orientationMsg.style.display = "block";
+      } else {
+        orientationMsg.style.display = "none";
+      }
+    }
+    if (document.readyState !== "loading") {
+      Init();
+    } else {
+      document.addEventListener("DOMContentLoaded", Init);
     }
   </script>
-
 </body>
 </html>
