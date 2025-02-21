@@ -1,3 +1,114 @@
+# 🐑✨ Da Black Sheep & ORIGEN Huella Consciente 🌱  
+
+![Logo General](https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/logoblacksheep.png)  
+
+## 🔥 Una Fusión de Tecnología, Creatividad y Sostenibilidad  
+Presentamos **dos proyectos transformadores** que unen la innovación y la conciencia ambiental:  
+
+🔹 **Da Black Sheep:** Revoluciona la nueva era con tecnología y creatividad en constante evolución.  
+🔹 **ORIGEN Huella Consciente:** Fomenta la sostenibilidad y el respeto por la naturaleza en sinergia con Black Sheep.  
+
+---
+
+## 🚀 Despliegue y Hosting  
+Nuestros proyectos se publican utilizando herramientas de calidad:  
+🔗 **[GitHub Pages](https://pages.github.com/)** – Plataforma confiable y gratuita para alojar proyectos.  
+📌 **Linktree Customizado** – Un punto de acceso centralizado para todas nuestras redes y recursos.  
+
+---
+
+## 🛠️ Herramientas y Recursos  
+✅ **Linktree Customizado:** DIY para agrupar todas nuestras redes en un solo enlace. *(Próximamente)*  
+🌑 **Diseño Adaptable:** Experiencia optimizada para modo oscuro y claro.  
+🤝 **Comunidad:** Únete a nuestro [Discord (... Creando!)](#) para colaboraciones y novedades.  
+
+---
+
+# 🔥 Proyectos Activos  
+
+## 🐑 Da Black Sheep  
+![Black Sheep](https://github.com/nellydafelly/blacksheep.proyect/blob/main/social_preview.png)  
+
+### 🚀 Descripción  
+Black Sheep es un proyecto innovador centrado en la tecnología y creatividad, desafiando normas establecidas y brindando soluciones avanzadas.  
+
+### 🎨 Características  
+✅ Diseño moderno y minimalista  
+✅ Enfoque en la innovación tecnológica  
+✅ Elementos gráficos futuristas  
+
+📌 **[Visita el Proyecto](https://nellydafelly.github.io/blacksheep.proyect/)**  
+
+---
+
+## 🌿 ORIGEN Huella Consciente  
+![ORIGEN Huella Consciente](https://github.com/nellydafelly/blacksheep.proyect/blob/main/ori_social_preview.png)  
+
+### 🌍 Descripción  
+ORIGEN Huella Consciente impulsa la sostenibilidad y el cuidado del medio ambiente con iniciativas ecológicas.  
+
+### 🍃 Características  
+✅ Diseño vibrante y natural  
+✅ Elementos gráficos inspirados en la naturaleza  
+✅ Promoción de prácticas sostenibles  
+
+📌 **[Explora el Proyecto](https://abrilsu.github.io/saberes-vivos/)**  
+
+---
+
+## 💰 Contribuciones y Soporte  
+
+Tu apoyo es clave para seguir creando. Puedes colaborar de las siguientes maneras:  
+
+🎨 [**¡Cómprame un café!** ☕ (Próximamente)](https://www.buymeacoffee.com/)  
+🚀 [**Patrocina en GitHub!** 🌕 (Próximamente)](https://github.com/sponsors/)  
+🌟 [**Danos tu apoyo con Stars y suscripciones! ✨**](https://www.facebook.com/nellydafelly)  
+
+🙌 **¡Gracias por ser parte de esta revolución creativa y consciente!**  
+
+---
+
+# 🌐 Black Sheep Resources  
+
+## 🌟 Visión General  
+Black Sheep es un proyecto que fusiona creatividad y tecnología para ofrecer soluciones únicas y vanguardistas.  
+
+## 🔗 Recursos Clave  
+- 📍 **Sitio Web:** [Black Sheep Project](https://nellydafelly.github.io/blacksheep.proyect)  
+- 💾 **Repositorio GitHub:** [Black Sheep GitHub](https://github.com/nellydafelly/blacksheep)  
+
+## 🤝 Miembros del Equipo  
+👑 **Nelly Da' Felly** – Director Ejecutivo  
+🎨 **Abril Martínez** – Artista Creativa  
+⚡ **Majestic** – Asistencia Personalizada  
+
+## 📩 Contacto  
+📧 **Correo:** blacksheep.crearte@gmail.com  
+📞 **Teléfono:** +57 (322) 705 7205  
+📲 **Redes Sociales:** @nellydafelly  
+
+---
+
+## 🎖️ Agradecimientos  
+🙏 Un enorme agradecimiento a todos los colaboradores y seguidores que hacen posible este proyecto.  
+
+📌 **Enlaces Adicionales**  
+- [🌟 ¡Gratitud Total! Experiencia GitHub](experiencia_github.html)  
+- [🐑 Sí Somos!](README.html)  
+
+## ⚖️ Licencia  
+Este proyecto está bajo la **Licencia MIT**. Consulta el archivo [Apache License Version 2.0](LICENSE) para más detalles.  
+
+---
+
+🚀 **🐑 [Sí Somos!](README.html) 🌍**  
+
+---
+
+✨ Ahora tiene un mejor flow visual, con títulos destacados, emojis estratégicos y un diseño más atractivo. ¿Qué te parece? ¿Quieres que ajuste algo más? 🤓🔥
+
+
+
 # 🐑 Da Black Sheep
 ![Logo General](https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/logoblacksheep.png)
 
