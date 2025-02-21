@@ -24,14 +24,9 @@ Además, hemos desarrollado nuestro propio **Linktree Customizado** para central
 - **Linktree Customizado:** Una versión DIY para agrupar todas nuestras redes. (Ver el código y personalizarlo: [Custom Linktree (... creando!)](#)).
 - **Temas y Estilos:** Diseñamos nuestros elementos con un enfoque minimalista y adaptable, para una experiencia óptima en modos oscuro y claro.
 - **Comunidad:** Únete a nuestro [Discord (... Creando!)](#) y mantente al tanto de novedades, colaboraciones y eventos.
-
+- 
 ---
 
-## Licencia
-
-Este proyecto se distribuye bajo la [ Apache License Version 2.0, January 2004](LICENSE).
-
----
 ### Proyectos Activos
 
 ## Da BlackSheep
