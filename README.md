@@ -15,7 +15,7 @@ Una solución integral que fusiona innovación tecnológica y sostenibilidad. Pr
 Tu apoyo es fundamental para impulsar estos proyectos. Si deseas contribuir o patrocinar, elige la opción que mejor se adapte:
 
 ### Patrocinadores y Soporte
-- [¡Cómprame un café! (...pronto!)](https://cdn.cottle.cloud/GitHub/LittleLink/littlelink.gif)
+- [¡Cómprame un café! (...pronto!)](https://www.buymeacoffee.com/)
 - [Patrocíname en GitHub (...pronto!)](https://github.com/sponsors/)
 
 ---
