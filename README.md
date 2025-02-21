@@ -63,7 +63,7 @@ ORIGEN Huella Consciente es un proyecto dedicado a la sostenibilidad y la concie
 
 ## Contribuciones y Soporte
 
-Tu contribución es fundamental para impulsar estos proyectos. Si deseas contribuir o patrocinar, elige la opción que mejor se adapte:
+Tu contribución es fundamental para impulsar estos proyectos. Si deseas colaborar o patrocinar, elige la opción que mejor se adapte:
 
 ### Patrocinadores y Soporte
 + [🎨¡Cómprame un café! (...pronto!) ☕](https://www.buymeacoffee.com/)
