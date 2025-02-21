@@ -68,7 +68,7 @@ Tu contribución es fundamental para impulsar estos proyectos. Si deseas colabor
 ### Patrocinadores y Soporte
 + [🎨 ¡Cómprame un café! (...pronto!) ☕](https://www.buymeacoffee.com/)
 + [🚀 Impulsa en GitHub (...pronto!) 🌕](https://github.com/sponsors/)
-+ [🌟 ¡Hazte suscriptor o envía Stars a Da Felly! ✨](https://wwww.facebook.com/nellydafelly)
++ [🌟 ¡Hazte suscriptor/a o envía Stars a Da Felly! ✨](https://wwww.facebook.com/nellydafelly)
 
 ### ¡Gracias por ser parte de ésta revolución creativa y consciente!
 
