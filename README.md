@@ -26,6 +26,7 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 # 🔥 Proyectos Activos  
 
 ## 🐑 Da Black Sheep  
+![Black Sheep](https://github.com/nellydafelly/blacksheep.proyect/blob/main/social_preview.png)
 📍 **[Visítanos](https://nellydafelly.github.io/blacksheep.proyect/)**  
 📂 **[Repositorio GitHub](https://github.com/nellydafelly/blacksheep)**  
 
@@ -38,13 +39,14 @@ Un espacio donde la creatividad y la tecnología convergen:
 ---  
 
 ## 🌿 ORIGEN Huella Consciente  
+![ORIGEN Huella Consciente](https://github.com/nellydafelly/blacksheep.proyect/blob/main/ori_social_preview.png)
 📍 **[Explora el Proyecto](https://abrilsu.github.io/saberes-vivos/)**  
 
 ### 🌍 Impacto Ambiental Real  
 Comprometidos con la sostenibilidad a través de:  
 ✅ **Diseño eco-friendly**: Materiales y gráficos inspirados en la naturaleza.  
 ✅ **Acciones verdes**: Iniciativas de reciclaje, reforestación y educación ambiental.  
-✅ **Colaboraciones conscientes**: Alianzas con comunidades y expertos ecológicos.  
+✅ **Colaboraciones conscientes**: Alianzas con comunidades y expertxs ecológicxs.  
 
 ---  
 
