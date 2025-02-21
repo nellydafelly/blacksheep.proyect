@@ -10,7 +10,7 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 
 ## 🚀 Hosting & Despliegue  
 📌 **[GitHub Pages](https://pages.github.com/)** – Hosting gratuito y confiable.  
-🔗 **Linktree Personalizado** – Todas nuestras redes en un solo enlace. [Custom Linktree](https://github.com/nellydafelly/blacksheep.proyect/blob/main/Custom%20Linktree/Custom_Linktree.html)
+🔗 **Linktree Personalizado** – Todas nuestras redes en un solo enlace.
 
 ---  
 
