@@ -1,7 +1,5 @@
 # 🐑✨ Da Black Sheep & ORIGEN Huella Consciente 🌱  
-
 ![Logo General](https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/logoblacksheep.png)  
-
 ## 🔥 Innovación + Sostenibilidad  
 Fusionamos creatividad, tecnología y conciencia ambiental:  
 
