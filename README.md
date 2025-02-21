@@ -10,12 +10,12 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 
 ## 🚀 Hosting & Despliegue  
 📌 **[GitHub Pages](https://pages.github.com/)** – Hosting gratuito y confiable.  
-🔗 **Linktree Personalizado** – Todas nuestras redes en un solo enlace. [Custom Linktree](Custom Linktree/Custom_Linktree.html)
+🔗 **Linktree Personalizado** – Todas nuestras redes en un solo enlace. [Custom Linktree](https://github.com/nellydafelly/blacksheep.proyect/blob/main/Custom%20Linktree/Custom_Linktree.html)
 
 ---  
 
 ## 🛠️ Herramientas  
-✅ **Linktree DIY**: Crea tu propio hub de enlaces. *[Custom Linktree](Custom Linktree/Custom_Linktree.html)*  
+✅ **Linktree DIY**: Crea tu propio hub de enlaces. [Custom Linktree](https://github.com/nellydafelly/blacksheep.proyect/blob/main/Custom%20Linktree/Custom_Linktree.html)
 🌑 **Diseño adaptable**: Experiencia optimizada en modo claro y oscuro.  
 💬 **Comunidad Activa**: Únete a nuestro **[Discord 🚀](#)** para colaborar. *(En construcción)*  
 
