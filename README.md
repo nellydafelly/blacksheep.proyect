@@ -1,4 +1,4 @@
-# Black Sheep
+# 🐑 Da Black Sheep
 ![Logo General](https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/logoblacksheep.png)
 
 # Black Sheep & ORIGEN Huella Consciente
@@ -74,7 +74,7 @@ Tu contribución es fundamental para impulsar estos proyectos. Si deseas colabor
 
 ---
 
-# Sí Somos! Da Black Sheep  
+# Sí Somos! Da Black Sheep 🐑
 
 ## Visión General  
 Black Sheep es un proyecto innovador enfocado en tecnología y creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas a problemas complejos.  
