@@ -1,5 +1,84 @@
 # Black Sheep
+![Logo General](https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/logoblacksheep.png)
 
+# Black Sheep & ORIGEN Huella Consciente
+
+Una solución integral que fusiona innovación tecnológica y sostenibilidad. Presentamos nuestros proyectos transformadores:
+
+- **Da Black Sheep:** Revoluciona la nueva era con la tecnología y la creatividad en continua evolución.
+- **ORIGEN Huella Consciente:** Promueve la sostenibilidad y la conciencia ambiental para un futuro más verde en sinergía con Da BlackSeep.
+
+---
+
+## Da Black Sheep
+
+![Black Sheep](https://github.com/nellydafelly/blacksheep.proyect/blob/main/social_preview.png)
+
+### Descripción
+**Black Sheep** es un proyecto innovador centrado en la tecnología y la creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas para problemas complejos en el ámbito audiovisual y multimedia.
+
+### Características
+- Diseño moderno y minimalista.
+- Enfoque en la innovación tecnológica.
+- Elementos gráficos futuristas y vanguardistas.
+
+### Enlaces
+- [Página del proyecto](https://nellydafelly.github.io/blacksheep.proyect/)
+
+---
+
+## ORIGEN Huella Consciente
+
+![ORIGEN Huella Consciente](https://github.com/nellydafelly/blacksheep.proyect/blob/main/ori_social_preview.png)
+
+### Descripción
+**ORIGEN Huella Consciente** es un proyecto dedicado a la sostenibilidad y la conciencia ambiental. Promovemos prácticas ecológicas para forjar un futuro mejor y más verde, integrando tecnología y compromiso social.
+
+### Características
+- Enfoque en la sostenibilidad y el medio ambiente.
+- Diseño vibrante y natural.
+- Elementos gráficos que evocan la esencia de la naturaleza.
+
+### Enlaces
+- [Página del proyecto](https://abrilsu.github.io/saberes-vivos/)
+
+---
+
+## Contribuciones y Soporte
+
+Tu apoyo es fundamental para impulsar estos proyectos. Si deseas contribuir o patrocinar, elige la opción que mejor se adapte:
+
+### Patrocinadores y Soporte
+- [¡Cómprame un café! (...pronto!)](https://cdn.cottle.cloud/GitHub/LittleLink/littlelink.gif)
+- [Patrocíname en GitHub (...pronto!)](https://github.com/sponsors/)
+
+---
+
+## Despliegue y Hosting
+
+Nuestros proyectos se publican utilizando herramientas gratuitas y de alta calidad:
+- [GitHub Pages](https://pages.github.com/)
+
+Además, hemos desarrollado nuestro propio **Linktree Customizado** para centralizar todas nuestras redes y canales en un solo enlace. ¡El código es poder!
+
+---
+
+## Herramientas y Recursos
+
+- **Linktree Customizado:** Una versión DIY para agrupar todas nuestras redes. (Revisa nuestro [proyecto en GitHub](#) para ver el código y personalizarlo).
+- **Temas y Estilos:** Diseñamos nuestros elementos con un enfoque minimalista y adaptable, para una experiencia óptima en modos claro y oscuro.
+- **Comunidad:** Únete a nuestro [Discord]("... Creando!") y mantente al tanto de novedades, colaboraciones y eventos.
+
+---
+
+## Licencia
+
+Este proyecto se distribuye bajo la [ Apache License Version 2.0, January 2004](LICENSE).
+
+---
+#Proyectos Activos
+
+## Da BlackSheep
 ![Black Sheep](https://github.com/nellydafelly/blacksheep.proyect/blob/main/social_preview.png)
 
 ## Descripción
@@ -14,7 +93,7 @@ Black Sheep es un proyecto innovador centrado en la tecnología y la creatividad
 - [Página del proyecto](https://nellydafelly.github.io/blacksheep.proyect/)
 ---
 
-# ORIGEN Huella Consciente
+#· ORIGEN Huella Consciente
 
 ![ORIGEN Huella Consciente](https://github.com/nellydafelly/blacksheep.proyect/blob/main/ori_social_preview.png)
 
@@ -28,3 +107,7 @@ ORIGEN Huella Consciente es un proyecto dedicado a la sostenibilidad y la concie
 
 ## Enlaces
 - [Página del proyecto](https://abrilsu.github.io/saberes-vivos/)
+
+---
+
+### ¡Gracias por ser parte de esta revolución creativa y consciente!
