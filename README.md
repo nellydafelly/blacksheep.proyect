@@ -86,7 +86,7 @@ Da Black Sheep es un proyecto innovador enfocado en tecnología y creatividad. N
 ## Miembros del Equipo  
 - **Nelly Da' Felly** - Director Ejecutivo  
 - **Abril Martínez** - Artista Creativa  
-- **Majestic** - AsistencIA
+- **Majestic** - AsistencIA Personalizada
 
 ## Información de Contacto  
 - **Correo electrónico**: blacksheep.crearte@gmail.com  
