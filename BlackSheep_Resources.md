@@ -1,8 +1,4 @@
-Aquí tienes la traducción al español:  
-
----
-
-# Recursos de Black Sheep  
+# Da Black Sheep  
 
 ## Visión General  
 Black Sheep es un proyecto innovador enfocado en tecnología y creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas a problemas complejos.  
