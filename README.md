@@ -10,16 +10,6 @@ Una solución integral que fusiona innovación tecnológica y sostenibilidad. Pr
 
 ---
 
-## Contribuciones y Soporte
-
-Tu apoyo es fundamental para impulsar estos proyectos. Si deseas contribuir o patrocinar, elige la opción que mejor se adapte:
-
-### Patrocinadores y Soporte
-- [¡Cómprame un café! (...pronto!)](https://www.buymeacoffee.com/)
-- [Patrocíname en GitHub (...pronto!)](https://github.com/sponsors/)
-
----
-
 ## Despliegue y Hosting
 
 Nuestros proyectos se publican utilizando herramientas gratuitas y de alta calidad:
@@ -73,6 +63,17 @@ ORIGEN Huella Consciente es un proyecto dedicado a la sostenibilidad y la concie
 
 ## Enlaces
 - [Página del proyecto](https://abrilsu.github.io/saberes-vivos/)
+
+---
+
+## Contribuciones y Soporte
+
+Tu apoyo es fundamental para impulsar estos proyectos. Si deseas contribuir o patrocinar, elige la opción que mejor se adapte:
+
+### Patrocinadores y Soporte
++ [¡Cómprame un café! (...pronto!)](https://www.buymeacoffee.com/)
++ [Patrocíname en GitHub (...pronto!)](https://github.com/sponsors/)
++ [¡Hazte suscriptor o envía Stars a Da Felly!](https://wwww.facebook.com/nellydafelly)
 
 ---
 
