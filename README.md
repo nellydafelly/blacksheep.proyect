@@ -77,7 +77,7 @@ Tu contribución es fundamental para impulsar estos proyectos. Si deseas colabor
 # Sí Somos! Da Black Sheep 🐑
 
 ## Visión General  
-Black Sheep es un proyecto innovador enfocado en tecnología y creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas a problemas complejos.  
+Da Black Sheep es un proyecto innovador enfocado en tecnología y creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas a problemas complejos.  
 
 ## Recursos Clave  
 - **Sitio web**: [Proyecto Black Sheep](https://nellydafelly.github.io/blacksheep.proyect)  
