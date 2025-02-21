@@ -10,40 +10,6 @@ Una solución integral que fusiona innovación tecnológica y sostenibilidad. Pr
 
 ---
 
-## Da Black Sheep
-
-![Black Sheep](https://github.com/nellydafelly/blacksheep.proyect/blob/main/social_preview.png)
-
-### Descripción
-**Black Sheep** es un proyecto innovador centrado en la tecnología y la creatividad. Nuestro objetivo es desafiar las normas establecidas y ofrecer soluciones únicas y avanzadas para problemas complejos en el ámbito audiovisual y multimedia.
-
-### Características
-- Diseño moderno y minimalista.
-- Enfoque en la innovación tecnológica.
-- Elementos gráficos futuristas y vanguardistas.
-
-### Enlaces
-- [Página del proyecto](https://nellydafelly.github.io/blacksheep.proyect/)
-
----
-
-## ORIGEN Huella Consciente
-
-![ORIGEN Huella Consciente](https://github.com/nellydafelly/blacksheep.proyect/blob/main/ori_social_preview.png)
-
-### Descripción
-**ORIGEN Huella Consciente** es un proyecto dedicado a la sostenibilidad y la conciencia ambiental. Promovemos prácticas ecológicas para forjar un futuro mejor y más verde, integrando tecnología y compromiso social.
-
-### Características
-- Enfoque en la sostenibilidad y el medio ambiente.
-- Diseño vibrante y natural.
-- Elementos gráficos que evocan la esencia de la naturaleza.
-
-### Enlaces
-- [Página del proyecto](https://abrilsu.github.io/saberes-vivos/)
-
----
-
 ## Contribuciones y Soporte
 
 Tu apoyo es fundamental para impulsar estos proyectos. Si deseas contribuir o patrocinar, elige la opción que mejor se adapte:
@@ -76,7 +42,7 @@ Además, hemos desarrollado nuestro propio **Linktree Customizado** para central
 Este proyecto se distribuye bajo la [ Apache License Version 2.0, January 2004](LICENSE).
 
 ---
-#Proyectos Activos
+### Proyectos Activos
 
 ## Da BlackSheep
 ![Black Sheep](https://github.com/nellydafelly/blacksheep.proyect/blob/main/social_preview.png)
