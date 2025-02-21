@@ -73,7 +73,7 @@ Tu apoyo es fundamental para impulsar estos proyectos. Si deseas contribuir o pa
 ### Patrocinadores y Soporte
 + [¡Cómprame un café! (...pronto!)](https://www.buymeacoffee.com/)
 + [Patrocíname en GitHub (...pronto!)](https://github.com/sponsors/)
-+ [¡Hazte suscriptor o envía Stars a Da Felly!](https://wwww.facebook.com/nellydafelly)
++ [🌟¡Hazte suscriptor o envía Stars a Da Felly!✨](https://wwww.facebook.com/nellydafelly)
 
 ---
 
