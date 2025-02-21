@@ -27,7 +27,7 @@ Además, hemos desarrollado nuestro propio **Linktree Customizado** para central
   
 ---
 
-### Proyectos Activos
+# Proyectos Activos
 
 ## Da BlackSheep
 ![Black Sheep](https://github.com/nellydafelly/blacksheep.proyect/blob/main/social_preview.png)
@@ -72,7 +72,7 @@ Tu apoyo es fundamental para impulsar estos proyectos. Si deseas contribuir o pa
 
 ---
 
-### ¡Gracias por ser parte de esta revolución creativa y consciente!
+# ¡Gracias por ser parte de esta revolución creativa y consciente!
 
 ---
 
@@ -131,7 +131,11 @@ We would like to thank all our contributors and supporters for their invaluable 
 
 ## Additional Links
 - [¡Gratitud Total! Experiencia GitHub](experiencia_github.html)
-- [Sí Somos!](README.html)
-
+  
 ## License
 This project is licensed under the MIT License - see the [Apache License Version 2.0, January 2004](LICENSE) file for details.
+
+---
+
+### 🐑 [Sí Somos!](README.html) 🌐
+
