@@ -66,7 +66,7 @@ ORIGEN Huella Consciente es un proyecto dedicado a la sostenibilidad y la concie
 Tu contribución es fundamental para impulsar estos proyectos. Si deseas colaborar o patrocinar, elige la opción que mejor se adapte:
 
 ### Patrocinadores y Soporte
-+ [🎨¡Cómprame un café! (...pronto!) ☕](https://www.buymeacoffee.com/)
++ [🎨 ¡Cómprame un café! (...pronto!) ☕](https://www.buymeacoffee.com/)
 + [🚀 Impulsa en GitHub (...pronto!) 🌕](https://github.com/sponsors/)
 + [🌟 ¡Hazte suscriptor o envía Stars a Da Felly! ✨](https://wwww.facebook.com/nellydafelly)
 
