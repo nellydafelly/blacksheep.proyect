@@ -24,7 +24,7 @@ Además, hemos desarrollado nuestro propio **Linktree Customizado** para central
 - **Linktree Customizado:** Una versión DIY para agrupar todas nuestras redes. (Ver el código y personalizarlo: [Custom Linktree (... creando!)](#)).
 - **Temas y Estilos:** Diseñamos nuestros elementos con un enfoque minimalista y adaptable, para una experiencia óptima en modos oscuro y claro.
 - **Comunidad:** Únete a nuestro [Discord (... Creando!)](#) y mantente al tanto de novedades, colaboraciones y eventos.
-- 
+  
 ---
 
 ### Proyectos Activos
