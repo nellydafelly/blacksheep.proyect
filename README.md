@@ -10,7 +10,7 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 
 ## 🚀 Hosting & Despliegue  
 📌 **[GitHub Pages](https://pages.github.com/)** – Hosting gratuito y confiable.  
-🔗 **Linktree Personalizado** – Todas nuestras redes en un solo enlace. *(Próximamente)*  
+🔗 **Linktree Personalizado** – Todas nuestras redes en un solo enlace. *[Custom Linktree](Custom Linktree/Custom_Linktree.html)*  
 
 ---  
 
