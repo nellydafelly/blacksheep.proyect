@@ -5,8 +5,8 @@
 ## 🔥 Una Fusión de Tecnología, Creatividad y Sostenibilidad  
 Presentamos El **ORIGEN** que une la innovación y la conciencia ambiental:  
 
-🔹 **Da Black Sheep:** Revoluciona la nueva era con tecnología y creatividad en constante evolución.  
-🔹 **ORIGEN Huella Consciente:** Fomenta la sostenibilidad y el respeto por la naturaleza en sinergia con Black Sheep.  
+🔹 **Da Black Sheep:** Revoluciona la nueva era con tecnología y creatividad en continua evolución.  
+🔹 **ORIGEN Huella Consciente:** Fomenta la sostenibilidad y el respeto por la naturaleza en sinergia con Da Black Sheep.  
 
 ---
 
