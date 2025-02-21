@@ -31,7 +31,7 @@ Además, hemos desarrollado nuestro propio **Linktree Customizado** para central
 
 ## Herramientas y Recursos
 
-- **Linktree Customizado:** Una versión DIY para agrupar todas nuestras redes. (Revisa nuestro [proyecto en GitHub](#) para ver el código y personalizarlo).
+- **Linktree Customizado:** Una versión DIY para agrupar todas nuestras redes. (Revisa nuestro [... creando!](#) para ver el código y personalizarlo).
 - **Temas y Estilos:** Diseñamos nuestros elementos con un enfoque minimalista y adaptable, para una experiencia óptima en modos claro y oscuro.
 - **Comunidad:** Únete a nuestro [Discord]("... Creando!") y mantente al tanto de novedades, colaboraciones y eventos.
 
