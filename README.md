@@ -77,7 +77,7 @@ Comprometidos con la sostenibilidad a través de:
 
 ## 🎖️ Gratitud Infinita
 
-🙏 A todos los colaboradores y seguidores que hacen esto posible.  
+🙏 A todxs lxs colaboradoras/es y seguidores que hacen esto posible.  
 
 📌 **Recursos Adicionales:**  
 
