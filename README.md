@@ -15,7 +15,7 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 ---  
 
 ## 🛠️ Herramientas  
-✅ **Linktree DIY**: Crea tu propio hub de enlaces. [Custom Linktree](https://github.com/nellydafelly/blacksheep.proyect/blob/main/Custom%20Linktree/Custom_Linktree.html)
+✅ **Linktree DIY**: Crea tu propio hub de enlaces con nuestro código libre. [Custom Linktree](https://github.com/nellydafelly/blacksheep.proyect/blob/main/Custom%20Linktree/Custom_Linktree.html)
 🌑 **Diseño adaptable**: Experiencia optimizada en modo claro y oscuro.  
 💬 **Comunidad Activa**: Únete a nuestro **[Discord 🚀](#)** para colaborar. *(En construcción)*  
 
