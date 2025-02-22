@@ -20,7 +20,7 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 
 🌑 **Diseño adaptable**: Experiencia optimizada en modo claro y oscuro.
 
-💬 **Comunidad Activa**: Únete a nuestro **[Discord 🚀](#)** para colaborar. *(En construcción)*  
+💬 **Comunidad sin límites**: Únete a nuestro **[Discord 🚀](#)** para colaborar. *(En construcción)*  
 
 ---  
 
