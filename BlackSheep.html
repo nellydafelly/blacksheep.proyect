@@ -305,6 +305,91 @@
       <p>
         <button class="btn" onclick="showMessage()">Descubre más</button>
         <button class="btn" id="openGameModal">Jugar BlackSheep Runner</button>
+        <button class="btn" onclick="cargarSeccion('SI_SOMOS.html')">Sì Somos!</button>
+
+<!-- Contenedor para el contenido dinámico -->
+<div id="contenido" class="fade-in"></div>
+
+<!-- Indicador de carga -->
+<div id="loader" class="loader">
+  <img src="https://github.com/nellydafelly/blacksheep.proyect/blob/main/img/load.gif?raw=true" alt="Cargando...">
+</div>
+
+<script>
+  function cargarSeccion(url) {
+    const contenido = document.getElementById('contenido');
+    const loader = document.getElementById('loader');
+
+    // Mostrar el loader antes de cargar el contenido
+    loader.style.display = "flex";
+    contenido.style.opacity = "0";
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Error al cargar la sección.");
+        }
+        return response.text();
+      })
+      .then(data => {
+        contenido.innerHTML = data;
+        contenido.classList.add("visible");
+      })
+      .catch(error => {
+        contenido.innerHTML = `<div class="error">⚠️ Error: No se pudo cargar el contenido. Inténtalo más tarde.</div>`;
+      })
+      .finally(() => {
+        // Oculta el loader y aplica animación de fade-in
+        setTimeout(() => {
+          loader.style.display = "none";
+          contenido.style.opacity = "1";
+        }, 500);
+      });
+  }
+</script>
+
+<style>
+  /* Estilos del loader */
+  .loader {
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+  }
+  .loader img {
+    width: 80px; /* Tamaño ajustable */
+    height: auto;
+  }
+
+  /* Animación fade-in */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Estilo de error */
+  .error {
+    color: red;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    background: #222;
+    border: 1px solid red;
+    margin-top: 10px;
+  }
+</style>
+
       </p>
     </section>
 
