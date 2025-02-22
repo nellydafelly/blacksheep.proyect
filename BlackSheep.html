@@ -305,7 +305,7 @@
       <p>
         <button class="btn" onclick="showMessage()">Descubre más</button>
         <button class="btn" id="openGameModal">Jugar BlackSheep Runner</button>
-        <button class="btn" onclick="cargarSeccion('SI_SOMOS.html')">Sì Somos!</button>
+        <button class="btn" onclick="cargarSeccion('SI_SOMOS.html')">Sí Somos!</button>
 
 <!-- Contenedor para el contenido dinámico -->
 <div id="contenido" class="fade-in"></div>
@@ -322,24 +322,22 @@
 
     // Mostrar el loader antes de cargar el contenido
     loader.style.display = "flex";
+    contenido.classList.remove("visible"); // Reset animación
     contenido.style.opacity = "0";
 
     fetch(url)
       .then(response => {
-        if (!response.ok) {
-          throw new Error("Error al cargar la sección.");
-        }
+        if (!response.ok) throw new Error("Error al cargar la sección.");
         return response.text();
       })
       .then(data => {
         contenido.innerHTML = data;
-        contenido.classList.add("visible");
+        setTimeout(() => contenido.classList.add("visible"), 50); // Delay para suavidad
       })
-      .catch(error => {
+      .catch(() => {
         contenido.innerHTML = `<div class="error">⚠️ Error: No se pudo cargar el contenido. Inténtalo más tarde.</div>`;
       })
       .finally(() => {
-        // Oculta el loader y aplica animación de fade-in
         setTimeout(() => {
           loader.style.display = "none";
           contenido.style.opacity = "1";
@@ -363,7 +361,7 @@
     z-index: 1000;
   }
   .loader img {
-    width: 80px; /* Tamaño ajustable */
+    width: 80px;
     height: auto;
   }
 
