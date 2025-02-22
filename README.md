@@ -60,7 +60,7 @@ Comprometidos con la sostenibilidad a través de:
 
 🎨 [**¡Cómprame un café!** ☕ (Próximamente)](https://www.buymeacoffee.com/)  
 🚀 [**Patrocina en GitHub!** 🌕 (Próximamente)](https://github.com/sponsors/)  
-🌟 [**¡Hazte Suscripto/a y danos tu apoyo con Stars! ✨**](https://www.facebook.com/nellydafelly)  
+🌟 [**¡Hazte Suscriptor/a y danos tu apoyo con Stars! ✨**](https://www.facebook.com/nellydafelly)  
 🤝 **[Únete a nuestra Comunidad 🌎](#)** *(Discord en desarrollo)*  
 
 🙌 **¡Gracias por ser parte de esta revolución creativa y consciente!**  
