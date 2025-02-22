@@ -56,7 +56,7 @@ Comprometidos con la sostenibilidad a través de:
 
 ---  
 
-## 💰 Apóyanos 🚀🔥  
+## 💰 Apóyanos 🚀✨  
 
 🎨 [**¡Cómprame un café!** ☕ (Próximamente)](https://www.buymeacoffee.com/)  
 🚀 [**Patrocina en GitHub!** 🌕 (Próximamente)](https://github.com/sponsors/)  
