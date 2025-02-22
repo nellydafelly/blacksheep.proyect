@@ -1,6 +1,7 @@
 # 🐑✨ Da Black Sheep & ORIGEN Huella Consciente 🌱  
 ![Logo General](https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/logoblacksheep.png)  
 ## 🔥 Innovación + Sostenibilidad  
+
 Fusionamos creatividad, tecnología y conciencia ambiental:  
 
 **🐑 Da Black Sheep**: Un laboratorio de ideas donde la tecnología y el arte desafían los límites.  
@@ -9,6 +10,7 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 ---  
 
 ## 🚀 Hosting & Despliegue  
+
 📌 **[GitHub Pages](https://pages.github.com/)** – Hosting gratuito y confiable.  
 🔗 **Linktree Personalizado** – Todas nuestras redes en un solo enlace.
 
@@ -18,7 +20,7 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 
 ✅ **Linktree DIY**: Crea tu propio hub de enlaces con nuestro código libre. [Custom Linktree](https://github.com/nellydafelly/blacksheep.proyect/blob/main/Custom%20Linktree/Custom_Linktree.html)
 
-🌑 **Diseño adaptable**: Experiencia optimizada en modo claro y oscuro.
+🌑 **Diseño adaptable**: Experiencia optimizada en modo oscuro y claro.
 
 💬 **Comunidad sin límites**: Únete a nuestro **[Discord 🚀](#)** para colaborar. *(En construcción)*  
 
@@ -32,6 +34,7 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 📂 **[Repositorio GitHub](https://github.com/nellydafelly/blacksheep)**  
 
 ### 🚀 Innovación sin Límites  
+
 Un espacio donde la creatividad y la tecnología convergen:  
 ✅ Desarrollo digital con un enfoque disruptivo.  
 ✅ Diseño minimalista con gráficos futuristas.  
@@ -40,10 +43,12 @@ Un espacio donde la creatividad y la tecnología convergen:
 ---  
 
 ## 🌿 ORIGEN Huella Consciente  
+
 ![ORIGEN Huella Consciente](https://github.com/nellydafelly/blacksheep.proyect/blob/main/ori_social_preview.png)
 📍 **[Explora el Proyecto](https://abrilsu.github.io/saberes-vivos/)**  
 
-### 🌍 Impacto Ambiental Real  
+### 🌍 Impacto Ambiental Real 
+
 Comprometidos con la sostenibilidad a través de:  
 ✅ **Diseño eco-friendly**: Materiales y gráficos inspirados en la naturaleza.  
 ✅ **Acciones verdes**: Iniciativas de reciclaje, reforestación y educación ambiental.  
@@ -63,16 +68,19 @@ Comprometidos con la sostenibilidad a través de:
 ---
 
 ## 📩 Contacto  
+
 📧 **Correo:** blacksheep.crearte@gmail.com  
 📞 **Teléfono:** +57 (322) 705 7205  
 📲 **Redes Sociales:** [@nellydafelly](https://www.facebook.com/nellydafelly)  
 
 ---  
 
-## 🎖️ Agradecimientos  
+## 🎖️ Gratitud Infinita
+
 🙏 A todos los colaboradores y seguidores que hacen esto posible.  
 
 📌 **Recursos Adicionales:**  
+
 - [🌟 Nuestra Historia](README.html)  
 - [🐑 Black Sheep en GitHub](https://github.com/nellydafelly/blacksheep)  
 
