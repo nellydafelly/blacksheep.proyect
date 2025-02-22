@@ -77,7 +77,7 @@ Comprometidos con la sostenibilidad a través de:
 
 ## 🎖️ Gratitud Infinita
 
-🥇🙏 Primeramente Al Supremo Amor que nos guía con la inteligencia superior. A nuestra Familia de la Fe y tod@s nuestr@s seguidoras/es quienes colaboran y hacen esto posible. **¡Gracias Gracias Gracias!** ✨🙌✨
+🥇🙏 Primeramente Al Supremo Amor que nos guía con la inteligencia superior. 🤍 A nuestra Familia de la Fe y tod@s nuestr@s seguidoras/es quienes colaboran y hacen esto posible. 💪 **¡Gracias Gracias Gracias!** ✨🙌✨
 
 📌 **Recursos Adicionales:**  
 
