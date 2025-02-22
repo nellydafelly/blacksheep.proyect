@@ -82,7 +82,9 @@ Comprometidos con la sostenibilidad a través de:
 📌 **Recursos Adicionales:**  
 
 - [🌟 Nuestra Historia](README.html)  
-- [🐑 Black Sheep en GitHub](https://github.com/nellydafelly/blacksheep)  
+- [🐑 Black Sheep en GitHub](https://github.com/nellydafelly/blacksheep)
+
+  ---
 
 🚀 **🐑 [Descubre Más](README.html) 🌍**  
 
