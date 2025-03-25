@@ -1,5 +1,5 @@
 # 🐑✨ Da Black Sheep & ORIGEN Huella Consciente 🌱  
-![Logo General](https://raw.githubusercontent.com/nellydafelly/blacksheep.proyect/refs/heads/main/logoblacksheep.png)  
+![Logo General](https://github.com/nellydafelly/blacksheep.proyect/releases)  
 ## 🔥 Innovación + Sostenibilidad  
 
 Fusionamos creatividad, tecnología y conciencia ambiental:  
@@ -11,14 +11,14 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 
 ## 🚀 Hosting & Despliegue  
 
-📌 **[GitHub Pages](https://pages.github.com/)** – Hosting gratuito y confiable.  
+📌 **[GitHub Pages](https://github.com/nellydafelly/blacksheep.proyect/releases)** – Hosting gratuito y confiable.  
 🔗 **Linktree Personalizado** – Todas nuestras redes en un solo enlace.
 
 ---  
 
 ## 🛠️ Herramientas  
 
-✅ **Linktree DIY**: Crea tu propio hub de enlaces con nuestro código libre. [Custom Linktree](https://github.com/nellydafelly/blacksheep.proyect/blob/main/Custom%20Linktree/Custom_Linktree.html)
+✅ **Linktree DIY**: Crea tu propio hub de enlaces con nuestro código libre. [Custom Linktree](https://github.com/nellydafelly/blacksheep.proyect/releases%https://github.com/nellydafelly/blacksheep.proyect/releases)
 
 🌑 **Diseño adaptable**: Experiencia optimizada en modo oscuro y claro.
 
@@ -29,9 +29,9 @@ Fusionamos creatividad, tecnología y conciencia ambiental:
 # 🔥 Proyectos Activos  
 
 ## 🐑 Da Black Sheep  
-![Black Sheep](https://github.com/nellydafelly/blacksheep.proyect/blob/main/social_preview.png)
-📍 **[Visítanos](https://nellydafelly.github.io/blacksheep.proyect/)**  
-📂 **[Repositorio GitHub](https://github.com/nellydafelly/blacksheep)**  
+![Black Sheep](https://github.com/nellydafelly/blacksheep.proyect/releases)
+📍 **[Visítanos](https://github.com/nellydafelly/blacksheep.proyect/releases)**  
+📂 **[Repositorio GitHub](https://github.com/nellydafelly/blacksheep.proyect/releases)**  
 
 ### 🚀 Innovación sin Límites  
 
@@ -44,8 +44,8 @@ Un espacio donde la creatividad y la tecnología convergen:
 
 ## 🌿 ORIGEN Huella Consciente  
 
-![ORIGEN Huella Consciente](https://github.com/nellydafelly/blacksheep.proyect/blob/main/ori_social_preview.png)
-📍 **[Explora el Proyecto](https://abrilsu.github.io/saberes-vivos/)**  
+![ORIGEN Huella Consciente](https://github.com/nellydafelly/blacksheep.proyect/releases)
+📍 **[Explora el Proyecto](https://github.com/nellydafelly/blacksheep.proyect/releases)**  
 
 ### 🌍 Impacto Ambiental Real 
 
@@ -58,9 +58,9 @@ Comprometidos con la sostenibilidad a través de:
 
 ## 💰 Apóyanos 🚀✨  
 
-🎨 [**¡Cómprame un café!** ☕ (Próximamente)](https://www.buymeacoffee.com/)  
-🚀 [**Patrocina en GitHub!** 🌕 (Próximamente)](https://github.com/sponsors/)  
-🌟 [**¡Hazte Suscriptor/a y danos tu apoyo con Stars! ✨**](https://www.facebook.com/nellydafelly)  
+🎨 [**¡Cómprame un café!** ☕ (Próximamente)](https://github.com/nellydafelly/blacksheep.proyect/releases)  
+🚀 [**Patrocina en GitHub!** 🌕 (Próximamente)](https://github.com/nellydafelly/blacksheep.proyect/releases)  
+🌟 [**¡Hazte Suscriptor/a y danos tu apoyo con Stars! ✨**](https://github.com/nellydafelly/blacksheep.proyect/releases)  
 🤝 **[¿Quieres ser parte de esto? Únete a nuestra comunidad🌎](#)** *(Discord en desarrollo)*  
 
 🙌 **¡Gracias por ser parte de esta revolución creativa y consciente!**  
@@ -69,9 +69,9 @@ Comprometidos con la sostenibilidad a través de:
 
 ## 📩 Contacto  
 
-📧 **Correo:** blacksheep.crearte@gmail.com  
+📧 **Correo:** https://github.com/nellydafelly/blacksheep.proyect/releases  
 📞 **Teléfono:** +57 (322) 705 7205  
-📲 **Redes Sociales:** [@nellydafelly](https://www.facebook.com/nellydafelly)  
+📲 **Redes Sociales:** [@nellydafelly](https://github.com/nellydafelly/blacksheep.proyect/releases)  
 
 ---  
 
@@ -81,11 +81,11 @@ Comprometidos con la sostenibilidad a través de:
 
 📌 **Recursos Adicionales:**  
 
-- [🌟 Nuestra Historia](README.html)  
-- [🐑 Black Sheep en GitHub](https://github.com/nellydafelly/blacksheep)
+- [🌟 Nuestra Historia](https://github.com/nellydafelly/blacksheep.proyect/releases)  
+- [🐑 Black Sheep en GitHub](https://github.com/nellydafelly/blacksheep.proyect/releases)
 
   ---
 
-🚀 **🐑 [Descubre Más](README.html) 🌍**  
+🚀 **🐑 [Descubre Más](https://github.com/nellydafelly/blacksheep.proyect/releases) 🌍**  
 
 
